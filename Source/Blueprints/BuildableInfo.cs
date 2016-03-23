@@ -27,7 +27,7 @@ namespace Blueprints
                                                                               BindingFlags.Instance );
 
         private BuildableDef _buildableDef;
-        private Dictionary<Rot4, Material> _cachedMaterials = new Dictionary<Rot4, Material>();
+        private Dictionary<int, Material> _cachedMaterials = new Dictionary<int, Material>();
         private Designator_Build _designator;
         private IntVec3 _position;
         private Dictionary<Rot4, IntVec3> _rotatedPositions = new Dictionary<Rot4, IntVec3>();
@@ -190,11 +190,13 @@ namespace Blueprints
                 else
                 {
                     Material material;
-                    if ( !_cachedMaterials.TryGetValue( _rotation, out material ) )
+                    Color color = Resources.ghostColor( CanPlace( origin ) );
+                    int hash = color.GetHashCode() * _rotation.GetHashCode();
+                    if ( !_cachedMaterials.TryGetValue( hash, out material ) )
                     {
                         // get a colored version (ripped from GhostDrawer.DrawGhostThing)
                         Graphic_Linked graphic = (Graphic_Linked)_thingDef.graphic.GetColoredVersion( ShaderDatabase.Transparent,
-                                                                            Resources.ghostColor( CanPlace( origin ) ),
+                                                                            color,
                                                                             Color.white );
 
                         // atlas contains all possible link graphics
@@ -217,7 +219,7 @@ namespace Blueprints
 
                         // get and cache the final material
                         material = MaterialAtlasPool.SubMaterialFromAtlas( atlas, linkSet );
-                        _cachedMaterials.Add( _rotation, material );
+                        _cachedMaterials.Add( hash, material );
                     }
 
                     // draw the thing.
