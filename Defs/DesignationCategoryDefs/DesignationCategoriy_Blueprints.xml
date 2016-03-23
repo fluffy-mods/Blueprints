@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  
+  <DesignationCategoryDef>
+    <defName>Blueprints</defName>
+    <label>blueprints</label>
+    <description>Blueprints!</description>
+    <order>750</order>
+    <specialDesignatorClasses>
+      <li>Blueprints.Designator_CreateBlueprint</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+
+</Defs>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Fluffy.Blueprints.DefaultBlueprintName>Blueprint</Fluffy.Blueprints.DefaultBlueprintName>
+	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" already exists. Please choose a unique name.</Fluffy.Blueprints.NameAlreadyTaken>
+	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" is an invalid name. \nPlease use only alphanumeric characters and underscores (a-Z, _). Spaces are not allowed.</Fluffy.Blueprints.InvalidBlueprintName>
+	<Fluffy.Blueprints.LoadFromXML>Import blueprint "{0}"</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>Cannot create blueprint; nothing selected.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+	<Fluffy.Blueprint.Cost>Total cost:</Fluffy.Blueprint.Cost>
+	<Fluffy.Blueprints.Remove>Remove blueprint</Fluffy.Blueprints.Remove>
+	<Fluffy.Blueprints.SaveToXML>Export blueprint</Fluffy.Blueprints.SaveToXML>
+	<Fluffy.Blueprints.RemoveAndDeleteXML>Remove blueprint and delete exported blueprint</Fluffy.Blueprints.RemoveAndDeleteXML>
+	<Fluffy.Blueprints.Rename>Rename blueprint</Fluffy.Blueprints.Rename>
+	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>An exported blueprint named "{0}" already exists.\nPlease choose a different name.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+	<Fluffy.Blueprints.Create>Create</Fluffy.Blueprints.Create>
+	<Fluffy.Blueprints.CreateHelp>See the in-game help tab for more information on how to work with blueprints.</Fluffy.Blueprints.CreateHelp>
+
+</LanguageData>
