@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+<!-- 
     <HelpDef>
         <defName>CreateBlueprint</defName>
 
@@ -33,5 +33,5 @@
         <description>Once you've created a blueprint, you can right click the blueprint button to rename, remove or export the blueprint. Exported blueprints will be saved in the same location as RimWorlds save games and config files, in a directory called "Blueprints". If a blueprint has been exported, an option to remove and delete the exported blueprint will also appear.\n\nYou can import previously exported blueprints by right clicking the 'Create' button, and selecting the blueprint from the list of available blueprints.\n\nNOTE: While you can import/export blueprints between games, be careful with doing so when a blueprint contains (modded) items that are not available in the current game. If you import a blueprint containing items that are unavailable, an error will pop up, and the offending item will be deleted from the blueprint. I've tried to make sure the rest of the blueprint is still usable, but your results may vary.</description>
 
     </HelpDef>
-
+ -->
 </Defs>

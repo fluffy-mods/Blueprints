@@ -9,19 +9,20 @@ using Verse;
 
 namespace Blueprints
 {
+    [StaticConstructorOnStartup]
     public class Resources
     {
         #region Fields
 
-        public static readonly Texture2D Icon_AddBlueprint = ContentFinder<Texture2D>.Get("Icons/AddBlueprint", true);
-        public static readonly Texture2D Icon_Blueprint = ContentFinder<Texture2D>.Get("Icons/Blueprint", true);
-        public static readonly Texture2D Icon_Edit = ContentFinder<Texture2D>.Get("Icons/Edit", true);
         public static readonly Texture2D RotLeftTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotLeft", true);
         public static readonly Texture2D RotRightTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotRight", true);
         public static Color ghostBlue = new Color( .25f, .50f, .50f, .5f );
         public static Color ghostGrey = new Color( .8f, .8f, .8f, .5f );
         public static Color ghostRed = new Color( .5f, .08f, .08f, .5f );
-
+        public static Texture2D Icon_AddBlueprint;
+        public static Texture2D Icon_Blueprint;
+        public static Texture2D Icon_Edit;
+        private static readonly Material _mouseOverBracketMaterial = MaterialPool.MatFrom("UI/Overlays/MouseoverBracketTex", ShaderDatabase.MetaOverlay);
         private static Dictionary<Color, Material> _ghostFloors = new Dictionary<Color, Material>();
         private static FieldInfo designator_place_placingRotation_FI = typeof( Designator_Place).GetField( "placingRot", BindingFlags.Instance | BindingFlags.NonPublic );
 
@@ -81,7 +82,7 @@ namespace Blueprints
             if ( _ghostFloors.TryGetValue( color, out ghost ) )
                 return ghost;
 
-            ghost = new Material( GenUI.MouseoverBracketMaterial );
+            ghost = new Material( _mouseOverBracketMaterial );
             ghost.color = color;
             _ghostFloors.Add( color, ghost );
             return ghost;

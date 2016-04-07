@@ -9,6 +9,7 @@ using Verse.Sound;
 
 namespace Blueprints
 {
+    [StaticConstructorOnStartup]
     public class Designator_Blueprint : Designator
     {
         #region Fields

@@ -9,15 +9,33 @@ using Verse;
 
 namespace Blueprints
 {
+    [StaticConstructorOnStartup]
     public class Designator_CreateBlueprint : Designator
     {
         #region Public Constructors
 
         public Designator_CreateBlueprint()
         {
+#if DEBUG
+            Log.Error( "INSTANTIATING NOW:\n" + System.Environment.StackTrace );
+            Log.Message( "Types with static constructors:" );
+            foreach ( var type in GenTypes.AllTypesWithAttribute<StaticConstructorOnStartup>() )
+            {
+                Log.Message( "\t" + type.FullName );
+            }
+#endif
+            // Silly A13 workaround
+            LongEventHandler.ExecuteWhenFinished( delegate
+            {
+                Resources.Icon_AddBlueprint = ContentFinder<Texture2D>.Get( "Icons/AddBlueprint", true );
+                Resources.Icon_Blueprint = ContentFinder<Texture2D>.Get( "Icons/Blueprint", true );
+                Resources.Icon_Edit = ContentFinder<Texture2D>.Get( "Icons/Edit", true );
+
+                icon = Resources.Icon_AddBlueprint;
+            } );
+
             defaultLabel = "Fluffy.Blueprints.Create".Translate();
             defaultDesc = "Fluffy.Blueprints.CreateHelp".Translate();
-            icon = Resources.Icon_AddBlueprint;
             useMouseIcon = true;
         }
 
