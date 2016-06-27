@@ -3,6 +3,6 @@
   <name>Blueprints</name>
   <author>Fluffy</author>
   <url>https://ludeon.com/forums/index.php?topic=16120.0</url>
-  <targetVersion>A12D</targetVersion>
+  <targetVersion>0.14.1214</targetVersion>
   <description>Blueprints allow the quick construction of repetitive rooms/areas.</description>
 </ModMetaData>
