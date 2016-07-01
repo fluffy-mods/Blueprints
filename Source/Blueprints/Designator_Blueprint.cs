@@ -87,7 +87,7 @@ namespace Blueprints
                 Text.Anchor = TextAnchor.MiddleCenter;
                 Text.Font = GameFont.Medium;
                 Rect rect = new Rect( winRect.width / 2f - 64f - 5f, 15f, 64f, 64f );
-                if ( Widgets.ImageButton( rect, Resources.RotLeftTex ) )
+                if ( Widgets.ButtonImage( rect, Resources.RotLeftTex ) )
                 {
                     SoundDefOf.AmountDecrement.PlayOneShotOnCamera();
                     rotationDirection = RotationDirection.Counterclockwise;
@@ -95,7 +95,7 @@ namespace Blueprints
                 }
                 Widgets.Label( rect, KeyBindingDefOf.DesignatorRotateLeft.MainKeyLabel );
                 Rect rect2 = new Rect( winRect.width / 2f + 5f, 15f, 64f, 64f );
-                if ( Widgets.ImageButton( rect2, Resources.RotRightTex ) )
+                if ( Widgets.ButtonImage( rect2, Resources.RotRightTex ) )
                 {
                     SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
                     rotationDirection = RotationDirection.Clockwise;
@@ -167,7 +167,7 @@ namespace Blueprints
                     GUI.DrawTexture( iconRect, Resources.Icon_Edit );
                     GUI.color = Color.white;
                     Widgets.Label( labelRect, label );
-                    if ( Widgets.InvisibleButton( buttonRect ) )
+                    if ( Widgets.ButtonInvisible( buttonRect ) )
                         Blueprint.DrawStuffMenu( buildables.Key );
                 }
                 else
@@ -197,7 +197,7 @@ namespace Blueprints
                 Texture2D image;
                 if ( thingCount.thingDef == null )
                 {
-                    image = TexUI.UnknownThing;
+                    image = BaseContent.BadTex;
                 }
                 else
                 {

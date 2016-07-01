@@ -144,7 +144,7 @@ namespace Blueprints
                 throw new Exception( "Designation category not found: " + BuildableDef.designationCategory );
 
             // get the first designator that places whatever we're looking for
-            Designator_Build designator = desCatDef.resolvedDesignators
+            Designator_Build designator = desCatDef.ResolvedAllowedDesignators
                                                    .FirstOrDefault( des => IsForDef( des as Designator_Build, BuildableDef ) )
                                                    as Designator_Build;
             if ( designator == null )

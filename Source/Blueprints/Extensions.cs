@@ -9,7 +9,7 @@ namespace Blueprints
 {
     public static class Extensions
     {
-        #region Public Methods
+        #region Methods
 
         public static bool IsValidBlueprintTerrain( this TerrainDef terrain )
         {
@@ -18,9 +18,9 @@ namespace Blueprints
 
         public static bool IsValidBlueprintThing( this Thing thing )
         {
-            return !thing.def.designationCategory.NullOrEmpty() && thing.Faction == Faction.OfColony;
+            return !thing.def.designationCategory.NullOrEmpty() && thing.Faction == Faction.OfPlayer;
         }
 
-        #endregion Public Methods
+        #endregion Methods
     }
 }

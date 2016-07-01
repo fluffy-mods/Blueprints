@@ -16,15 +16,7 @@ namespace Blueprints
 
         public Designator_CreateBlueprint()
         {
-#if DEBUG
-            Log.Error( "INSTANTIATING NOW:\n" + System.Environment.StackTrace );
-            Log.Message( "Types with static constructors:" );
-            foreach ( var type in GenTypes.AllTypesWithAttribute<StaticConstructorOnStartup>() )
-            {
-                Log.Message( "\t" + type.FullName );
-            }
-#endif
-            // Silly A13 workaround
+            // Silly A13+ workaround
             LongEventHandler.ExecuteWhenFinished( delegate
             {
                 Resources.Icon_AddBlueprint = ContentFinder<Texture2D>.Get( "Icons/AddBlueprint", true );
@@ -60,7 +52,7 @@ namespace Blueprints
             var things = loc.GetThingList();
             return loc.InBounds() &&
                 ( !loc.GetTerrain().designationCategory.NullOrEmpty() ||
-                ( !things.NullOrEmpty() && things.Any( thing => !thing.def.designationCategory.NullOrEmpty() && thing.Faction == Faction.OfColony ) ) );
+                ( !things.NullOrEmpty() && things.Any( thing => !thing.def.designationCategory.NullOrEmpty() && thing.Faction == Faction.OfPlayer ) ) );
         }
 
         public override void ProcessInput( Event ev )

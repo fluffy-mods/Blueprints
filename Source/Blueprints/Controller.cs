@@ -92,7 +92,8 @@ namespace Blueprints
                 throw new Exception( "Blueprints designation category not found" );
 
             // create internal designators list as a reference to list in the category def.
-            _designators = desCatDef.resolvedDesignators;
+            FieldInfo _designatorsFI = typeof( DesignationCategoryDef ).GetField( "resolvedDesignators", BindingFlags.NonPublic | BindingFlags.Instance );
+            _designators = _designatorsFI.GetValue( desCatDef ) as List<Designator>;
 
             // done!
             _initialized = true;
@@ -195,7 +196,7 @@ namespace Blueprints
             try
             {
                 Scribe.InitLoading( BlueprintSaveLocation + "/" + file.FileInfo.Name );
-                ScribeHeaderUtility.LoadGameDataHeader( ScribeHeaderUtility.ScribeHeaderMode.Map );
+                ScribeMetaHeaderUtility.LoadGameDataHeader( ScribeMetaHeaderUtility.ScribeHeaderMode.Map, true );
                 Scribe.EnterNode( "Blueprint" );
                 blueprint.ExposeData();
                 Scribe.ExitNode();
@@ -234,7 +235,7 @@ namespace Blueprints
                     GenUI.ErrorDialog( "ProblemSavingFile".Translate( ex.ToString() ) );
                     throw;
                 }
-                ScribeHeaderUtility.WriteGameDataHeader();
+                ScribeMetaHeaderUtility.WriteMetaHeader();
 
                 Scribe_Deep.LookDeep( ref blueprint, "Blueprint" );
             }
