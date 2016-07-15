@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Fluffy.Blueprints.DefaultBlueprintName>Blaupause</Fluffy.Blueprints.DefaultBlueprintName>
+	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" existiert bereits. Wähle bitte einen anderen Namen.</Fluffy.Blueprints.NameAlreadyTaken>
+	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" ist ungültig. \nBitte verwende nur alphanumerische Buchstaben und Unterstriche (a-Z, _). Leerzeichen sind nicht erlaubt.</Fluffy.Blueprints.InvalidBlueprintName>
+	<Fluffy.Blueprints.LoadFromXML>Importiere Blaupause "{0}"</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>Kann keine Blaupause erstellen; Es ist nichts ausgewählt.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+	<Fluffy.Blueprint.Cost>Gesamtkosten:</Fluffy.Blueprint.Cost>
+	<Fluffy.Blueprints.Remove>Blaupause entfernen</Fluffy.Blueprints.Remove>
+	<Fluffy.Blueprints.SaveToXML>Exportiere Blaupause</Fluffy.Blueprints.SaveToXML>
+	<Fluffy.Blueprints.RemoveAndDeleteXML>Blaupause entfernen und exportierte Datei löschen</Fluffy.Blueprints.RemoveAndDeleteXML>
+	<Fluffy.Blueprints.Rename>Blaupause umbenennen</Fluffy.Blueprints.Rename>
+	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Es existiert bereits eine Blaupause mit dem Namen "{0}".\nWähle bitte einen anderen Namen.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+	<Fluffy.Blueprints.Create>Erzeuge</Fluffy.Blueprints.Create>
+	<Fluffy.Blueprints.CreateHelp>Links klicken um eine neue Blaupause zu erstellen.\nRechts klicken um eine Blaupause zu importieren.</Fluffy.Blueprints.CreateHelp>
+
+</LanguageData>

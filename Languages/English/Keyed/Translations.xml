@@ -13,6 +13,6 @@
 	<Fluffy.Blueprints.Rename>Rename blueprint</Fluffy.Blueprints.Rename>
 	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>An exported blueprint named "{0}" already exists.\nPlease choose a different name.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
 	<Fluffy.Blueprints.Create>Create</Fluffy.Blueprints.Create>
-	<Fluffy.Blueprints.CreateHelp>See the in-game help tab for more information on how to work with blueprints.</Fluffy.Blueprints.CreateHelp>
+	<Fluffy.Blueprints.CreateHelp>Left-click to create a new blueprint.\nRight-click to import a blueprint.</Fluffy.Blueprints.CreateHelp>
 
 </LanguageData>
