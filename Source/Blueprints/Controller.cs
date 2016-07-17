@@ -44,7 +44,11 @@ namespace Blueprints
             if ( !init && !_initialized )
                 Initialize();
             _blueprints.Add( blueprint );
-            _designators.Add( new Designator_Blueprint( blueprint ) );
+            var designator = new Designator_Blueprint( blueprint );
+            _designators.Add( designator );
+
+            // select the new designator
+            DesignatorManager.Select( designator );
         }
 
         public static void Remove( Designator_Blueprint designator, bool removeFromDisk )
