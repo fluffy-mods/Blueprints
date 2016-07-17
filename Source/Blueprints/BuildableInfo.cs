@@ -279,8 +279,8 @@ namespace Blueprints
             if ( _thingDef == null )
                 return;
 
-            // if it's not rotatable, don't rotate.
-            if ( !_thingDef.rotatable )
+            // if it's not rotatable AND not a linked building (e.g. walls, sandbags), don't rotate.
+            if ( !_thingDef.rotatable && !_thingDef.graphicData.Linked )
                 return;
             // NOTE: this may prove problematic with oddly sized items that are not rotatable - their relative positions may change.
 
