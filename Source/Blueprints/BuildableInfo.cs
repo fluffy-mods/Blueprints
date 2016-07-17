@@ -265,13 +265,7 @@ namespace Blueprints
 
         public void Rotate( RotationDirection direction )
         {
-            // internal rotation
-            _rotation.Rotate( direction );
-
-            // reflect changes in designator
-            Resources.SetDesignatorRotation( Designator, _rotation );
-
-            // update position
+            // update position within blueprint
             // for a clock wise rotation
             if ( direction == RotationDirection.Clockwise )
                 _position = _position.RotatedBy( Rot4.East );
@@ -279,6 +273,23 @@ namespace Blueprints
             // counter clock wise is the reverse
             else
                 _position = _position.RotatedBy( Rot4.West );
+
+            // update rotation of item
+            // if there's no thingdef, there's no point.
+            if ( _thingDef == null )
+                return;
+
+            // if it's not rotatable, don't rotate.
+            if ( !_thingDef.rotatable )
+                return;
+            // NOTE: this may prove problematic with oddly sized items that are not rotatable - their relative positions may change.
+
+            // internal rotation
+            _rotation.Rotate( direction );
+
+            // reflect changes in designator
+            Resources.SetDesignatorRotation( Designator, _rotation );
+
         }
 
         public override string ToString()
