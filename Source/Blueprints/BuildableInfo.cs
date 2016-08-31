@@ -106,7 +106,7 @@ namespace Blueprints
             set
             {
                 _stuff = value;
-                Designator.DebugSetStuffDef( value );
+                Designator.SetStuffDef( value );
             }
         }
 
@@ -159,9 +159,9 @@ namespace Blueprints
                 // actuall stuff field on designator is private, here's to hoping this debug function doesn't disappear.
                 // if it does, we'll have to use reflection - which still isn't the end of the world.
                 if ( _stuff == null )
-                    designator.DebugSetStuffDef( GenStuff.DefaultStuffFor( _thingDef ) );
+                    designator.SetStuffDef( GenStuff.DefaultStuffFor( _thingDef ) );
                 else
-                    designator.DebugSetStuffDef( _stuff );
+                    designator.SetStuffDef( _stuff );
 
                 // set rotation through reflection
                 Resources.SetDesignatorRotation( designator, _rotation );
@@ -289,7 +289,6 @@ namespace Blueprints
 
             // reflect changes in designator
             Resources.SetDesignatorRotation( Designator, _rotation );
-
         }
 
         public override string ToString()
