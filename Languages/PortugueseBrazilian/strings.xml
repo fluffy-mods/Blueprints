@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Fluffy.Blueprints.DefaultBlueprintName>Projeto</Fluffy.Blueprints.DefaultBlueprintName>
+	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" já existe. Por favor, escolha um nome único.</Fluffy.Blueprints.NameAlreadyTaken>
+	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" é um nome inválido. \nPor favor, use apenas caracteres alfanuméricos e sublinhados (a-Z, _). Espaços não são permitidos.</Fluffy.Blueprints.InvalidBlueprintName>
+	<Fluffy.Blueprints.LoadFromXML>Importar projeto "{0}"</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>Não foi possível criar o projeto; nada foi selecionado.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+	<Fluffy.Blueprint.Cost>Custo total:</Fluffy.Blueprint.Cost>
+	<Fluffy.Blueprints.Remove>Remover projeto</Fluffy.Blueprints.Remove>
+	<Fluffy.Blueprints.SaveToXML>Exportar projeto</Fluffy.Blueprints.SaveToXML>
+	<Fluffy.Blueprints.RemoveAndDeleteXML>Remover projeto e apagar o projeto exportado</Fluffy.Blueprints.RemoveAndDeleteXML>
+	<Fluffy.Blueprints.Rename>Renomear projeto</Fluffy.Blueprints.Rename>
+	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Um projeto exportado chamado "{0}" já existe.\nPor favor, escolha um nome diferente.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+	<Fluffy.Blueprints.Create>Criar</Fluffy.Blueprints.Create>
+	<Fluffy.Blueprints.CreateHelp>Clique esquerdo para criar um novo projeto.\nClique direito para importar um projeto.</Fluffy.Blueprints.CreateHelp>
+
+</LanguageData>
