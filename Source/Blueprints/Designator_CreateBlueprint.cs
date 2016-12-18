@@ -72,7 +72,10 @@ namespace Blueprints
                     }
                 }
 
-                Find.WindowStack.Add( new FloatMenu( options ) );
+                if ( options.NullOrEmpty() )
+                    Messages.Message( "Fluffy.Blueprints.NoStoredBlueprints".Translate(), MessageSound.RejectInput );
+                else
+                    Find.WindowStack.Add( new FloatMenu( options ) );
                 return;
             }
 
