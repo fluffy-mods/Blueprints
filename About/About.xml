@@ -23,5 +23,7 @@ You can import previously exported blueprints by right clicking the ‘Create’
 
 &lt;i&gt;NOTE: While you can import/export blueprints between games, be careful with doing so when a blueprint contains (modded) items that are not available in the current game. If you import a blueprint containing items that are unavailable, an error will pop up, and the offending item will be deleted from the blueprint. I’ve tried to make sure the rest of the blueprint is still usable, but your results may vary.&lt;/i&gt;
 
+tag:Fluffylicious
+
 </description>
 </ModMetaData>
