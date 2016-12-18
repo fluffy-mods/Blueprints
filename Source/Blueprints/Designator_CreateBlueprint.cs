@@ -49,10 +49,11 @@ namespace Blueprints
 
         public override AcceptanceReport CanDesignateCell( IntVec3 loc )
         {
-            var things = loc.GetThingList();
-            return loc.InBounds() &&
-                ( !loc.GetTerrain().designationCategory.NullOrEmpty() ||
-                ( !things.NullOrEmpty() && things.Any( thing => !thing.def.designationCategory.NullOrEmpty() && thing.Faction == Faction.OfPlayer ) ) );
+            var things = loc.GetThingList( Map );
+            return loc.InBounds( Map ) &&
+                ( loc.GetTerrain( Map ).IsValidBlueprintTerrain() ||
+                ( !things.NullOrEmpty() &&
+                   things.Any( thing => thing.IsValidBlueprintThing() ) ) );
         }
 
         public override void ProcessInput( Event ev )
@@ -88,13 +89,13 @@ namespace Blueprints
             }
 
             // get list of buildings in the cells
-            List<Thing> things = new List<Thing>( cells.SelectMany( cell => cell.GetThingList()
+            List<Thing> things = new List<Thing>( cells.SelectMany( cell => cell.GetThingList( Map )
                                                        .Where( thing => thing.IsValidBlueprintThing() ) )
                                                        .Distinct() );
 
             // get list of creatable terrains
             List<Pair<TerrainDef, IntVec3>> terrains = new List<Pair<TerrainDef, IntVec3>>();
-            terrains.AddRange( cells.Select( cell => new Pair<TerrainDef, IntVec3>( cell.GetTerrain(), cell ) )
+            terrains.AddRange( cells.Select( cell => new Pair<TerrainDef, IntVec3>( cell.GetTerrain( Map ), cell ) )
                                     .Where( p => p.First.IsValidBlueprintTerrain() ) );
 
             // get edges of blueprint area
@@ -124,7 +125,7 @@ namespace Blueprints
             }
 
             // try to get a decent default name: check if selection contains only a single room - if so, that's a decent name.
-            Room room = origin.GetRoom();
+            Room room = origin.GetRoom( Map );
             string defaultName = null;
             if ( room != null && room.Role != RoomRoleDefOf.None )
                 defaultName = room.Role.LabelCap;

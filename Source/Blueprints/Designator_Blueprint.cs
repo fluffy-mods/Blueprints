@@ -195,29 +195,29 @@ namespace Blueprints
             {
                 ThingCount thingCount = costlist[i];
                 Texture2D image;
-                if ( thingCount.thingDef == null )
+                if ( thingCount.ThingDef == null )
                 {
                     image = BaseContent.BadTex;
                 }
                 else
                 {
-                    image = thingCount.thingDef.uiIcon;
+                    image = thingCount.ThingDef.uiIcon;
                 }
                 GUI.DrawTexture( new Rect( 0f, curY, 20f, 20f ), image );
-                if ( thingCount.thingDef != null && thingCount.thingDef.resourceReadoutPriority != ResourceCountPriority.Uncounted && Find.ResourceCounter.GetCount( thingCount.thingDef ) < thingCount.count )
+                if ( thingCount.ThingDef != null && thingCount.ThingDef.resourceReadoutPriority != ResourceCountPriority.Uncounted && Find.VisibleMap.resourceCounter.GetCount( thingCount.ThingDef ) < thingCount.Count )
                 {
                     GUI.color = Color.red;
                 }
-                Widgets.Label( new Rect( 26f, curY + 2f, 50f, 100f ), thingCount.count.ToString() );
+                Widgets.Label( new Rect( 26f, curY + 2f, 50f, 100f ), thingCount.Count.ToString() );
                 GUI.color = Color.white;
                 string text;
-                if ( thingCount.thingDef == null )
+                if ( thingCount.ThingDef == null )
                 {
                     text = "(" + "UnchosenStuff".Translate() + ")";
                 }
                 else
                 {
-                    text = thingCount.thingDef.LabelCap;
+                    text = thingCount.ThingDef.LabelCap;
                 }
                 float height = Text.CalcHeight( text, width - 60f ) - 2f;
                 Widgets.Label( new Rect( 60f, curY + 2f, width - 60f, height ), text );
@@ -277,9 +277,9 @@ namespace Blueprints
         public override void SelectedUpdate()
         {
             GenDraw.DrawNoBuildEdgeLines();
-            if ( !ArchitectCategoryTab.InfoRect.Contains( GenUI.AbsMousePosition() ) )
+            if ( !ArchitectCategoryTab.InfoRect.Contains( UI.MousePositionOnUI ) )
             {
-                IntVec3 origin = Gen.MouseCell();
+                IntVec3 origin = UI.MouseCell();
                 _blueprint.DrawGhost( origin );
             }
         }

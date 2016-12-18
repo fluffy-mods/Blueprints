@@ -48,7 +48,7 @@ namespace Blueprints
             _designators.Add( designator );
 
             // select the new designator
-            DesignatorManager.Select( designator );
+            Find.DesignatorManager.Select( designator );
         }
 
         public static void Remove( Designator_Blueprint designator, bool removeFromDisk )

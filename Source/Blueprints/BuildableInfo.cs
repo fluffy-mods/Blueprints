@@ -125,9 +125,9 @@ namespace Blueprints
 
             // otherwise, check if the same thing (or it's blueprint/frame stages) already exists here
             // terrain and thing both have bluePrint and frame in thinglist, as are things. Terrains are not a thing, and retrieved with GetTerrain().
-            var cellDefs = cell.GetThingList().Select( thing => thing.def ).ToList();
+            var cellDefs = cell.GetThingList( Find.VisibleMap ).Select( thing => thing.def ).ToList();
             if ( cellDefs.Contains( BuildableDef as ThingDef ) ||
-                 cell.GetTerrain() == BuildableDef as TerrainDef ||
+                 cell.GetTerrain( Find.VisibleMap ) == BuildableDef as TerrainDef ||
                  cellDefs.Contains( BuildableDef.blueprintDef ) ||
                  cellDefs.Contains( BuildableDef.frameDef ) )
                 return PlacementReport.Alreadyplaced;
@@ -139,9 +139,9 @@ namespace Blueprints
         public Designator_Build CreateLocalDesignatorCopy()
         {
             // designators are stored in the DesignationCategoryDef
-            DesignationCategoryDef desCatDef = DefDatabase<DesignationCategoryDef>.GetNamedSilentFail( BuildableDef.designationCategory );
+            DesignationCategoryDef desCatDef = BuildableDef.designationCategory;
             if ( desCatDef == null )
-                throw new Exception( "Designation category not found: " + BuildableDef.designationCategory );
+                throw new Exception( "BuildableDef does not have designationCategory: " + BuildableDef.defName );
 
             // get the first designator that places whatever we're looking for
             Designator_Build designator = desCatDef.ResolvedAllowedDesignators
@@ -156,8 +156,7 @@ namespace Blueprints
             // apply stuffdef & rotation
             if ( _thingDef != null )
             {
-                // actuall stuff field on designator is private, here's to hoping this debug function doesn't disappear.
-                // if it does, we'll have to use reflection - which still isn't the end of the world.
+                // set stuff def
                 if ( _stuff == null )
                     designator.SetStuffDef( GenStuff.DefaultStuffFor( _thingDef ) );
                 else
@@ -256,11 +255,11 @@ namespace Blueprints
                 return;
 
             // don't add plan if already there
-            if ( Find.DesignationManager.DesignationAt( origin + Position, DesignationDefOf.Plan ) != null )
+            if ( Find.VisibleMap.designationManager.DesignationAt( origin + Position, DesignationDefOf.Plan ) != null )
                 return;
 
             // add plan designation
-            Find.DesignationManager.AddDesignation( new Designation( origin + Position, DesignationDefOf.Plan ) );
+            Find.VisibleMap.designationManager.AddDesignation( new Designation( origin + Position, DesignationDefOf.Plan ) );
         }
 
         public void Rotate( RotationDirection direction )

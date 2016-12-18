@@ -178,9 +178,10 @@ namespace Blueprints
                                                                                             def.stuffProps.categories.Contains( cat ) ) );
 
             List<FloatMenuOption> options = new List<FloatMenuOption>();
+
             foreach ( var stuff in stuffOptions )
             {
-                options.Add( new FloatMenuOption( stuff.LabelCap + " (" + Find.ResourceCounter.GetCount( stuff ) + ")", delegate
+                options.Add( new FloatMenuOption( stuff.LabelCap + " (" + Find.VisibleMap.resourceCounter.GetCount( stuff ) + ")", delegate
                 { SetStuffFor( buildable, stuff ); } ) );
             }
 
@@ -243,7 +244,7 @@ namespace Blueprints
             }
 
             // return a list of thingcounts, in descending cost order.
-            return costdict.Select( pair => new ThingCount( pair.Key, pair.Value ) ).OrderByDescending( tc => tc.count ).ToList();
+            return costdict.Select( pair => new ThingCount( pair.Key, pair.Value ) ).OrderByDescending( tc => tc.Count ).ToList();
         }
 
         private void SetStuffFor( BuildableDef buildableDef, ThingDef stuff )
