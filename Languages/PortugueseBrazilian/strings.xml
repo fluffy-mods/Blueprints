@@ -14,5 +14,6 @@
 	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Um projeto exportado chamado "{0}" já existe.\nPor favor, escolha um nome diferente.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
 	<Fluffy.Blueprints.Create>Criar</Fluffy.Blueprints.Create>
 	<Fluffy.Blueprints.CreateHelp>Clique esquerdo para criar um novo projeto.\nClique direito para importar um projeto.</Fluffy.Blueprints.CreateHelp>
-
+	<Fluffy.Blueprints.NoStoredBlueprints>Não existem projetos exportados (ou eles todos já foram carregados).</Fluffy.Blueprints.NoStoredBlueprints>
+	
 </LanguageData>
