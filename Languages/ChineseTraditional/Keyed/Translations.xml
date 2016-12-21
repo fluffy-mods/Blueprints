@@ -14,5 +14,6 @@
 	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>已存在名稱為「{0}」的藍圖。\n請選擇不同的名稱。</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
 	<Fluffy.Blueprints.Create>創建</Fluffy.Blueprints.Create>
 	<Fluffy.Blueprints.CreateHelp>左鍵點擊創建新藍圖。\n右鍵點擊導出藍圖。</Fluffy.Blueprints.CreateHelp>
+	<Fluffy.Blueprints.NoStoredBlueprints>未發現已導出的藍圖，或藍圖已全部載入。</Fluffy.Blueprints.NoStoredBlueprints>
 
 </LanguageData>
