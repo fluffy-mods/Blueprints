@@ -3,7 +3,7 @@
   <name>Blueprints</name>
   <author>Fluffy</author>
   <url>https://ludeon.com/forums/index.php?topic=16120.0</url>
-  <targetVersion>0.16.1390</targetVersion>
+  <targetVersion>0.16.1393</targetVersion>
   <description>Blueprints allow the quick construction of repetitive rooms/areas. 
 
 &lt;size=24&gt;Features&lt;/size&gt;
@@ -22,6 +22,9 @@ Once you’ve created a blueprint, you can right click the blueprint button to r
 You can import previously exported blueprints by right clicking the ‘Create’ button, and selecting the blueprint from the list of available blueprints. 
 
 &lt;i&gt;NOTE: While you can import/export blueprints between games, be careful with doing so when a blueprint contains (modded) items that are not available in the current game. If you import a blueprint containing items that are unavailable, an error will pop up, and the offending item will be deleted from the blueprint. I’ve tried to make sure the rest of the blueprint is still usable, but your results may vary.&lt;/i&gt;
+
+&lt;size=24&gt;Contributors&lt;/size&gt;
+duduluurgponce    
 
 tag:Fluffylicious
 
