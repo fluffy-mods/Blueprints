@@ -56,7 +56,7 @@ namespace Blueprints
             bool planningMode = Event.current.shift;
 
             // looping through cells, place where needed.
-            foreach ( var item in Blueprint.contents )
+            foreach ( var item in Blueprint.AvailableContents )
             {
                 PlacementReport placementReport = item.CanPlace( origin );
                 if ( planningMode && placementReport != PlacementReport.Alreadyplaced )
@@ -272,6 +272,21 @@ namespace Blueprints
             }
 
             base.ProcessInput( ev );
+        }
+
+        public override void Selected()
+        {
+            base.Selected();
+            Blueprint.RecacheBuildables();
+            if ( !Blueprint.AvailableContents.Any() )
+                Messages.Message( "Fluffy.Blueprints.NothingAvailableInBlueprint".Translate( Blueprint.name ),
+                                  MessageSound.RejectInput );
+            else
+            {
+                var unavailable = Blueprint.contents.Except( Blueprint.AvailableContents ).Select( bi => bi.BuildableDef.label ).Distinct();
+                if ( unavailable.Any() )
+                    Messages.Message( "Fluffy.Blueprints.XNotAvailableInBlueprint".Translate( Blueprint.name, string.Join( ", ", unavailable.ToArray() ) ), MessageSound.Negative );
+            }
         }
 
         public override void SelectedUpdate()

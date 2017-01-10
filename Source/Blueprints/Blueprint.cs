@@ -20,6 +20,7 @@ namespace Blueprints
         // regex for valid file names. Should allow all 'normal' characters, where normal (i.e. \w) differs per localization.
         private static Regex _validNameRegex = new Regex( @"^[\w]+$" );
 
+        private List<BuildableInfo> _availableContents;
         private List<BuildableDef> _buildables;
         private List<ThingCount> _costlist;
         private Dictionary<BuildableDef, List<BuildableInfo>> _groupedBuildables;
@@ -71,12 +72,25 @@ namespace Blueprints
 
         #region Properties
 
+        public List<BuildableInfo> AvailableContents
+        {
+            get
+            {
+                if ( _availableContents == null )
+                    // check if vanilla designator for buildable is visible (i.e. prerequisites are met).
+                    _availableContents = contents.Where( item => item.Designator.Visible )
+                                                 .ToList();
+                return _availableContents;
+            }
+        }
+
         public List<BuildableDef> Buildables
         {
             get
             {
                 if ( _buildables == null )
-                    _buildables = contents.Select( item => item.BuildableDef ).ToList();
+                    _buildables = AvailableContents.Select( item => item.BuildableDef )
+                                          .ToList();
                 return _buildables;
             }
         }
@@ -104,7 +118,7 @@ namespace Blueprints
 
                 foreach ( var buildable in Buildables.Distinct() )
                 {
-                    dict.Add( buildable, contents.Where( bi => bi.BuildableDef == buildable ).ToList() );
+                    dict.Add( buildable, AvailableContents.Where( bi => bi.BuildableDef == buildable ).ToList() );
                 }
                 _groupedBuildables = dict;
                 return dict;
@@ -141,7 +155,7 @@ namespace Blueprints
         {
             // check each individual element for placement issues
             bool canPlace = true;
-            foreach ( var item in contents )
+            foreach ( var item in AvailableContents )
             {
                 if ( item.CanPlace( origin ) == PlacementReport.CanNotPlace )
                     canPlace = false;
@@ -156,12 +170,13 @@ namespace Blueprints
             foreach ( BuildableInfo thing in contents )
             {
                 Log.Message( thing.ToString() );
+                Log.Message( $"Available: {AvailableContents.Contains( thing )}" );
             }
         }
 
         public void DrawGhost( IntVec3 origin )
         {
-            foreach ( var item in contents )
+            foreach ( var item in AvailableContents )
             {
                 item.DrawGhost( origin );
             }
@@ -195,6 +210,16 @@ namespace Blueprints
             Scribe_Values.LookValue( ref _size, "Size" );
         }
 
+        // called when the parent designator is selected, this resets the buildables cache
+        // so that newly unlocked research can be properly applied.
+        public void RecacheBuildables()
+        {
+            _availableContents = null;
+            _buildables = null;
+            _groupedBuildables = null;
+            _costlist = null;
+        }
+
         public void Rotate( RotationDirection direction )
         {
             _size = _size.Rotated();
@@ -208,7 +233,7 @@ namespace Blueprints
         protected internal bool ShouldLinkWith( IntVec3 position, ThingDef thingDef )
         {
             // get things at neighbouring position
-            var ThingsAtPosition = contents.Where( item => item.Position == position && item.BuildableDef is ThingDef ).Select( item => item.BuildableDef as ThingDef );
+            var ThingsAtPosition = AvailableContents.Where( item => item.Position == position && item.BuildableDef is ThingDef ).Select( item => item.BuildableDef as ThingDef );
 
             // if there's nothing there, there's nothing to link with
             if ( ThingsAtPosition.Count() < 1 )
@@ -231,7 +256,7 @@ namespace Blueprints
             Dictionary<ThingDef, int> costdict = new Dictionary<ThingDef, int>();
 
             // loop over all buildables
-            foreach ( var item in contents )
+            foreach ( var item in AvailableContents )
             {
                 foreach ( var cost in item.BuildableDef.CostListAdjusted( item.Stuff, false ) )
                 {
@@ -259,8 +284,7 @@ namespace Blueprints
             }
 
             // reset caches
-            _groupedBuildables = null;
-            _costlist = null;
+            RecacheBuildables();
         }
 
         #endregion Methods

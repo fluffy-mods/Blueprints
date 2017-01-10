@@ -15,5 +15,7 @@
 	<Fluffy.Blueprints.Create>Create</Fluffy.Blueprints.Create>
 	<Fluffy.Blueprints.CreateHelp>Left-click to create a new blueprint.\nRight-click to import a blueprint.</Fluffy.Blueprints.CreateHelp>
 	<Fluffy.Blueprints.NoStoredBlueprints>There are no exported blueprints (or they are all already loaded).</Fluffy.Blueprints.NoStoredBlueprints>
+	<Fluffy.Blueprints.NothingAvailableInBlueprint>None of the items in {0} can be build with the current technology.</Fluffy.Blueprints.NothingAvailableInBlueprint>
+	<Fluffy.Blueprints.XNotAvailableInBlueprint>Some of the items in {0} can not be build with the current technology: {1}</Fluffy.Blueprints.XNotAvailableInBlueprint>
 
 </LanguageData>
