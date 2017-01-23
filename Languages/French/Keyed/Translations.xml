@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Fluffy.Blueprints.DefaultBlueprintName>Plan</Fluffy.Blueprints.DefaultBlueprintName>
+	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" existe déja. Merci de choisir un nouveau nom.</Fluffy.Blueprints.NameAlreadyTaken>
+	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" est un nom invalide. \n Merci d'utiliser uniquement des caracteres alphanimérique et des underscores(a-Z, _). Les espaces ne sont pas autorisées.</Fluffy.Blueprints.InvalidBlueprintName>
+	<Fluffy.Blueprints.LoadFromXML>Importer des plans "{0}"</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>Impossible de creer le plan; rien n'est selectionné.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+	<Fluffy.Blueprint.Cost>Cout total:</Fluffy.Blueprint.Cost>
+	<Fluffy.Blueprints.Remove>Enlever le plan</Fluffy.Blueprints.Remove>
+	<Fluffy.Blueprints.SaveToXML>Exporter le plan</Fluffy.Blueprints.SaveToXML>
+	<Fluffy.Blueprints.RemoveAndDeleteXML>Enlever le plan et supprimer le plan exporté</Fluffy.Blueprints.RemoveAndDeleteXML>
+	<Fluffy.Blueprints.Rename>Renommer le plan</Fluffy.Blueprints.Rename>
+	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Un plan exporté nommé "{0}" existe déja.\nChoisissez un autre nom.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+	<Fluffy.Blueprints.Create>Créer</Fluffy.Blueprints.Create>
+	<Fluffy.Blueprints.CreateHelp>Clic gauche pour créer un nouveau plan.\nClic droit pour importer un plan.</Fluffy.Blueprints.CreateHelp>
+	<Fluffy.Blueprints.NoStoredBlueprints>Il n'y a pas de plan exporté (ou ils sont tous déja chargés).</Fluffy.Blueprints.NoStoredBlueprints>
+	<Fluffy.Blueprints.NothingAvailableInBlueprint>Aucun élément constituant {0} ne peut etre construit avec la technologie actuelle.</Fluffy.Blueprints.NothingAvailableInBlueprint>
+	<Fluffy.Blueprints.XNotAvailableInBlueprint>Certains des éléments constituant {0} ne peuvent etre construit avec la technologie actuelle: {1}</Fluffy.Blueprints.XNotAvailableInBlueprint>
+
+</LanguageData>
