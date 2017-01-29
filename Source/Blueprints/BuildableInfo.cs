@@ -135,23 +135,11 @@ namespace Blueprints
             // finally, default to returning false.
             return PlacementReport.CanNotPlace;
         }
-
+        
         public Designator_Build CreateLocalDesignatorCopy()
         {
-            // designators are stored in the DesignationCategoryDef
-            DesignationCategoryDef desCatDef = BuildableDef.designationCategory;
-            if ( desCatDef == null )
-                throw new Exception( "BuildableDef does not have designationCategory: " + BuildableDef.defName );
-
-            // get the first designator that places whatever we're looking for
-            Designator_Build designator = desCatDef.ResolvedAllowedDesignators
-                                                   .FirstOrDefault( des => IsForDef( des as Designator_Build, BuildableDef ) )
-                                                   as Designator_Build;
-            if ( designator == null )
-                throw new Exception( "Designator not found: " + BuildableDef.defName );
-
             // create a new copy
-            designator = new Designator_Build( BuildableDef );
+            var designator = new Designator_Build( BuildableDef );
 
             // apply stuffdef & rotation
             if ( _thingDef != null )

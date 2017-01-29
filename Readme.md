@@ -20,9 +20,11 @@ You can import previously exported blueprints by right clicking the 'Create' but
 *NOTE: While you can import/export blueprints between games, be careful with doing so when a blueprint contains (modded) items that are not available in the current game. If you import a blueprint containing items that are unavailable, an error will pop up, and the offending item will be deleted from the blueprint. I've tried to make sure the rest of the blueprint is still usable, but your results may vary.*
 
 # Contributors
-duduluu	Chinese translation
-rgponce	Brazilian Portuguese translation
-Bronytamin	Russian translation
+ - Raccoon & Haplo:	German translation
+ - duduluu:	Chinese translations
+ - rgponce:	Brazilian Portuguese translation
+ - Bronytamin:	Russian translation
+ - Nils de Lumière:	French translation
 
 # Think you found a bug? 
 Please read [this guide](http://steamcommunity.com/sharedfiles/filedetails/?id=725234314) before creating a bug report,
@@ -35,4 +37,4 @@ All current and past versions of this mod can be downloaded from [GitHub](https:
 This mod is licensed under the Creative Commons [by-nc-sa 4.0 Int](http://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 # Version
-This is version v0.16.1.4
+This is version v0.16.1.5

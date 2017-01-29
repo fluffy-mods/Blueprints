@@ -45,10 +45,8 @@ namespace Blueprints
 
             // provide reference to this blueprint in all contents
             foreach ( var item in contents )
-            {
                 item.blueprint = this;
-            }
-
+            
             // just created, so not exported yet
             exported = false;
 
