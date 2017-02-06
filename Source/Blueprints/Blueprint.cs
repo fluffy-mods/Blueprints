@@ -223,9 +223,13 @@ namespace Blueprints
             _size = _size.Rotated();
 
             foreach ( var item in contents )
-            {
                 item.Rotate( direction );
-            }
+        }
+
+        public void Flip()
+        {
+            foreach ( var item in contents )
+                item.Flip();
         }
 
         protected internal bool ShouldLinkWith( IntVec3 position, ThingDef thingDef )

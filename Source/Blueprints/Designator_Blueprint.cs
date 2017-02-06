@@ -78,7 +78,14 @@ namespace Blueprints
         // copy-pasta from RimWorld.Designator_Place, with minor changes.
         public override void DoExtraGuiControls( float leftX, float bottomY )
         {
-            Rect winRect = new Rect( leftX, bottomY - 90f, 200f, 90f );
+            float height = 90f;
+            float width = 200f;
+            float button = 64f;
+            float numButtons = 2f;
+            float margin = ( width - button * numButtons) / ( numButtons + 1 );
+            float topmargin = 15f;
+
+            Rect winRect = new Rect( leftX, bottomY - height, width, height);
             HandleRotationShortcuts();
 
             Find.WindowStack.ImmediateWindow( 73095, winRect, WindowLayer.GameUI, delegate
@@ -86,29 +93,40 @@ namespace Blueprints
                 RotationDirection rotationDirection = RotationDirection.None;
                 Text.Anchor = TextAnchor.MiddleCenter;
                 Text.Font = GameFont.Medium;
-                Rect rect = new Rect( winRect.width / 2f - 64f - 5f, 15f, 64f, 64f );
-                if ( Widgets.ButtonImage( rect, Resources.RotLeftTex ) )
+
+                Rect rotLeftRect = new Rect( margin, topmargin, button, button );
+                if ( Widgets.ButtonImage( rotLeftRect, Resources.RotLeftTex ) )
                 {
                     SoundDefOf.AmountDecrement.PlayOneShotOnCamera();
                     rotationDirection = RotationDirection.Counterclockwise;
                     Event.current.Use();
                 }
-                Widgets.Label( rect, KeyBindingDefOf.DesignatorRotateLeft.MainKeyLabel );
-                Rect rect2 = new Rect( winRect.width / 2f + 5f, 15f, 64f, 64f );
-                if ( Widgets.ButtonImage( rect2, Resources.RotRightTex ) )
+                Widgets.Label( rotLeftRect, KeyBindingDefOf.DesignatorRotateLeft.MainKeyLabel );
+                
+                // todo; figure out blueprint flipping
+                //Rect flipRect = new Rect( 2 * margin + button, topmargin, button, button );
+                //if ( Widgets.ButtonImage( flipRect, Resources.FlipTex ) )
+                //{
+                //    SoundDefOf.FlickSwitch.PlayOneShotOnCamera();
+                //    Blueprint.Flip();
+                //    Event.current.Use();
+                //}
+
+                Rect rotRightRect = new Rect( 2 * margin + button, topmargin, button, button );
+                if ( Widgets.ButtonImage( rotRightRect, Resources.RotRightTex ) )
                 {
                     SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
                     rotationDirection = RotationDirection.Clockwise;
                     Event.current.Use();
                 }
-                Widgets.Label( rect2, KeyBindingDefOf.DesignatorRotateRight.MainKeyLabel );
+                Widgets.Label( rotRightRect, KeyBindingDefOf.DesignatorRotateRight.MainKeyLabel );
                 if ( rotationDirection != RotationDirection.None )
                 {
                     Blueprint.Rotate( rotationDirection );
                 }
                 Text.Anchor = TextAnchor.UpperLeft;
                 Text.Font = GameFont.Small;
-            }, true, false, 1f );
+            });
         }
 
         public override void DrawPanelReadout( ref float curY, float width )

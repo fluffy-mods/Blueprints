@@ -16,6 +16,8 @@ namespace Blueprints
 
         public static readonly Texture2D RotLeftTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotLeft", true);
         public static readonly Texture2D RotRightTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotRight", true);
+        // todo; figure out blueprint flipping
+        // public static readonly Texture2D FlipTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotRight", true);
         public static Color ghostBlue = new Color( .25f, .50f, .50f, .5f );
         public static Color ghostGrey = new Color( .8f, .8f, .8f, .5f );
         public static Color ghostRed = new Color( .5f, .08f, .08f, .5f );

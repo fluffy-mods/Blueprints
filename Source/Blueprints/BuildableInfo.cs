@@ -156,6 +156,12 @@ namespace Blueprints
 
         #region Methods
 
+        // todo; figure out blueprint flipping
+        //public void Flip()
+        //{
+        //    _position.x = -_position.x;
+        //}
+
         public PlacementReport CanPlace( IntVec3 origin )
         {
             // get rotated cell position
@@ -323,15 +329,6 @@ namespace Blueprints
         public override string ToString()
         {
             return BuildableDef.LabelCap + " _pos: " + _position + ", rot: " + _rotation + ", rotPos: " + Position + ", cat: " + BuildableDef.designationCategory;
-        }
-
-        private bool IsForDef( Designator_Build des, BuildableDef def )
-        {
-            // we might get nulls from special designators being cast to des_build
-            // in which case, reflection fails WITHOUT THROWING AN ERROR!
-            if ( des == null )
-                return false;
-            return ( _entDefFieldInfo.GetValue( des ) as BuildableDef )?.defName == def.defName;
         }
 
         #endregion Methods
