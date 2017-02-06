@@ -91,7 +91,7 @@ namespace Blueprints
                 return;
             }
 
-            // get list of buildings in the cells
+            // get list of buildings in the cells, note that this includes frames and blueprints, and so _may include floors!_
             List<Thing> things = new List<Thing>( cells.SelectMany( cell => cell.GetThingList( Map )
                                                        .Where( thing => thing.IsValidBlueprintThing() ) )
                                                        .Distinct() );

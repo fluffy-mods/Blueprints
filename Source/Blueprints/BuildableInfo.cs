@@ -48,6 +48,34 @@ namespace Blueprints
 
         public BuildableInfo( Thing thing, IntVec3 origin )
         {
+            if (thing is RimWorld.Blueprint)
+                Init( thing as RimWorld.Blueprint, origin );
+            else if ( thing is Frame )
+                Init( thing as Frame, origin );
+            else
+                Init( thing, origin );
+        }
+
+        private void Init( RimWorld.Blueprint blueprint, IntVec3 origin )
+        {
+            if ( blueprint.def.entityDefToBuild is TerrainDef )
+                Init( blueprint.def.entityDefToBuild as TerrainDef, blueprint.Position, origin );
+            else if ( blueprint is Blueprint_Build )
+                Init( blueprint.def.entityDefToBuild as ThingDef, (blueprint as Blueprint_Build ).stuffToUse, blueprint.Position, blueprint.Rotation, origin ); 
+            else if ( blueprint is Blueprint_Install )
+                Init(blueprint.def.entityDefToBuild as ThingDef, (blueprint as Blueprint_Install).MiniToInstallOrBuildingToReinstall.Stuff, blueprint.Position, blueprint.Rotation, origin);
+        }
+
+        private void Init( Frame frame, IntVec3 origin )
+        {
+            if (frame.def.entityDefToBuild is TerrainDef)
+                Init(frame.def.entityDefToBuild as TerrainDef, frame.Position, origin);
+            else
+                Init(frame.def.entityDefToBuild as ThingDef, frame.Stuff, frame.Position, frame.Rotation, origin);
+        }
+
+        private void Init( Thing thing, IntVec3 origin )
+        {
             _thingDef = thing.def;
             _terrainDef = null;
             _position = thing.Position - origin;
@@ -55,13 +83,27 @@ namespace Blueprints
             _stuff = thing.Stuff;
         }
 
-        public BuildableInfo( TerrainDef terrain, IntVec3 position, IntVec3 origin )
+        private void Init( ThingDef thingdef, ThingDef stuffDef, IntVec3 position, Rot4 rotation, IntVec3 origin )
+        {
+            _thingDef = thingdef;
+            _terrainDef = null;
+            _position = position - origin;
+            _rotation = rotation;
+            _stuff = stuffDef;
+        }
+
+        private void Init( TerrainDef terrain, IntVec3 position, IntVec3 origin )
         {
             _thingDef = null;
             _terrainDef = terrain;
             _position = position - origin;
             _rotation = Rot4.Invalid;
             _stuff = null;
+        }
+
+        public BuildableInfo( TerrainDef terrain, IntVec3 position, IntVec3 origin )
+        {
+            Init( terrain, position, origin );
         }
 
         #endregion Constructors
