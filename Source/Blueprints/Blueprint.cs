@@ -18,7 +18,7 @@ namespace Blueprints
         public string name;
 
         // regex for valid file names. Should allow all 'normal' characters, where normal (i.e. \w) differs per localization.
-        private static Regex _validNameRegex = new Regex( @"^[\w]+$" );
+        private static Regex _validNameRegex = new Regex(@"^[\w]+$");
 
         private List<BuildableInfo> _availableContents;
         private List<BuildableDef> _buildables;
@@ -36,7 +36,7 @@ namespace Blueprints
             exported = true; // loaded from scribe - so must have been exported.
         }
 
-        public Blueprint( List<BuildableInfo> contents, IntVec2 size, string defaultName = null )
+        public Blueprint(List<BuildableInfo> contents, IntVec2 size, string defaultName = null)
         {
             // input
             this.contents = contents;
@@ -44,26 +44,26 @@ namespace Blueprints
             _size = size;
 
             // provide reference to this blueprint in all contents
-            foreach ( var item in contents )
+            foreach (var item in contents)
                 item.blueprint = this;
-            
+
             // just created, so not exported yet
             exported = false;
 
             // 'orrible default name
-            if ( name == null || !CouldBeValidBlueprintName( name ) )
+            if (name == null || !CouldBeValidBlueprintName(name))
                 name = "Fluffy.Blueprints.DefaultBlueprintName".Translate();
 
             // increment numeric suffix until we have a unique name
             int i = 1;
-            while ( Controller.FindBlueprint( name + "_" + i ) != null )
+            while (Controller.FindBlueprint(name + "_" + i) != null)
                 i++;
 
             // set name
             name = name + "_" + i;
 
             // ask for name
-            Find.WindowStack.Add( new Dialog_NameBlueprint( this ) );
+            Find.WindowStack.Add(new Dialog_NameBlueprint(this));
         }
 
         #endregion Constructors
@@ -74,9 +74,9 @@ namespace Blueprints
         {
             get
             {
-                if ( _availableContents == null )
+                if (_availableContents == null)
                     // check if vanilla designator for buildable is visible (i.e. prerequisites are met).
-                    _availableContents = contents.Where( item => item.Designator.Visible )
+                    _availableContents = contents.Where(item => item.Designator.Visible)
                                                  .ToList();
                 return _availableContents;
             }
@@ -86,8 +86,8 @@ namespace Blueprints
         {
             get
             {
-                if ( _buildables == null )
-                    _buildables = AvailableContents.Select( item => item.BuildableDef )
+                if (_buildables == null)
+                    _buildables = AvailableContents.Select(item => item.BuildableDef)
                                           .ToList();
                 return _buildables;
             }
@@ -97,7 +97,7 @@ namespace Blueprints
         {
             get
             {
-                if ( _costlist == null )
+                if (_costlist == null)
                     _costlist = CreateCostList();
                 return _costlist;
             }
@@ -108,15 +108,15 @@ namespace Blueprints
             get
             {
                 // return cached
-                if ( _groupedBuildables != null )
+                if (_groupedBuildables != null)
                     return _groupedBuildables;
 
                 // create and cache list
                 Dictionary<BuildableDef, List<BuildableInfo>> dict = new Dictionary<BuildableDef, List<BuildableInfo>>();
 
-                foreach ( var buildable in Buildables.Distinct() )
+                foreach (var buildable in Buildables.Distinct())
                 {
-                    dict.Add( buildable, AvailableContents.Where( bi => bi.BuildableDef == buildable ).ToList() );
+                    dict.Add(buildable, AvailableContents.Where(bi => bi.BuildableDef == buildable).ToList());
                 }
                 _groupedBuildables = dict;
                 return dict;
@@ -127,35 +127,35 @@ namespace Blueprints
 
         #region Methods
 
-        public static bool CouldBeValidBlueprintName( string name )
+        public static bool CouldBeValidBlueprintName(string name)
         {
-            return _validNameRegex.IsMatch( name );
+            return _validNameRegex.IsMatch(name);
         }
 
-        public static AcceptanceReport IsValidBlueprintName( string name )
+        public static AcceptanceReport IsValidBlueprintName(string name)
         {
-            if ( !CouldBeValidBlueprintName( name ) )
-                return new AcceptanceReport( "Fluffy.Blueprints.InvalidBlueprintName".Translate( name ) );
+            if (!CouldBeValidBlueprintName(name))
+                return new AcceptanceReport("Fluffy.Blueprints.InvalidBlueprintName".Translate(name));
 
             // TODO: figure out why this doesn't work
-            if ( Controller.FindBlueprint( name ) != null )
-                return new AcceptanceReport( "Fluffy.Blueprints.NameAlreadyTaken".Translate( name ) );
+            if (Controller.FindBlueprint(name) != null)
+                return new AcceptanceReport("Fluffy.Blueprints.NameAlreadyTaken".Translate(name));
 
             return true;
         }
 
-        public bool CanPlace( IntVec3 origin )
+        public bool CanPlace(IntVec3 origin)
         {
-            return CanPlace( origin, Rot4.North );
+            return CanPlace(origin, Rot4.North);
         }
 
-        public bool CanPlace( IntVec3 origin, Rot4 rotation )
+        public bool CanPlace(IntVec3 origin, Rot4 rotation)
         {
             // check each individual element for placement issues
             bool canPlace = true;
-            foreach ( var item in AvailableContents )
+            foreach (var item in AvailableContents)
             {
-                if ( item.CanPlace( origin ) == PlacementReport.CanNotPlace )
+                if (item.CanPlace(origin) == PlacementReport.CanNotPlace)
                     canPlace = false;
             }
             return canPlace;
@@ -163,49 +163,49 @@ namespace Blueprints
 
         public void Debug()
         {
-            Log.Message( _size.ToString() );
+            Log.Message(_size.ToString());
 
-            foreach ( BuildableInfo thing in contents )
+            foreach (BuildableInfo thing in contents)
             {
-                Log.Message( thing.ToString() );
-                Log.Message( $"Available: {AvailableContents.Contains( thing )}" );
+                Log.Message(thing.ToString());
+                Log.Message($"Available: {AvailableContents.Contains(thing)}");
             }
         }
 
-        public void DrawGhost( IntVec3 origin )
+        public void DrawGhost(IntVec3 origin)
         {
-            foreach ( var item in AvailableContents )
+            foreach (var item in AvailableContents)
             {
-                item.DrawGhost( origin );
+                item.DrawGhost(origin);
             }
         }
 
-        public void DrawStuffMenu( BuildableDef buildable )
+        public void DrawStuffMenu(BuildableDef buildable)
         {
             ThingDef thing = buildable as ThingDef;
-            if ( thing == null || thing.costStuffCount <= 0 || thing.stuffCategories.NullOrEmpty() )
+            if (thing == null || thing.costStuffCount <= 0 || thing.stuffCategories.NullOrEmpty())
                 return;
 
-            var stuffOptions = DefDatabase<ThingDef>.AllDefsListForReading.Where( def => def.IsStuff &&
-                                                                                         thing.stuffCategories.Any( cat =>
-                                                                                            def.stuffProps.categories.Contains( cat ) ) );
+            var stuffOptions = DefDatabase<ThingDef>.AllDefsListForReading.Where(def => def.IsStuff &&
+                                                                                        thing.stuffCategories.Any(cat =>
+                                                                                          def.stuffProps.categories.Contains(cat)));
 
             List<FloatMenuOption> options = new List<FloatMenuOption>();
 
-            foreach ( var stuff in stuffOptions )
+            foreach (var stuff in stuffOptions)
             {
-                options.Add( new FloatMenuOption( stuff.LabelCap + " (" + Find.VisibleMap.resourceCounter.GetCount( stuff ) + ")", delegate
-                { SetStuffFor( buildable, stuff ); } ) );
+                options.Add(new FloatMenuOption(stuff.LabelCap + " (" + Find.VisibleMap.resourceCounter.GetCount(stuff) + ")", delegate
+            { SetStuffFor(buildable, stuff); }));
             }
 
-            Find.WindowStack.Add( new FloatMenu( options ) );
+            Find.WindowStack.Add(new FloatMenu(options));
         }
 
         public void ExposeData()
         {
-            Scribe_Collections.LookList( ref contents, "BuildableThings", LookMode.Deep, new object[] { this } );
-            Scribe_Values.LookValue( ref name, "Name" );
-            Scribe_Values.LookValue( ref _size, "Size" );
+            Scribe_Collections.LookList(ref contents, "BuildableThings", LookMode.Deep, new object[] { this });
+            Scribe_Values.LookValue(ref name, "Name");
+            Scribe_Values.LookValue(ref _size, "Size");
         }
 
         // called when the parent designator is selected, this resets the buildables cache
@@ -218,33 +218,33 @@ namespace Blueprints
             _costlist = null;
         }
 
-        public void Rotate( RotationDirection direction )
+        public void Rotate(RotationDirection direction)
         {
             _size = _size.Rotated();
 
-            foreach ( var item in contents )
-                item.Rotate( direction );
+            foreach (var item in contents)
+                item.Rotate(direction);
         }
 
-        public void Flip()
-        {
-            foreach ( var item in contents )
-                item.Flip();
-        }
+        //public void Flip()
+        //{
+        //    foreach ( var item in contents )
+        //        item.Flip();
+        //}
 
-        protected internal bool ShouldLinkWith( IntVec3 position, ThingDef thingDef )
+        protected internal bool ShouldLinkWith(IntVec3 position, ThingDef thingDef)
         {
             // get things at neighbouring position
-            var ThingsAtPosition = AvailableContents.Where( item => item.Position == position && item.BuildableDef is ThingDef ).Select( item => item.BuildableDef as ThingDef );
+            var ThingsAtPosition = AvailableContents.Where(item => item.Position == position && item.BuildableDef is ThingDef).Select(item => item.BuildableDef as ThingDef);
 
             // if there's nothing there, there's nothing to link with
-            if ( ThingsAtPosition.Count() < 1 )
+            if (ThingsAtPosition.Count() < 1)
                 return false;
 
             // loop over things to see if any of the things at the neighbouring location share a linkFlag with the thingDef we're looking at
-            foreach ( var thing in ThingsAtPosition )
+            foreach (var thing in ThingsAtPosition)
             {
-                if ( ( thing.graphicData.linkFlags & thingDef.graphicData.linkFlags ) != LinkFlags.None )
+                if ((thing.graphicData.linkFlags & thingDef.graphicData.linkFlags) != LinkFlags.None)
                     return true;
             }
 
@@ -258,29 +258,29 @@ namespace Blueprints
             Dictionary<ThingDef, int> costdict = new Dictionary<ThingDef, int>();
 
             // loop over all buildables
-            foreach ( var item in AvailableContents )
+            foreach (var item in AvailableContents)
             {
-                foreach ( var cost in item.BuildableDef.CostListAdjusted( item.Stuff, false ) )
+                foreach (var cost in item.BuildableDef.CostListAdjusted(item.Stuff, false))
                 {
                     // add up all construction costs
-                    if ( costdict.ContainsKey( cost.thingDef ) )
+                    if (costdict.ContainsKey(cost.thingDef))
                         costdict[cost.thingDef] += cost.count;
                     else
-                        costdict.Add( cost.thingDef, cost.count );
+                        costdict.Add(cost.thingDef, cost.count);
                 }
             }
 
             // return a list of thingcounts, in descending cost order.
-            return costdict.Select( pair => new ThingCount( pair.Key, pair.Value ) ).OrderByDescending( tc => tc.Count ).ToList();
+            return costdict.Select(pair => new ThingCount(pair.Key, pair.Value)).OrderByDescending(tc => tc.Count).ToList();
         }
 
-        private void SetStuffFor( BuildableDef buildableDef, ThingDef stuff )
+        private void SetStuffFor(BuildableDef buildableDef, ThingDef stuff)
         {
             // get all buildables of this type
-            var buildables = contents.Where( bi => bi.BuildableDef == buildableDef );
+            var buildables = contents.Where(bi => bi.BuildableDef == buildableDef);
 
             // set them to use the new stuff def
-            foreach ( var buildable in buildables )
+            foreach (var buildable in buildables)
             {
                 buildable.Stuff = stuff;
             }
