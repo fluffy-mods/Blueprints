@@ -25,7 +25,7 @@ You can import previously exported blueprints by right clicking the 'Create' but
  - rgponce:	Brazilian Portuguese translation
  - Bronytamin:	Russian translation
  - Nils de Lumière:	French translation
- - Butter-Knife:	
+ - Butter-Knife:	Japanese translation
 
 # Think you found a bug? 
 Please read [this guide](http://steamcommunity.com/sharedfiles/filedetails/?id=725234314) before creating a bug report,
