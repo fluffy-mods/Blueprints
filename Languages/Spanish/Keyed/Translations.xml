@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Fluffy.Blueprints.DefaultBlueprintName>Plano</Fluffy.Blueprints.DefaultBlueprintName>
+	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" ya existe. Por favor, elija un nombre único.</Fluffy.Blueprints.NameAlreadyTaken>
+	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" Es un nombre inválido. \nPor favor utilice sólo caracteres alfanuméricos y guiones bajos (a-Z, _). No se permiten espacios.</Fluffy.Blueprints.InvalidBlueprintName>
+	<Fluffy.Blueprints.LoadFromXML>Importar plano "{0}"</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>No se puede crear el plano, no hay nada seleccionado.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+	<Fluffy.Blueprint.Cost>Coste total:</Fluffy.Blueprint.Cost>
+	<Fluffy.Blueprints.Remove>Eliminar plano</Fluffy.Blueprints.Remove>
+	<Fluffy.Blueprints.SaveToXML>Exportar plano</Fluffy.Blueprints.SaveToXML>
+	<Fluffy.Blueprints.RemoveAndDeleteXML>Eliminar el plano y suprimir el plano exportado</Fluffy.Blueprints.RemoveAndDeleteXML>
+	<Fluffy.Blueprints.Rename>Renombrar plano</Fluffy.Blueprints.Rename>
+	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Ya existe un plano exportado llamado "{0}".\nPor favor, elija un nombre diferente.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+	<Fluffy.Blueprints.Create>Crear</Fluffy.Blueprints.Create>
+	<Fluffy.Blueprints.CreateHelp>Click izquierdo para crear un nuevo plano.\nClick derecho para importar un plano.</Fluffy.Blueprints.CreateHelp>
+	<Fluffy.Blueprints.NoStoredBlueprints>No hay planos exportados (o ya están todos cargados).</Fluffy.Blueprints.NoStoredBlueprints>
+	<Fluffy.Blueprints.NothingAvailableInBlueprint>Ningun elemento en {0} puede ser construido con la tecnología actual.</Fluffy.Blueprints.NothingAvailableInBlueprint>
+	<Fluffy.Blueprints.XNotAvailableInBlueprint>Algunos de los elementos en {0} no pueden ser construidos con la tecnología actual: {1}</Fluffy.Blueprints.XNotAvailableInBlueprint>
+
+</LanguageData>
