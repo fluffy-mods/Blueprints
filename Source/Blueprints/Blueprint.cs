@@ -203,9 +203,9 @@ namespace Blueprints
 
         public void ExposeData()
         {
-            Scribe_Collections.LookList(ref contents, "BuildableThings", LookMode.Deep, new object[] { this });
-            Scribe_Values.LookValue(ref name, "Name");
-            Scribe_Values.LookValue(ref _size, "Size");
+            Scribe_Collections.Look(ref contents, "BuildableThings", LookMode.Deep, new object[] { this });
+            Scribe_Values.Look(ref name, "Name");
+            Scribe_Values.Look(ref _size, "Size");
         }
 
         // called when the parent designator is selected, this resets the buildables cache
