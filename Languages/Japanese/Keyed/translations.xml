@@ -2,8 +2,10 @@
 <LanguageData>
 
 	<Fluffy.Blueprints.DefaultBlueprintName>設計図</Fluffy.Blueprints.DefaultBlueprintName>
-	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" 同じ名前のファイルが存在します。別の名前で保存してください。</Fluffy.Blueprints.NameAlreadyTaken>
-	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" は無効なファイル名です。 \n空白文字は使用できません。 (a-Z, _).</Fluffy.Blueprints.InvalidBlueprintName>
+
+	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" 同じ名前の設計図が存在します。別の名前で保存してください。</Fluffy.Blueprints.NameAlreadyTaken>
+	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" は無効なファイル名です。空白文字は使用できません。\n代わりにアンダーバー( _ )を使用して下さい。</Fluffy.Blueprints.InvalidBlueprintName>
+
 	<Fluffy.Blueprints.LoadFromXML>設計図の読み込み "{0}"</Fluffy.Blueprints.LoadFromXML>
 	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>設計図を作ることができません。何も選択されていません。</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
 	<Fluffy.Blueprint.Cost>総コスト:</Fluffy.Blueprint.Cost>
@@ -16,6 +18,6 @@
 	<Fluffy.Blueprints.CreateHelp>クリックで新規作成\n右クリックで読み込み</Fluffy.Blueprints.CreateHelp>
 	<Fluffy.Blueprints.NoStoredBlueprints>書き出された設計図が見つからないか、既に読み込み済みです。</Fluffy.Blueprints.NoStoredBlueprints>
 	<Fluffy.Blueprints.NothingAvailableInBlueprint>設計図 {0} の建築に必要な研究が未完了です。</Fluffy.Blueprints.NothingAvailableInBlueprint>
-	<Fluffy.Blueprints.XNotAvailableInBlueprint>設計図 {0} に含まれるいくつかのアイテムに必要な研究が未完了です {1} </Fluffy.Blueprints.XNotAvailableInBlueprint>
-
+	<Fluffy.Blueprints.XNotAvailableInBlueprint>設計図 {0} に含まれるアイテムに必要な研究が未完了です {1} </Fluffy.Blueprints.XNotAvailableInBlueprint>
 </LanguageData>
+
