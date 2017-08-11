@@ -8,6 +8,7 @@
     <description>Blueprints!</description>
     <order>750</order>
     <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
       <li>Blueprints.Designator_CreateBlueprint</li>
     </specialDesignatorClasses>
   </DesignationCategoryDef>

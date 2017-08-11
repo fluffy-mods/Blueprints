@@ -60,13 +60,6 @@ namespace Blueprints
                 DeleteXML(designator.Blueprint);
         }
 
-        public static int Count(bool includeCreator = false)
-        {
-            if (!_initialized)
-                Initialize();
-            return _designators.Count - (includeCreator ? 0 : 1);
-        }
-
         public static Blueprint FindBlueprint(string name)
         {
             if (!_initialized)
