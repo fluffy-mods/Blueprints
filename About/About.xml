@@ -3,7 +3,7 @@
   <name>Blueprints</name>
   <author>Fluffy</author>
   <url>https://ludeon.com/forums/index.php?topic=16120.0</url>
-  <targetVersion>0.17.1557</targetVersion>
+  <targetVersion>0.18.1700</targetVersion>
   <description>Blueprints allow the quick construction of repetitive rooms/areas. 
 
 &lt;size=24&gt;Features&lt;/size&gt;
@@ -34,7 +34,7 @@ Butter-Knife:    Japanese translation
 53N4:    Spanish translations
 
 &lt;size=24&gt;Version&lt;/size&gt;
-This is version v0.17.1.5
+This is version v0.18.0.1
 
 </description>
 </ModMetaData>

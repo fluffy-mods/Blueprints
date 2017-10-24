@@ -166,7 +166,7 @@ namespace Blueprints
             Blueprint blueprint = new Blueprint();
 
 #if DEBUG
-            Log.Message( "Attempting to load from: " + file.FileInfo.FullName );
+            Log.Message( "Attempting to load from: " + name );
 #endif
 
             // load stuff

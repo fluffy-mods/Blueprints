@@ -298,12 +298,12 @@ namespace Blueprints
             Blueprint.RecacheBuildables();
             if ( !Blueprint.AvailableContents.Any() )
                 Messages.Message( "Fluffy.Blueprints.NothingAvailableInBlueprint".Translate( Blueprint.name ),
-                                  MessageSound.RejectInput );
+                                  MessageTypeDefOf.RejectInput );
             else
             {
                 var unavailable = Blueprint.contents.Except( Blueprint.AvailableContents ).Select( bi => bi.BuildableDef.label ).Distinct();
                 if ( unavailable.Any() )
-                    Messages.Message( "Fluffy.Blueprints.XNotAvailableInBlueprint".Translate( Blueprint.name, string.Join( ", ", unavailable.ToArray() ) ), MessageSound.Negative );
+                    Messages.Message( "Fluffy.Blueprints.XNotAvailableInBlueprint".Translate( Blueprint.name, string.Join( ", ", unavailable.ToArray() ) ), MessageTypeDefOf.CautionInput );
             }
         }
 
