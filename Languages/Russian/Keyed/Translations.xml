@@ -4,7 +4,7 @@
 	<Fluffy.Blueprints.DefaultBlueprintName>Проект</Fluffy.Blueprints.DefaultBlueprintName>
 	<Fluffy.Blueprints.NameAlreadyTaken>Проект "{0}" уже существует. Пожалуйста, введите оригинальное название.</Fluffy.Blueprints.NameAlreadyTaken>
 	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" недопустимое название. \nПожалуйста, используйте только буквенно-цифровые символы и знаки подчеркивания (A-Z, А-Я, _). Пробелы не допускаются.</Fluffy.Blueprints.InvalidBlueprintName>
-	<Fluffy.Blueprints.LoadFromXML>Сохранить проект "{0}"</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.LoadFromXML>Загрузить проект "{0}"</Fluffy.Blueprints.LoadFromXML>
 	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>Невозможно создать проект - ничего не выбрано.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
 	<Fluffy.Blueprint.Cost>Общая стоимость:</Fluffy.Blueprint.Cost>
 	<Fluffy.Blueprints.Remove>Удалить проект</Fluffy.Blueprints.Remove>
