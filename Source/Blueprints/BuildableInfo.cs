@@ -122,9 +122,9 @@ namespace Blueprints
 
             // otherwise, check if the same thing (or it's blueprint/frame stages) already exists here
             // terrain and thing both have bluePrint and frame in thinglist, as are things. Terrains are not a thing, and retrieved with GetTerrain().
-            var cellDefs = cell.GetThingList(Find.VisibleMap).Select(thing => thing.def).ToList();
+            var cellDefs = cell.GetThingList(Find.CurrentMap).Select(thing => thing.def).ToList();
             if (cellDefs.Contains(BuildableDef as ThingDef) ||
-                 cell.GetTerrain(Find.VisibleMap) == BuildableDef as TerrainDef ||
+                 cell.GetTerrain(Find.CurrentMap) == BuildableDef as TerrainDef ||
                  cellDefs.Contains(BuildableDef.blueprintDef) ||
                  cellDefs.Contains(BuildableDef.frameDef))
                 return PlacementReport.Alreadyplaced;
@@ -245,11 +245,11 @@ namespace Blueprints
                 return;
 
             // don't add plan if already there
-            if (Find.VisibleMap.designationManager.DesignationAt(origin + Position, DesignationDefOf.Plan) != null)
+            if (Find.CurrentMap.designationManager.DesignationAt(origin + Position, DesignationDefOf.Plan) != null)
                 return;
 
             // add plan designation
-            Find.VisibleMap.designationManager.AddDesignation(new Designation(origin + Position, DesignationDefOf.Plan));
+            Find.CurrentMap.designationManager.AddDesignation(new Designation(origin + Position, DesignationDefOf.Plan));
         }
 
         public void Rotate(RotationDirection direction)

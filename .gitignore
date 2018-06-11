@@ -1,6 +1,7 @@
 ModConfig.json
 SteamConfig.vdf
 .mailmap
+.idea
 
 # Windows image file caches
 Thumbs.db

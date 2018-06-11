@@ -27,6 +27,10 @@ namespace Blueprints
             defaultLabel = "Fluffy.Blueprints.Create".Translate();
             defaultDesc = "Fluffy.Blueprints.CreateHelp".Translate();
             useMouseIcon = true;
+            soundDragChanged = SoundDefOf.Designate_DragStandard_Changed;
+            soundDragSustain = SoundDefOf.Designate_DragStandard;
+            soundSucceeded = SoundDefOf.Designate_PlanAdd;
+            tutorTag = "Blueprint";
         }
 
         #endregion Public Constructors
@@ -46,6 +50,11 @@ namespace Blueprints
                    ( loc.GetTerrain( Map ).IsValidBlueprintTerrain() ||
                      !things.NullOrEmpty() &&
                      things.Any( thing => thing.IsValidBlueprintThing() ) );
+        }
+
+        public override void RenderHighlight( List<IntVec3> dragCells )
+        {
+            DesignatorUtility.RenderHighlightOverSelectableCells( this, dragCells);
         }
 
         public override void ProcessInput( Event ev )

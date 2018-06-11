@@ -22,7 +22,7 @@ namespace Blueprints
 
         private List<BuildableInfo> _availableContents;
         private List<BuildableDef> _buildables;
-        private List<ThingCount> _costlist;
+        private List<ThingDefCount> _costlist;
         private Dictionary<BuildableDef, List<BuildableInfo>> _groupedBuildables;
         private IntVec2 _size;
 
@@ -93,7 +93,7 @@ namespace Blueprints
             }
         }
 
-        public List<ThingCount> CostListAdjusted
+        public List<ThingDefCount> CostListAdjusted
         {
             get
             {
@@ -194,7 +194,7 @@ namespace Blueprints
 
             foreach (var stuff in stuffOptions)
             {
-                options.Add(new FloatMenuOption(stuff.LabelCap + " (" + Find.VisibleMap.resourceCounter.GetCount(stuff) + ")", delegate
+                options.Add(new FloatMenuOption(stuff.LabelCap + " (" + Find.CurrentMap.resourceCounter.GetCount(stuff) + ")", delegate
             { SetStuffFor(buildable, stuff); }));
             }
 
@@ -252,7 +252,7 @@ namespace Blueprints
             return false;
         }
 
-        private List<ThingCount> CreateCostList()
+        private List<ThingDefCount> CreateCostList()
         {
             // set up a temporary dictionary to make adding costs easier
             Dictionary<ThingDef, int> costdict = new Dictionary<ThingDef, int>();
@@ -271,7 +271,7 @@ namespace Blueprints
             }
 
             // return a list of thingcounts, in descending cost order.
-            return costdict.Select(pair => new ThingCount(pair.Key, pair.Value)).OrderByDescending(tc => tc.Count).ToList();
+            return costdict.Select(pair => new ThingDefCount( pair.Key, pair.Value )).OrderByDescending(tc => tc.Count).ToList();
         }
 
         private void SetStuffFor(BuildableDef buildableDef, ThingDef stuff)

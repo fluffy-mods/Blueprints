@@ -29,6 +29,7 @@ namespace Blueprints
         {
             _blueprint = blueprint;
             icon = Resources.Icon_Blueprint;
+            soundSucceeded = SoundDefOf.Designate_PlaceBuilding;
         }
 
         #endregion Constructors
@@ -101,7 +102,7 @@ namespace Blueprints
                     rotationDirection = RotationDirection.Counterclockwise;
                     Event.current.Use();
                 }
-                Widgets.Label( rotLeftRect, KeyBindingDefOf.DesignatorRotateLeft.MainKeyLabel );
+                Widgets.Label( rotLeftRect, KeyBindingDefOf.Designator_RotateLeft.MainKeyLabel );
                 
                 // todo; figure out blueprint flipping
                 //Rect flipRect = new Rect( 2 * margin + button, topmargin, button, button );
@@ -119,7 +120,7 @@ namespace Blueprints
                     rotationDirection = RotationDirection.Clockwise;
                     Event.current.Use();
                 }
-                Widgets.Label( rotRightRect, KeyBindingDefOf.DesignatorRotateRight.MainKeyLabel );
+                Widgets.Label( rotRightRect, KeyBindingDefOf.Designator_RotateRight.MainKeyLabel );
                 if ( rotationDirection != RotationDirection.None )
                 {
                     Blueprint.Rotate( rotationDirection );
@@ -208,10 +209,10 @@ namespace Blueprints
             curY += 24f;
 
             Text.Font = GameFont.Tiny;
-            List<ThingCount> costlist = Blueprint.CostListAdjusted;
+            List<ThingDefCount> costlist = Blueprint.CostListAdjusted;
             for ( int i = 0; i < costlist.Count; i++ )
             {
-                ThingCount thingCount = costlist[i];
+                ThingDefCount thingCount = costlist[i];
                 Texture2D image;
                 if ( thingCount.ThingDef == null )
                 {
@@ -222,7 +223,7 @@ namespace Blueprints
                     image = thingCount.ThingDef.uiIcon;
                 }
                 GUI.DrawTexture( new Rect( 0f, curY, 20f, 20f ), image );
-                if ( thingCount.ThingDef != null && thingCount.ThingDef.resourceReadoutPriority != ResourceCountPriority.Uncounted && Find.VisibleMap.resourceCounter.GetCount( thingCount.ThingDef ) < thingCount.Count )
+                if ( thingCount.ThingDef != null && thingCount.ThingDef.resourceReadoutPriority != ResourceCountPriority.Uncounted && Find.CurrentMap.resourceCounter.GetCount( thingCount.ThingDef ) < thingCount.Count )
                 {
                     GUI.color = Color.red;
                 }
@@ -333,11 +334,11 @@ namespace Blueprints
                     rotationDirection = RotationDirection.Clockwise;
                 }
             }
-            if ( KeyBindingDefOf.DesignatorRotateRight.KeyDownEvent )
+            if ( KeyBindingDefOf.Designator_RotateRight.KeyDownEvent )
             {
                 rotationDirection = RotationDirection.Clockwise;
             }
-            if ( KeyBindingDefOf.DesignatorRotateLeft.KeyDownEvent )
+            if ( KeyBindingDefOf.Designator_RotateLeft.KeyDownEvent )
             {
                 rotationDirection = RotationDirection.Counterclockwise;
             }
