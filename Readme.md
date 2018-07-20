@@ -27,6 +27,7 @@ You can import previously exported blueprints by right clicking the 'Create' but
  - Nils de Lumière:	French translation
  - Butter-Knife:	Japanese translation
  - 53N4:	Spanish translations
+ - Kirill:	
 
 # Think you found a bug? 
 Please read [this guide](http://steamcommunity.com/sharedfiles/filedetails/?id=725234314) before creating a bug report,
@@ -47,4 +48,4 @@ Show your appreciation by buying me a coffee (or contribute towards a nice singl
 [![Buy Me a Coffee](http://i.imgur.com/EjWiUwx.gif)](https://ko-fi.com/fluffymods)
 
 # Version
-This is version 1.1.14, for RimWorld 1.0.1937.
+This is version 1.1.15, for RimWorld 1.0.1970.
