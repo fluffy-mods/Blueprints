@@ -9,7 +9,6 @@ using Verse.Sound;
 
 namespace Blueprints
 {
-    [StaticConstructorOnStartup]
     public class Designator_Blueprint : Designator
     {
         #region Fields
@@ -39,11 +38,41 @@ namespace Blueprints
         public Blueprint Blueprint => _blueprint;
         public override int DraggableDimensions => 0;
         public override string Label => _blueprint.name;
+        public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions
+        {
+            get
+            {
+                List<FloatMenuOption> options = new List<FloatMenuOption>();
+
+                // rename
+                options.Add(new FloatMenuOption("Fluffy.Blueprints.Rename".Translate(), delegate
+                { Find.WindowStack.Add(new Dialog_NameBlueprint(this.Blueprint)); }));
+
+                // delete blueprint
+                options.Add(new FloatMenuOption("Fluffy.Blueprints.Remove".Translate(), delegate
+                { Controller.Remove(this, false); }));
+
+                // delete blueprint and remove from disk
+                if (this.Blueprint.exported)
+                {
+                    options.Add(new FloatMenuOption("Fluffy.Blueprints.RemoveAndDeleteXML".Translate(), delegate
+                    { Controller.Remove(this, true); }));
+                }
+
+                // store to xml
+                else
+                {
+                    options.Add(new FloatMenuOption("Fluffy.Blueprints.SaveToXML".Translate(), delegate
+                    { Controller.SaveToXML(this.Blueprint); }));
+                }
+
+                return options;
+            }
+        }
 
         #endregion Properties
 
         #region Methods
-
         public override AcceptanceReport CanDesignateCell( IntVec3 loc )
         {
             // always return true - we're looking at the larger blueprint in SelectedUpdate() and DesignateSingleCell() instead.
@@ -255,42 +284,6 @@ namespace Blueprints
         public override bool GroupsWith( Gizmo other )
         {
             return this.Blueprint == ( other as Designator_Blueprint ).Blueprint;
-        }
-
-        public override void ProcessInput( Event ev )
-        {
-            // float menu on right click
-            if ( ev.button == 1 )
-            {
-                List<FloatMenuOption> options = new List<FloatMenuOption>();
-
-                // rename
-                options.Add( new FloatMenuOption( "Fluffy.Blueprints.Rename".Translate(), delegate
-                { Find.WindowStack.Add( new Dialog_NameBlueprint( this.Blueprint ) ); } ) );
-
-                // delete blueprint
-                options.Add( new FloatMenuOption( "Fluffy.Blueprints.Remove".Translate(), delegate
-                { Controller.Remove( this, false ); } ) );
-
-                // delete blueprint and remove from disk
-                if ( this.Blueprint.exported )
-                {
-                    options.Add( new FloatMenuOption( "Fluffy.Blueprints.RemoveAndDeleteXML".Translate(), delegate
-                    { Controller.Remove( this, true ); } ) );
-                }
-
-                // store to xml
-                else
-                {
-                    options.Add( new FloatMenuOption( "Fluffy.Blueprints.SaveToXML".Translate(), delegate
-                    { Controller.SaveToXML( this.Blueprint ); } ) );
-                }
-
-                Find.WindowStack.Add( new FloatMenu( options ) );
-                return;
-            }
-
-            base.ProcessInput( ev );
         }
 
         public override void Selected()

@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace Blueprints
@@ -14,16 +13,7 @@ namespace Blueprints
 
         public Designator_CreateBlueprint()
         {
-            // Silly A13+ workaround
-            LongEventHandler.ExecuteWhenFinished( delegate
-            {
-                Resources.Icon_AddBlueprint = ContentFinder<Texture2D>.Get( "Icons/AddBlueprint", true );
-                Resources.Icon_Blueprint = ContentFinder<Texture2D>.Get( "Icons/Blueprint", true );
-                Resources.Icon_Edit = ContentFinder<Texture2D>.Get( "Icons/Edit", true );
-
-                icon = Resources.Icon_AddBlueprint;
-            } );
-
+            // icon = Resources.Icon_AddBlueprint;
             defaultLabel = "Fluffy.Blueprints.Create".Translate();
             defaultDesc = "Fluffy.Blueprints.CreateHelp".Translate();
             useMouseIcon = true;
@@ -57,28 +47,23 @@ namespace Blueprints
             DesignatorUtility.RenderHighlightOverSelectableCells( this, dragCells);
         }
 
-        public override void ProcessInput( Event ev )
-        {
-            if ( ev.button == 1 )
+        public override IEnumerable<FloatMenuOption> RightClickFloatMenuOptions {
+            get
             {
                 var options = new List<FloatMenuOption>();
 
-                foreach ( var file in Controller.GetSavedFilesList() )
+                foreach (var file in Controller.GetSavedFilesList())
                 {
-                    var name = Path.GetFileNameWithoutExtension( file.Name );
-                    if ( Controller.FindBlueprint( name ) == null )
-                        options.Add( new FloatMenuOption( "Fluffy.Blueprints.LoadFromXML".Translate( name ),
-                            delegate { Controller.Add( Controller.LoadFromXML( file.Name ) ); } ) );
+                    var name = Path.GetFileNameWithoutExtension(file.Name);
+                    if (Controller.FindBlueprint(name) == null)
+                        options.Add(new FloatMenuOption("Fluffy.Blueprints.LoadFromXML".Translate(name),
+                            delegate { Controller.Add(Controller.LoadFromXML(file.Name)); }));
                 }
 
-                if ( options.NullOrEmpty() )
-                    Messages.Message( "Fluffy.Blueprints.NoStoredBlueprints".Translate(), MessageTypeDefOf.RejectInput );
-                else
-                    Find.WindowStack.Add( new FloatMenu( options ) );
-                return;
+                if (options.NullOrEmpty())
+                    Messages.Message("Fluffy.Blueprints.NoStoredBlueprints".Translate(), MessageTypeDefOf.RejectInput);
+                return options;
             }
-
-            base.ProcessInput( ev );
         }
 
         public override void DesignateMultiCell( IEnumerable<IntVec3> cells )

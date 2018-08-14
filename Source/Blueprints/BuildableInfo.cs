@@ -116,6 +116,10 @@ namespace Blueprints
             // get rotated cell position
             var cell = origin + Position;
 
+            // if out of bounds, we clearly can't place it
+            if (!GenGrid.InBounds(cell, Find.CurrentMap))
+                return PlacementReport.CanNotPlace;
+
             // if the designator's check passes, we can safely assume it's OK to build here
             if (Designator.CanDesignateCell(cell).Accepted)
                 return PlacementReport.CanPlace;

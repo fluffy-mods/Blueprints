@@ -30,6 +30,13 @@ namespace Blueprints
 
         #endregion Fields
 
+        static Resources()
+        {
+            Icon_AddBlueprint = ContentFinder<Texture2D>.Get("Icons/AddBlueprint", true);
+            Icon_Blueprint = ContentFinder<Texture2D>.Get("Icons/Blueprint", true);
+            Icon_Edit = ContentFinder<Texture2D>.Get("Icons/Edit", true);
+        }
+
         #region Methods
 
         public static IntVec3 CenterPosition( IntVec3 bottomLeft, IntVec2 size, Rot4 rotation )
