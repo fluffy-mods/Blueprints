@@ -6,14 +6,13 @@ using Verse;
 
 namespace Blueprints
 {
-    [StaticConstructorOnStartup]
     public class Designator_CreateBlueprint : Designator
     {
         #region Public Constructors
 
         public Designator_CreateBlueprint()
         {
-            // icon = Resources.Icon_AddBlueprint;
+            icon = Resources.Icon_AddBlueprint;
             defaultLabel = "Fluffy.Blueprints.Create".Translate();
             defaultDesc = "Fluffy.Blueprints.CreateHelp".Translate();
             useMouseIcon = true;
