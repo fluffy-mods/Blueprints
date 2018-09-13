@@ -259,6 +259,8 @@ namespace Blueprints
             {
                 foreach (var cost in item.BuildableDef.CostListAdjusted(item.Stuff, false))
                 {
+                    if ( cost?.thingDef == null )
+                        continue;
                     // add up all construction costs
                     if (costdict.ContainsKey(cost.thingDef))
                         costdict[cost.thingDef] += cost.count;
