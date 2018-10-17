@@ -3,7 +3,7 @@
   <name>Blueprints</name>
   <author>Fluffy</author>
   <url>https://ludeon.com/forums/index.php?topic=16120.0</url>
-  <targetVersion>1.0.2057</targetVersion>
+  <targetVersion>1.0.2059</targetVersion>
   <description>Blueprints allow the quick construction of repetitive rooms/areas. 
 
 &lt;size=24&gt;Features&lt;/size&gt;
@@ -35,7 +35,7 @@ Butter-Knife:    Japanese translation
 Kirill:    
 
 &lt;size=24&gt;Version&lt;/size&gt;
-This is version 2.0.36, for RimWorld 1.0.2057.
+This is version 2.1.37, for RimWorld 1.0.2059.
 
 </description>
 </ModMetaData>
