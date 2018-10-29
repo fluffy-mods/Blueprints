@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<Fluffy.Blueprints.DefaultBlueprintName>청사진</Fluffy.Blueprints.DefaultBlueprintName>
+	<Fluffy.Blueprints.NameAlreadyTaken>"{0}"은/는 이미 존재하는 이름입니다. 유일한 이름이어야 합니다.</Fluffy.Blueprints.NameAlreadyTaken>
+	<Fluffy.Blueprints.InvalidBlueprintName>"{0}"은/는 사용불가능합니다.\n알파벳, 숫자 혹은 밑줄 문자(a-z, _)만 사용가능합니다. 공백은 허용되지 않습니다.</Fluffy.Blueprints.InvalidBlueprintName>
+	<Fluffy.Blueprints.LoadFromXML>"{0}" 청사진 가져오기</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>아무 것도 선택되지 않아 청사진을 생성할 수 없습니다.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+	<Fluffy.Blueprint.Cost>전체 비용:</Fluffy.Blueprint.Cost>
+	<Fluffy.Blueprints.Remove>청사진 삭제</Fluffy.Blueprints.Remove>
+	<Fluffy.Blueprints.SaveToXML>청사진 내보내기</Fluffy.Blueprints.SaveToXML>
+	<Fluffy.Blueprints.RemoveAndDeleteXML>청사진을 제거하고 내보낸 청사진도 삭제합니다.</Fluffy.Blueprints.RemoveAndDeleteXML>
+	<Fluffy.Blueprints.Rename>청사진 이름 변경</Fluffy.Blueprints.Rename>
+	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>내보낸 청사진 "{0}"은/는 이미 존재합니다.\n다른 이름을 사용해 주세요.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+	<Fluffy.Blueprints.Create>생성</Fluffy.Blueprints.Create>
+	<Fluffy.Blueprints.CreateHelp>왼쪽 마우스 클릭으로 새 청사진을 만듭니다.\n오른쪽 마우스 클릭으로 청사진을 불러옵니다.</Fluffy.Blueprints.CreateHelp>
+	<Fluffy.Blueprints.NoStoredBlueprints>내보낸 청사진이 없거나 이미 모든 청사진을 불러왔습니다.</Fluffy.Blueprints.NoStoredBlueprints>
+	<Fluffy.Blueprints.NothingAvailableInBlueprint>{0}은/는 현재 기술 수준으로 건설할 수 있는 항목이 없습니다.</Fluffy.Blueprints.NothingAvailableInBlueprint>
+	<Fluffy.Blueprints.XNotAvailableInBlueprint>{0}에 있는 항목 중 현재 기술 수준으로 만들 수 없는 항목: {1}</Fluffy.Blueprints.XNotAvailableInBlueprint>
+
+</LanguageData>
