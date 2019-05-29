@@ -1,118 +1,106 @@
 ﻿//using CommunityCoreLibrary;
-using RimWorld;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using UnityEngine;
 using Verse;
 
 namespace Blueprints
 {
     public static class Controller
     {
-        #region Private Fields
-
-        private static readonly string _blueprintSaveExtension = ".xml";
-        private static List<Blueprint> _blueprints;
-        private static string _blueprintSaveLocation;
-        private static List<Designator> _designators;
-        private static bool _initialized = false;
-
-        #endregion Private Fields
-
-        #region Public Properties
+        private static readonly string           _blueprintSaveExtension = ".xml";
+        private static          List<Blueprint>  _blueprints;
+        private static          string           _blueprintSaveLocation;
+        private static          List<Designator> _designators;
+        private static          bool             _initialized;
 
         public static string BlueprintSaveLocation
         {
             get
             {
-                if (_blueprintSaveLocation == null)
+                if ( _blueprintSaveLocation == null )
                     _blueprintSaveLocation = GetSaveLocation();
                 return _blueprintSaveLocation;
             }
         }
 
-        #endregion Public Properties
-
-        #region Public Methods
-
-        public static void Add(Blueprint blueprint, bool init = false)
+        public static void Add( Blueprint blueprint, bool init = false )
         {
-            if (!init && !_initialized)
+            if ( !init && !_initialized )
                 Initialize();
-            _blueprints.Add(blueprint);
-            var designator = new Designator_Blueprint(blueprint);
-            _designators.Add(designator);
+            _blueprints.Add( blueprint );
+            var designator = new Designator_Blueprint( blueprint );
+            _designators.Add( designator );
 
             // select the new designator
-            Find.DesignatorManager.Select(designator);
+            Find.DesignatorManager.Select( designator );
         }
 
-        public static void Remove(Designator_Blueprint designator, bool removeFromDisk)
+        public static void Remove( Designator_Blueprint designator, bool removeFromDisk )
         {
-            _blueprints.Remove(designator.Blueprint);
-            _designators.Remove(designator);
+            _blueprints.Remove( designator.Blueprint );
+            _designators.Remove( designator );
 
-            if (removeFromDisk)
-                DeleteXML(designator.Blueprint);
+            if ( removeFromDisk )
+                DeleteXML( designator.Blueprint );
         }
 
-        public static Blueprint FindBlueprint(string name)
+        public static Blueprint FindBlueprint( string name )
         {
-            if (!_initialized)
+            if ( !_initialized )
                 Initialize();
-            return _blueprints.FirstOrDefault(blueprint => blueprint.name == name);
+            return _blueprints.FirstOrDefault( blueprint => blueprint.name == name );
         }
 
-        public static Designator_Blueprint FindDesignator(string name)
+        public static Designator_Blueprint FindDesignator( string name )
         {
-            if (!_initialized)
+            if ( !_initialized )
                 Initialize();
-            return _designators.FirstOrDefault(designator => (designator as Designator_Blueprint)?.Blueprint.name == name) as Designator_Blueprint;
+            return _designators.FirstOrDefault( designator =>
+                                                    ( designator as Designator_Blueprint )?.Blueprint.name == name ) as
+                Designator_Blueprint;
         }
 
         // TODO: Call from bootstrap
         public static void Initialize()
         {
-            if (_initialized)
+            if ( _initialized )
                 return;
 
             // start blueprints list
             _blueprints = new List<Blueprint>();
 
             // find our designation category.
-            DesignationCategoryDef desCatDef = DefDatabase<DesignationCategoryDef>.GetNamed("Blueprints");
-            if (desCatDef == null)
-                throw new Exception("Blueprints designation category not found");
+            var desCatDef = DefDatabase<DesignationCategoryDef>.GetNamed( "Blueprints" );
+            if ( desCatDef == null )
+                throw new Exception( "Blueprints designation category not found" );
 
             // create internal designators list as a reference to list in the category def.
-            FieldInfo _designatorsFI = typeof(DesignationCategoryDef).GetField("resolvedDesignators", BindingFlags.NonPublic | BindingFlags.Instance);
-            _designators = _designatorsFI.GetValue(desCatDef) as List<Designator>;
+            var _designatorsFI =
+                typeof( DesignationCategoryDef ).GetField( "resolvedDesignators",
+                                                           BindingFlags.NonPublic | BindingFlags.Instance );
+            _designators = _designatorsFI.GetValue( desCatDef ) as List<Designator>;
 
             // done!
             _initialized = true;
         }
 
-        #endregion Public Methods
-
-        #region Private Methods
-
-        private static void DeleteXML(Blueprint blueprint)
+        private static void DeleteXML( Blueprint blueprint )
         {
-            File.Delete(FullFilePath(blueprint.name));
+            File.Delete( FullFilePath( blueprint.name ) );
         }
 
         internal static List<FileInfo> GetSavedFilesList()
         {
-            DirectoryInfo directoryInfo = new DirectoryInfo(BlueprintSaveLocation);
+            var directoryInfo = new DirectoryInfo( BlueprintSaveLocation );
 
-            IOrderedEnumerable<FileInfo> files = from f in directoryInfo.GetFiles()
-                                                 where f.Extension == _blueprintSaveExtension
-                                                 orderby f.LastWriteTime descending
-                                                 select f;
+            var files = from f in directoryInfo.GetFiles()
+                        where f.Extension == _blueprintSaveExtension
+                        orderby f.LastWriteTime descending
+                        select f;
 
             return files.ToList();
         }
@@ -120,50 +108,51 @@ namespace Blueprints
         private static string GetSaveLocation()
         {
             // Get method "FolderUnderSaveData" from GenFilePaths, which is private (NonPublic) and static.
-            MethodInfo Folder = typeof(GenFilePaths).GetMethod("FolderUnderSaveData",
-                                                                 BindingFlags.NonPublic |
-                                                                 BindingFlags.Static);
-            if (Folder == null)
-                throw new Exception("Blueprints :: FolderUnderSaveData is null [reflection]");
+            var Folder = typeof( GenFilePaths ).GetMethod( "FolderUnderSaveData",
+                                                           BindingFlags.NonPublic |
+                                                           BindingFlags.Static );
+            if ( Folder == null )
+                throw new Exception( "Blueprints :: FolderUnderSaveData is null [reflection]" );
 
             // Call "FolderUnderSaveData" from null parameter, since this is a static method.
-            return (string)Folder.Invoke(null, new object[] { "Blueprints" });
+            return (string) Folder.Invoke( null, new object[] {"Blueprints"} );
         }
 
-        private static string FullFilePath(string name)
+        private static string FullFilePath( string name )
         {
 #if DEBUG
             Log.Message( Path.Combine( _blueprintSaveLocation, name + _blueprintSaveExtension ) );
 #endif
-            return Path.Combine(BlueprintSaveLocation, name + _blueprintSaveExtension);
+            return Path.Combine( BlueprintSaveLocation, name + _blueprintSaveExtension );
         }
 
-        internal static bool FileExists(string name)
+        internal static bool FileExists( string name )
         {
-            return File.Exists(FullFilePath(name));
+            return File.Exists( FullFilePath( name ) );
         }
 
-        internal static bool TryRenameFile(Blueprint blueprint, string newName)
+        internal static bool TryRenameFile( Blueprint blueprint, string newName )
         {
-            if (!FileExists(newName))
+            if ( !FileExists( newName ) )
             {
-                RenameFile(blueprint, newName);
+                RenameFile( blueprint, newName );
                 return true;
             }
+
             return false;
         }
 
-        private static void RenameFile(Blueprint blueprint, string newName)
+        private static void RenameFile( Blueprint blueprint, string newName )
         {
-            DeleteXML(blueprint);
+            DeleteXML( blueprint );
             blueprint.name = newName;
-            SaveToXML(blueprint);
+            SaveToXML( blueprint );
         }
 
-        internal static Blueprint LoadFromXML(string name)
+        internal static Blueprint LoadFromXML( string name )
         {
             // set up empty blueprint
-            Blueprint blueprint = new Blueprint();
+            var blueprint = new Blueprint();
 
 #if DEBUG
             Log.Message( "Attempting to load from: " + name );
@@ -172,15 +161,15 @@ namespace Blueprints
             // load stuff
             try
             {
-                Scribe.loader.InitLoading(BlueprintSaveLocation + "/" + name);
-                ScribeMetaHeaderUtility.LoadGameDataHeader(ScribeMetaHeaderUtility.ScribeHeaderMode.Map, true);
-                Scribe.EnterNode("Blueprint");
+                Scribe.loader.InitLoading( BlueprintSaveLocation + "/" + name );
+                ScribeMetaHeaderUtility.LoadGameDataHeader( ScribeMetaHeaderUtility.ScribeHeaderMode.Map, true );
+                Scribe.EnterNode( "Blueprint" );
                 blueprint.ExposeData();
                 Scribe.ExitNode();
             }
-            catch (Exception e)
+            catch ( Exception e )
             {
-                Log.Error("Exception while loading blueprint: " + e);
+                Log.Error( "Exception while loading blueprint: " + e );
             }
             finally
             {
@@ -193,40 +182,40 @@ namespace Blueprints
             // which is fine. in addition, it'll set the field to null - which may result in problems down the road.
             // Make sure each item in the blueprint has a def set, if not - remove it.
             // This check itself will throw another error, which is also fine. User will have to resolve the issue manually.
-            blueprint.contents = blueprint.contents.Where(item => item.BuildableDef != null).ToList();
+            blueprint.contents = blueprint.contents.Where( item => item.BuildableDef != null ).ToList();
 
             // return blueprint.
             return blueprint;
         }
 
-        public static void SaveToXML(Blueprint blueprint)
+        public static void SaveToXML( Blueprint blueprint )
         {
             try
             {
                 try
                 {
-                    Scribe.saver.InitSaving(FullFilePath(blueprint.name), "Blueprint");
+                    Scribe.saver.InitSaving( FullFilePath( blueprint.name ), "Blueprint" );
                 }
-                catch (Exception ex)
+                catch ( Exception ex )
                 {
-                    GenUI.ErrorDialog("ProblemSavingFile".Translate(ex.ToString()));
+                    GenUI.ErrorDialog( "ProblemSavingFile".Translate( ex.ToString() ) );
                     throw;
                 }
+
                 ScribeMetaHeaderUtility.WriteMetaHeader();
-                Scribe_Deep.Look(ref blueprint, "Blueprint");
+                Scribe_Deep.Look( ref blueprint, "Blueprint" );
             }
-            catch (Exception ex2)
+            catch ( Exception ex2 )
             {
-                Log.Error("Exception while saving blueprint: " + ex2);
+                Log.Error( "Exception while saving blueprint: " + ex2 );
             }
             finally
             {
                 Scribe.saver.FinalizeSaving();
             }
+
             // set exported flag.
             blueprint.exported = true;
         }
-
-        #endregion Private Methods
     }
 }

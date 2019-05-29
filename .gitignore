@@ -58,3 +58,4 @@ Source/BetterAnimalsTab/obj/Debug/BetterAnimalsTab.pdb
 *.cache
 *.pxd
 *.pdb
+/Source/Blueprints/Blueprints.sln.DotSettings.user

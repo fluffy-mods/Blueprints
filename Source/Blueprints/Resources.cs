@@ -66,7 +66,7 @@ namespace Blueprints
             return (Rot4)designator_place_placingRotation_FI.GetValue( designator );
         }
 
-        public static Color ghostColor( PlacementReport placementReport )
+        public static Color GhostColor( PlacementReport placementReport )
         {
             switch ( placementReport )
             {
@@ -76,7 +76,7 @@ namespace Blueprints
                 case PlacementReport.CanPlace:
                     return ghostBlue;
 
-                case PlacementReport.Alreadyplaced:
+                case PlacementReport.AlreadyPlaced:
                     return ghostGrey;
 
                 default:
@@ -86,7 +86,7 @@ namespace Blueprints
 
         public static Material ghostFloorMaterial( PlacementReport placementReport )
         {
-            Color color = ghostColor( placementReport );
+            Color color = GhostColor( placementReport );
             Material ghost;
             if ( _ghostFloors.TryGetValue( color, out ghost ) )
                 return ghost;
