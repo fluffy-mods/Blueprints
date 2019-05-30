@@ -26,7 +26,7 @@ namespace Blueprints
                 return validName;
 
             // finally, if we're renaming an already exported blueprint, check if the new name doesn't already exist
-            if ( _blueprint.exported && !Controller.TryRenameFile( _blueprint, newName ) )
+            if ( _blueprint.exported && !BlueprintController.TryRenameFile( _blueprint, newName ) )
                 return new AcceptanceReport(
                     "Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists".Translate( newName ) );
 

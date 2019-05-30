@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <KeyBindingDef ParentName="ArchitectBase">
+    <defName>Blueprint_Flip</defName>
+    <label>flip blueprint</label>
+    <defaultKeyCodeA>F</defaultKeyCodeA>
+  </KeyBindingDef>
+</Defs>

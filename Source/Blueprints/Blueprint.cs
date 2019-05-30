@@ -25,7 +25,6 @@ namespace Blueprints
         public Blueprint()
         {
             // empty for Scribe;
-            exported = true; // loaded from scribe - so must have been exported.
         }
 
         public Blueprint( List<BuildableInfo> contents, IntVec2 size, string defaultName = null )
@@ -48,7 +47,7 @@ namespace Blueprints
 
             // increment numeric suffix until we have a unique name
             var i = 1;
-            while ( Controller.FindBlueprint( name + "_" + i ) != null )
+            while ( BlueprintController.FindBlueprint( name + "_" + i ) != null )
                 i++;
 
             // set name
@@ -114,6 +113,7 @@ namespace Blueprints
             Scribe_Collections.Look( ref contents, "BuildableThings", LookMode.Deep, this );
             Scribe_Values.Look( ref name, "Name" );
             Scribe_Values.Look( ref _size, "Size" );
+            Scribe_Values.Look( ref exported, "Exported", false );
         }
 
         public static bool CouldBeValidBlueprintName( string name )
@@ -127,7 +127,7 @@ namespace Blueprints
                 return new AcceptanceReport( "Fluffy.Blueprints.InvalidBlueprintName".Translate( name ) );
 
             // TODO: figure out why this doesn't work
-            if ( Controller.FindBlueprint( name ) != null )
+            if ( BlueprintController.FindBlueprint( name ) != null )
                 return new AcceptanceReport( "Fluffy.Blueprints.NameAlreadyTaken".Translate( name ) );
 
             return true;
@@ -197,17 +197,32 @@ namespace Blueprints
             _costlist          = null;
         }
 
+        private HashSet<FailReason> _failReasonsMentioned = new HashSet<FailReason>();
         public void Rotate( RotationDirection direction )
         {
             _size = _size.Rotated();
             foreach ( var item in contents )
-                item.Rotate( direction );
+            {
+                var success = item.Rotate( direction );
+                if ( !success && _failReasonsMentioned.Contains( success ) )
+                {
+                    Messages.Message( success.reason, MessageTypeDefOf.RejectInput, false );
+                    _failReasonsMentioned.Add( success );
+                }
+            }
         }
 
         public void Flip()
         {
             foreach ( var item in contents )
-                item.Flip();
+            {
+                var success = item.Flip();
+                if ( !success && _failReasonsMentioned.Contains( success ) )
+                {
+                    Messages.Message( success.reason, MessageTypeDefOf.RejectInput, false );
+                    _failReasonsMentioned.Add( success );
+                }
+            }
         }
 
         protected internal bool ShouldLinkWith( IntVec3 position, ThingDef thingDef )

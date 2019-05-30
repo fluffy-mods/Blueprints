@@ -9,7 +9,7 @@ namespace Blueprints
 {
     public class Designator_Blueprint : Designator
     {
-        private readonly float   _lineOffset = -4f;
+        private readonly float   _lineOffset = -0f;
         private          float   _middleMouseDownTime;
         private          float   _panelHeight    = 999f;
         private          Vector2 _scrollPosition = Vector2.zero;
@@ -41,17 +41,17 @@ namespace Blueprints
 
                 // delete blueprint
                 options.Add( new FloatMenuOption( "Fluffy.Blueprints.Remove".Translate(),
-                                                  delegate { Controller.Remove( this, false ); } ) );
+                                                  delegate { BlueprintController.Remove( this, false ); } ) );
 
                 // delete blueprint and remove from disk
                 if ( Blueprint.exported )
                     options.Add( new FloatMenuOption( "Fluffy.Blueprints.RemoveAndDeleteXML".Translate(),
-                                                      delegate { Controller.Remove( this, true ); } ) );
+                                                      delegate { BlueprintController.Remove( this, true ); } ) );
 
                 // store to xml
                 else
                     options.Add( new FloatMenuOption( "Fluffy.Blueprints.SaveToXML".Translate(),
-                                                      delegate { Controller.SaveToXML( Blueprint ); } ) );
+                                                      delegate { BlueprintController.SaveToXML( Blueprint ); } ) );
 
                 return options;
             }
@@ -97,7 +97,7 @@ namespace Blueprints
             var width  = 200f;
 
             var margin     = 9f;
-            var topmargin = 15f;
+            var topmargin  = 15f;
             var numButtons = 3;
             var button     = Mathf.Min( ( width - ( numButtons + 1 ) * margin ) / numButtons, height - topmargin );
 
@@ -111,6 +111,7 @@ namespace Blueprints
                 Text.Font   = GameFont.Medium;
 
                 var rotLeftRect = new Rect( margin, topmargin, button, button );
+                Widgets.Label( rotLeftRect, KeyBindingDefOf.Designator_RotateLeft.MainKeyLabel );
                 if ( Widgets.ButtonImage( rotLeftRect, Resources.RotLeftTex ) )
                 {
                     SoundDefOf.AmountDecrement.PlayOneShotOnCamera();
@@ -118,10 +119,8 @@ namespace Blueprints
                     Event.current.Use();
                 }
 
-                Widgets.Label( rotLeftRect, KeyBindingDefOf.Designator_RotateLeft.MainKeyLabel );
-
-                // todo; figure out blueprint flipping
                 var flipRect = new Rect( 2 * margin + button, topmargin, button, button );
+                Widgets.Label( flipRect, KeyBindingDefOf2.Blueprint_Flip.MainKeyLabel );
                 if ( Widgets.ButtonImage( flipRect, Resources.FlipTex ) )
                 {
                     SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
@@ -130,7 +129,7 @@ namespace Blueprints
                 }
 
                 var rotRightRect = new Rect( 3 * margin + 2 * button, topmargin, button, button );
-                //var rotRightRect = new Rect( 2 * margin + button, topmargin, button, button );
+                Widgets.Label( rotRightRect, KeyBindingDefOf.Designator_RotateRight.MainKeyLabel );
                 if ( Widgets.ButtonImage( rotRightRect, Resources.RotRightTex ) )
                 {
                     SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
@@ -138,8 +137,9 @@ namespace Blueprints
                     Event.current.Use();
                 }
 
-                Widgets.Label( rotRightRect, KeyBindingDefOf.Designator_RotateRight.MainKeyLabel );
-                if ( rotationDirection != RotationDirection.None ) Blueprint.Rotate( rotationDirection );
+
+                if ( rotationDirection != RotationDirection.None )
+                    Blueprint.Rotate( rotationDirection );
                 Text.Anchor = TextAnchor.UpperLeft;
                 Text.Font   = GameFont.Small;
             } );
@@ -312,13 +312,21 @@ namespace Blueprints
                     _middleMouseDownTime = Time.realtimeSinceStartup;
                 }
 
-                if ( Event.current.type == EventType.MouseUp && Time.realtimeSinceStartup - _middleMouseDownTime < 0.15f
-                ) rotationDirection = RotationDirection.Clockwise;
+                if ( Event.current.type == EventType.MouseUp && Time.realtimeSinceStartup - _middleMouseDownTime < 0.15f )
+                    rotationDirection = RotationDirection.Clockwise;
             }
 
-            if ( KeyBindingDefOf.Designator_RotateRight.KeyDownEvent ) rotationDirection = RotationDirection.Clockwise;
+
+            if ( KeyBindingDefOf.Designator_RotateRight.KeyDownEvent )
+                rotationDirection = RotationDirection.Clockwise;
             if ( KeyBindingDefOf.Designator_RotateLeft.KeyDownEvent )
                 rotationDirection = RotationDirection.Counterclockwise;
+            if ( KeyBindingDefOf2.Blueprint_Flip.KeyDownEvent )
+            {
+                SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
+                Blueprint.Flip();
+            }
+
             if ( rotationDirection == RotationDirection.Clockwise )
             {
                 SoundDefOf.AmountIncrement.PlayOneShotOnCamera();

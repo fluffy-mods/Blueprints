@@ -28,14 +28,14 @@ namespace Blueprints
             {
                 var options = new List<FloatMenuOption>();
 
-                foreach ( var file in Controller.GetSavedFilesList() )
+                foreach ( var file in BlueprintController.GetSavedFilesList() )
                 {
                     var name = Path.GetFileNameWithoutExtension( file.Name );
-                    if ( Controller.FindBlueprint( name ) == null )
+                    if ( BlueprintController.FindBlueprint( name ) == null )
                         options.Add( new FloatMenuOption( "Fluffy.Blueprints.LoadFromXML".Translate( name ),
                                                           delegate
                                                           {
-                                                              Controller.Add( Controller.LoadFromXML( file.Name ) );
+                                                              BlueprintController.Add( BlueprintController.LoadFromXML( file.Name ) );
                                                           } ) );
                 }
 
@@ -112,7 +112,7 @@ namespace Blueprints
 
             // add to controller - controller handles adding to designations
             var blueprint = new Blueprint( buildables, size, defaultName );
-            Controller.Add( blueprint );
+            BlueprintController.Add( blueprint );
 
             blueprint.Debug();
         }

@@ -37,7 +37,7 @@ namespace Blueprints
             Icon_Edit         = ContentFinder<Texture2D>.Get( "Icons/Edit" );
             RotLeftTex        = ContentFinder<Texture2D>.Get( "UI/Widgets/RotLeft" );
             RotRightTex       = ContentFinder<Texture2D>.Get( "UI/Widgets/RotRight" );
-            FlipTex           = RotLeftTex;
+            FlipTex           = ContentFinder<Texture2D>.Get( "Icons/Flip" );
         }
 
         public static IntVec3 Offset( IntVec2 size, Rot4 from, Rot4 to )

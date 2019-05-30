@@ -49,9 +49,10 @@
   <ItemGroup>
     <Compile Include="Blueprint.cs" />
     <Compile Include="Debug.cs" />
+    <Compile Include="DefOf.cs" />
     <Compile Include="Designator_Blueprint.cs" />
     <Compile Include="Designator_CreateBlueprint.cs" />
-    <Compile Include="Controller.cs" />
+    <Compile Include="BlueprintController.cs" />
     <Compile Include="BuildableInfo.cs" />
     <Compile Include="Dialog_NameBlueprint.cs" />
     <Compile Include="Extensions.cs" />
