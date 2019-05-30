@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using RimWorld;
@@ -145,7 +146,8 @@ namespace Blueprints
                     return false;
             return true;
         }
-
+        
+        [Conditional("DEBUG")]
         public void Debug()
         {
             Log.Message( _size.ToString() );

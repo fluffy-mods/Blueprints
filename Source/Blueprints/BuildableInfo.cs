@@ -92,12 +92,7 @@ namespace Blueprints
                     return _position;
 
                 // offset position
-                var size = _thingDef.Size;
-                var pos  = IntVec3.Zero;
-                var alt  = AltitudeLayer.Blueprint.AltitudeFor();
-                var offset = GenThing.TrueCenter( pos, Rot4.North, size, alt ) -
-                             GenThing.TrueCenter( pos, _rotation, size, alt );
-                return _position - offset.ToIntVec3();
+                return _position - Resources.Offset( _thingDef.Size, Rot4.North, _rotation );
             }
         }
 
@@ -269,7 +264,7 @@ namespace Blueprints
             {
                 var position = cell.ToVector3ShiftedWithAltitude( AltitudeLayer.MetaOverlays );
                 Graphics.DrawMesh( MeshPool.plane10, position, Quaternion.identity,
-                                   Resources.ghostFloorMaterial( CanPlace( origin ) ), 0 );
+                                   Resources.GhostFloorMaterial( CanPlace( origin ) ), 0 );
             }
         }
 
@@ -288,7 +283,7 @@ namespace Blueprints
                 new Designation( origin + Position, DesignationDefOf.Plan ) );
         }
 
-        public void Rotate( RotationDirection direction )
+        public FailReason Rotate( RotationDirection direction )
         {
             // update position within blueprint
             // for a clock wise rotation
@@ -302,10 +297,9 @@ namespace Blueprints
             // update rotation of item
             // if there's no thingdef, there's no point.
             if ( _thingDef == null )
-                return;
+                return true;
 
             // always keep track of rotation internally
-            var previousRotation = _rotation;
             _rotation.Rotate( direction );
 
             // if rotatable or a linked building (e.g. walls, sandbags), rotate.
@@ -317,22 +311,55 @@ namespace Blueprints
             if ( !Rotatable && !Centered )
             {
                 if ( !Square )
-                {
                     // throw message - don't deal.
-                }
-                else
-                {
-                    // we'll try to offset the location
-                    if ( _thingDef.hasInteractionCell )
-                    {
-                        // throw message - interaction cell might become inaccessible.
-                    }
-                }
+                    return "Fluffy.Blueprints.UnRotatable.NonSquare".Translate( _thingDef.LabelCap );
+
+                // we'll try to offset the location
+                if ( _thingDef.hasInteractionCell )
+                    // throw message - interaction cell might become inaccessible.
+                    return "Fluffy.Blueprints.UnRotatable.HasInteractionCell".Translate( _thingDef.LabelCap );
             }
+
+            return true;
         }
 
-        public void Flip()
+        public FailReason Flip()
         {
+            // invert x position
+            _position.x = -_position.x;
+            if ( BuildableDef is ThingDef thingDef )
+            {
+                // fix relative offset
+                if ( !Centered )
+                {
+                    IntVec3 offset;
+                    if ( _rotation.AsInt % 2 == 0 )
+                    {
+                        offset      =  Resources.Offset( thingDef.Size, new Rot4( _rotation.AsInt + 2 ), _rotation );
+                        _position.x += offset.x;
+                    }
+                    else
+                    {
+                        offset      =  Resources.Offset( thingDef.Size, new Rot4( _rotation.AsInt + 2 ), _rotation );
+                        _position.z -= offset.z;
+                    }
+
+                    Debug.Message( $"flip from: {_rotation}, to: {new Rot4( _rotation.AsInt + 2 )}, {offset}" );
+                }
+
+                // swap east/west facings, leave north/south the same.
+                if ( _rotation.AsInt % 2 == 1 ) // East/West
+                    _rotation.AsInt += 2;       // rotate twice.
+
+                // update designator if needed
+                if ( Rotatable || thingDef.graphicData.Linked )
+                    Resources.SetDesignatorRotation( Designator, _rotation );
+
+                if ( !Rotatable && !Centered && thingDef.hasInteractionCell )
+                    return "Fluffy.Blueprints.UnFlippable.HasInteractionCell".Translate( thingDef.LabelCap );
+            }
+
+            return true;
         }
 
         public override string ToString()

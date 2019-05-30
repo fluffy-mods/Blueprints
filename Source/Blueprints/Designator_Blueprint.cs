@@ -93,12 +93,13 @@ namespace Blueprints
         // copy-pasta from RimWorld.Designator_Place, with minor changes.
         public override void DoExtraGuiControls( float leftX, float bottomY )
         {
-            var height     = 90f;
-            var width      = 200f;
-            var button     = 64f;
-            var numButtons = 2f;
-            var margin     = ( width - button * numButtons ) / ( numButtons + 1 );
-            var topmargin  = 15f;
+            var height = 90f;
+            var width  = 200f;
+
+            var margin     = 9f;
+            var topmargin = 15f;
+            var numButtons = 3;
+            var button     = Mathf.Min( ( width - ( numButtons + 1 ) * margin ) / numButtons, height - topmargin );
 
             var winRect = new Rect( leftX, bottomY - height, width, height );
             HandleRotationShortcuts();
@@ -120,15 +121,16 @@ namespace Blueprints
                 Widgets.Label( rotLeftRect, KeyBindingDefOf.Designator_RotateLeft.MainKeyLabel );
 
                 // todo; figure out blueprint flipping
-                //Rect flipRect = new Rect( 2 * margin + button, topmargin, button, button );
-                //if ( Widgets.ButtonImage( flipRect, Resources.FlipTex ) )
-                //{
-                //    SoundDefOf.FlickSwitch.PlayOneShotOnCamera();
-                //    Blueprint.Flip();
-                //    Event.current.Use();
-                //}
+                var flipRect = new Rect( 2 * margin + button, topmargin, button, button );
+                if ( Widgets.ButtonImage( flipRect, Resources.FlipTex ) )
+                {
+                    SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
+                    Blueprint.Flip();
+                    Event.current.Use();
+                }
 
-                var rotRightRect = new Rect( 2 * margin + button, topmargin, button, button );
+                var rotRightRect = new Rect( 3 * margin + 2 * button, topmargin, button, button );
+                //var rotRightRect = new Rect( 2 * margin + button, topmargin, button, button );
                 if ( Widgets.ButtonImage( rotRightRect, Resources.RotRightTex ) )
                 {
                     SoundDefOf.AmountIncrement.PlayOneShotOnCamera();

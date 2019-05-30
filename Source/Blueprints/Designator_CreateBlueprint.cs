@@ -114,9 +114,7 @@ namespace Blueprints
             var blueprint = new Blueprint( buildables, size, defaultName );
             Controller.Add( blueprint );
 
-#if DEBUG
             blueprint.Debug();
-#endif
         }
     }
 }
