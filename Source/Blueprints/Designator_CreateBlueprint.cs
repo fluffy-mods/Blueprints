@@ -103,13 +103,27 @@ namespace Blueprints
             foreach ( var terrain in terrains )
                 buildables.Add( new BuildableInfo( terrain.First, terrain.Second, origin ) );
 
-            // try to get a decent default name: check if selection contains only a single room - if so, that's a decent name.
-            var    room        = origin.GetRoom( Map );
-            string defaultName = null;
-            if ( room != null && room.Role != RoomRoleDefOf.None )
-                defaultName = room.Role.LabelCap;
-            // TODO: multiple (same) rooms, etc.
+            // try to get a decent default name: get rooms for occupied cells, then see if there is only one type.
+            var rooms = allCells.Select( c => c.GetRoom( Map ) )
+                                .Where( r => r != null && r.Role != RoomRoleDefOf.None )
+                                .Distinct()
+                                .GroupBy( r => r.Role.LabelCap );
 
+#if DEBUG
+            foreach ( var room in rooms )
+                Debug.Message( $"{room.Count()}x {room.Key}" );
+#endif
+
+            // only one type of room
+            string defaultName = null;
+            if ( rooms.Count() == 1 )
+            {
+                var room = rooms.First();
+                defaultName = room.Count() > 1
+                    ? "Fluffy.Blueprints.Plural".Translate( room.Key )
+                    : room.Key;
+            }
+            
             // add to controller - controller handles adding to designations
             var blueprint = new Blueprint( buildables, size, defaultName );
             BlueprintController.Add( blueprint );

@@ -42,7 +42,7 @@ namespace Blueprints
             exported = false;
 
             // 'orrible default name
-            if ( name == null && !CouldBeValidBlueprintName( name ) )
+            if ( name == null || !CouldBeValidBlueprintName( name ) )
                 name = "Fluffy.Blueprints.DefaultBlueprintName".Translate();
 
             // increment numeric suffix until we have a unique name
