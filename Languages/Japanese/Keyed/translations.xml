@@ -1,23 +1,28 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-	<Fluffy.Blueprints.DefaultBlueprintName>設計図</Fluffy.Blueprints.DefaultBlueprintName>
+  <Fluffy.Blueprints.DefaultBlueprintName>設計図</Fluffy.Blueprints.DefaultBlueprintName>
+  <Fluffy.Blueprints.NameAlreadyTaken>"{0}" 同じ名前の設計図が存在します。別の名前で保存してください。</Fluffy.Blueprints.NameAlreadyTaken>
+  <Fluffy.Blueprints.InvalidBlueprintName>"{0}" は無効なファイル名です。空白文字は使用できません。\n代わりにアンダーバー( _ )を使用して下さい。</Fluffy.Blueprints.InvalidBlueprintName>
+  <Fluffy.Blueprints.LoadFromXML>設計図の読み込み "{0}"</Fluffy.Blueprints.LoadFromXML>
+  <Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>設計図を作ることができません。何も選択されていません。</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+  <Fluffy.Blueprint.Cost>総コスト:</Fluffy.Blueprint.Cost>
+  <Fluffy.Blueprints.Remove>設計図を削除</Fluffy.Blueprints.Remove>
+  <Fluffy.Blueprints.SaveToXML>設計図の書き出し</Fluffy.Blueprints.SaveToXML>
+  <Fluffy.Blueprints.RemoveAndDeleteXML>書き出した設計図も削除</Fluffy.Blueprints.RemoveAndDeleteXML>
+  <Fluffy.Blueprints.Rename>名前の変更</Fluffy.Blueprints.Rename>
+  <Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>設計図 "{0}" は既に存在しています。\n別の名前で書きだしてください。</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+  <Fluffy.Blueprints.Create>新規作成</Fluffy.Blueprints.Create>
+  <Fluffy.Blueprints.CreateHelp>クリックで新規作成\n右クリックで読み込み</Fluffy.Blueprints.CreateHelp>
+  <Fluffy.Blueprints.NoStoredBlueprints>書き出された設計図が見つからないか、既に読み込み済みです。</Fluffy.Blueprints.NoStoredBlueprints>
+  <Fluffy.Blueprints.NothingAvailableInBlueprint>設計図 {0} の建築に必要な研究が未完了です。</Fluffy.Blueprints.NothingAvailableInBlueprint>
+  <Fluffy.Blueprints.XNotAvailableInBlueprint>設計図 {0} に含まれるアイテムに必要な研究が未完了です {1} </Fluffy.Blueprints.XNotAvailableInBlueprint>
 
-	<Fluffy.Blueprints.NameAlreadyTaken>"{0}" 同じ名前の設計図が存在します。別の名前で保存してください。</Fluffy.Blueprints.NameAlreadyTaken>
-	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" は無効なファイル名です。空白文字は使用できません。\n代わりにアンダーバー( _ )を使用して下さい。</Fluffy.Blueprints.InvalidBlueprintName>
+  <Fluffy.Blueprints.UnFlippable.HasInteractionCell>{0}は回転できず、相互に干渉する部分があります。反転すると配置が無効になる可能性があります。</Fluffy.Blueprints.UnFlippable.HasInteractionCell>
+  <Fluffy.Blueprints.UnRotatable.HasInteractionCell>{0}は回転できず、相互に干渉する部分があります。回転すると配置が無効になる可能性があります。</Fluffy.Blueprints.UnRotatable.HasInteractionCell>
+  <Fluffy.Blueprints.UnRotatable.NonSquare>{0}は回転できず、正方形でもありません。設計図を回転させると、{0}の配置が無効になります。</Fluffy.Blueprints.UnRotatable.NonSquare>
 
-	<Fluffy.Blueprints.LoadFromXML>設計図の読み込み "{0}"</Fluffy.Blueprints.LoadFromXML>
-	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>設計図を作ることができません。何も選択されていません。</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
-	<Fluffy.Blueprint.Cost>総コスト:</Fluffy.Blueprint.Cost>
-	<Fluffy.Blueprints.Remove>設計図を削除</Fluffy.Blueprints.Remove>
-	<Fluffy.Blueprints.SaveToXML>設計図の書き出し</Fluffy.Blueprints.SaveToXML>
-	<Fluffy.Blueprints.RemoveAndDeleteXML>書き出した設計図も削除</Fluffy.Blueprints.RemoveAndDeleteXML>
-	<Fluffy.Blueprints.Rename>名前の変更</Fluffy.Blueprints.Rename>
-	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>設計図 "{0}" は既に存在しています。\n別の名前で書きだしてください。</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
-	<Fluffy.Blueprints.Create>新規作成</Fluffy.Blueprints.Create>
-	<Fluffy.Blueprints.CreateHelp>クリックで新規作成\n右クリックで読み込み</Fluffy.Blueprints.CreateHelp>
-	<Fluffy.Blueprints.NoStoredBlueprints>書き出された設計図が見つからないか、既に読み込み済みです。</Fluffy.Blueprints.NoStoredBlueprints>
-	<Fluffy.Blueprints.NothingAvailableInBlueprint>設計図 {0} の建築に必要な研究が未完了です。</Fluffy.Blueprints.NothingAvailableInBlueprint>
-	<Fluffy.Blueprints.XNotAvailableInBlueprint>設計図 {0} に含まれるアイテムに必要な研究が未完了です {1} </Fluffy.Blueprints.XNotAvailableInBlueprint>
+  <!-- I'm aware this is a _very_ suboptimal solution, but short of writing a custom languageWorker like thing for each language, this will have to do. It's only for default blueprint names anyway. -->
+  <Fluffy.Blueprints.Plural>{0}の</Fluffy.Blueprints.Plural>
+
 </LanguageData>
-
