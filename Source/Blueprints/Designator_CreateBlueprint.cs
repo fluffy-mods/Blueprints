@@ -50,6 +50,7 @@ namespace Blueprints
         {
             var things = loc.GetThingList( Map );
             return loc.InBounds( Map ) &&
+                   !loc.Fogged( Map )  &&
                    ( loc.GetTerrain( Map ).IsValidBlueprintTerrain() ||
                      !things.NullOrEmpty() &&
                      things.Any( thing => thing.IsValidBlueprintThing() ) );
