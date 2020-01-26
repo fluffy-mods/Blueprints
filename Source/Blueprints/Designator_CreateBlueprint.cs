@@ -73,8 +73,7 @@ namespace Blueprints
 
             // get list of buildings in the cells, note that this includes frames and blueprints, and so _may include floors!_
             var things = new List<Thing>( cells.SelectMany( cell => cell.GetThingList( Map )
-                                                                        .Where( thing => thing
-                                                                                   .IsValidBlueprintThing() ) )
+                                                                        .Where( thing => thing.IsValidBlueprintThing() ) )
                                                .Distinct() );
 
             // get list of creatable terrains

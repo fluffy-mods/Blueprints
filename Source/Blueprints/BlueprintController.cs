@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Harmony;
 using RimWorld.Planet;
 using Verse;
 
@@ -86,6 +87,10 @@ namespace Blueprints
         {
             if ( _initialized )
                 return;
+
+            // do harmony patches
+            var harmony = HarmonyInstance.Create( "fluffy.blueprints" );
+            harmony.PatchAll( Assembly.GetExecutingAssembly() );
 
             // find our designation category.
             var desCatDef = DefDatabase<DesignationCategoryDef>.GetNamed( "Blueprints" );

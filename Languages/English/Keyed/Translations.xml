@@ -13,6 +13,8 @@
 	<Fluffy.Blueprints.Rename>Rename blueprint</Fluffy.Blueprints.Rename>
 	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>An exported blueprint named "{0}" already exists.\nPlease choose a different name.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
 	<Fluffy.Blueprints.Create>Create</Fluffy.Blueprints.Create>
+	<Fluffy.Blueprints.CreateFromSelectionHelp>Create a new blueprint from the currently selected buildings.</Fluffy.Blueprints.CreateFromSelectionHelp>
+	<Fluffy.Blueprints.CreateFromSelection>Create blueprint</Fluffy.Blueprints.CreateFromSelection>
 	<Fluffy.Blueprints.CreateHelp>Left-click to create a new blueprint.\nRight-click to import a blueprint.</Fluffy.Blueprints.CreateHelp>
 	<Fluffy.Blueprints.NoStoredBlueprints>There are no exported blueprints (or they are all already loaded).</Fluffy.Blueprints.NoStoredBlueprints>
 	<Fluffy.Blueprints.NothingAvailableInBlueprint>None of the items in {0} can be build with the current technology.</Fluffy.Blueprints.NothingAvailableInBlueprint>
