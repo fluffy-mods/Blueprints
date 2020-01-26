@@ -14,14 +14,19 @@ namespace Blueprints
     public class BlueprintController : WorldComponent
     {
         public const   string           BlueprintSaveExtension = ".xml";
-        private static List<Blueprint>  _blueprints            = new List<Blueprint>();
-        private static string           _blueprintSaveLocation;
-        private static List<Designator> _designators = new List<Designator>();
-        private static bool             _initialized;
+        private static string _blueprintSaveLocation;
+        private static BlueprintController _instance;
+
+        private List<Blueprint>  _blueprints = new List<Blueprint>();
+        private List<Designator> _designators = new List<Designator>();
+        private bool             _initialized;
 
         public BlueprintController( World world ) : base( world )
         {
+            _instance = this;
         }
+
+        public static BlueprintController Instance => _instance;
 
         public static string BlueprintSaveLocation
         {
@@ -41,13 +46,13 @@ namespace Blueprints
 
         public static void Add( Blueprint blueprint )
         {
-            if ( !_initialized )
+            if ( !Instance._initialized )
                 Initialize();
 
-            _blueprints.Add( blueprint );
+            Instance._blueprints.Add( blueprint );
 
             var designator = new Designator_Blueprint( blueprint );
-            _designators.Add( designator );
+            Instance._designators.Add( designator );
 
             // select the new designator
             Find.DesignatorManager.Select( designator );
@@ -55,11 +60,11 @@ namespace Blueprints
 
         public static void Remove( Designator_Blueprint designator, bool removeFromDisk )
         {
-            if ( !_initialized )
+            if ( !Instance._initialized )
                 Initialize();
 
-            _blueprints.Remove( designator.Blueprint );
-            _designators.Remove( designator );
+            Instance._blueprints.Remove( designator.Blueprint );
+            Instance._designators.Remove( designator );
 
             if ( removeFromDisk )
                 DeleteXML( designator.Blueprint );
@@ -67,25 +72,25 @@ namespace Blueprints
 
         public static Blueprint FindBlueprint( string name )
         {
-            if ( !_initialized )
+            if ( !Instance._initialized )
                 Initialize();
 
-            return _blueprints.FirstOrDefault( blueprint => blueprint.name == name );
+            return Instance._blueprints.FirstOrDefault( blueprint => blueprint.name == name );
         }
 
         public static Designator_Blueprint FindDesignator( string name )
         {
-            if ( !_initialized )
+            if ( !Instance._initialized )
                 Initialize();
 
-            return _designators.FirstOrDefault( designator =>
+            return Instance._designators.FirstOrDefault( designator =>
                                                     ( designator as Designator_Blueprint )?.Blueprint.name == name ) as
                 Designator_Blueprint;
         }
 
         public static void Initialize()
         {
-            if ( _initialized )
+            if ( Instance._initialized )
                 return;
 
             // do harmony patches
@@ -97,17 +102,16 @@ namespace Blueprints
             if ( desCatDef == null )
                 throw new Exception( "Blueprints designation category not found" );
 
-            // create internal designators list as a reference to list in the category def.
-            var _designatorsFI =
-                typeof( DesignationCategoryDef ).GetField( "resolvedDesignators",
-                                                           BindingFlags.NonPublic | BindingFlags.Instance );
-            _designators = _designatorsFI.GetValue( desCatDef ) as List<Designator>;
+            // reset list of designators in blueprints tab.
+            Instance._designators = desCatDef.AllResolvedDesignators;
+            Instance._designators.Clear();
+            Instance._designators.Add( new Designator_CreateBlueprint() );
 
-            foreach ( var blueprint in _blueprints )
-                _designators.Add( new Designator_Blueprint( blueprint ) );
+            foreach ( var blueprint in Instance._blueprints )
+                Instance._designators.Add( new Designator_Blueprint( blueprint ) );
 
             // done!
-            _initialized = true;
+            Instance._initialized = true;
         }
 
         public override void ExposeData()
