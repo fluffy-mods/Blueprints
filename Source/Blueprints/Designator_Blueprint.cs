@@ -114,7 +114,7 @@ namespace Blueprints
                 Widgets.Label( rotLeftRect, KeyBindingDefOf.Designator_RotateLeft.MainKeyLabel );
                 if ( Widgets.ButtonImage( rotLeftRect, Resources.RotLeftTex ) )
                 {
-                    SoundDefOf.AmountDecrement.PlayOneShotOnCamera();
+                    SoundDefOf.DragSlider.PlayOneShotOnCamera();
                     rotationDirection = RotationDirection.Counterclockwise;
                     Event.current.Use();
                 }
@@ -123,7 +123,7 @@ namespace Blueprints
                 Widgets.Label( flipRect, KeyBindingDefOf2.Blueprint_Flip.MainKeyLabel );
                 if ( Widgets.ButtonImage( flipRect, Resources.FlipTex ) )
                 {
-                    SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
+                    SoundDefOf.DragSlider.PlayOneShotOnCamera();
                     Blueprint.Flip();
                     Event.current.Use();
                 }
@@ -132,7 +132,7 @@ namespace Blueprints
                 Widgets.Label( rotRightRect, KeyBindingDefOf.Designator_RotateRight.MainKeyLabel );
                 if ( Widgets.ButtonImage( rotRightRect, Resources.RotRightTex ) )
                 {
-                    SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
+                    SoundDefOf.DragSlider.PlayOneShotOnCamera();
                     rotationDirection = RotationDirection.Clockwise;
                     Event.current.Use();
                 }
@@ -323,19 +323,19 @@ namespace Blueprints
                 rotationDirection = RotationDirection.Counterclockwise;
             if ( KeyBindingDefOf2.Blueprint_Flip.KeyDownEvent )
             {
-                SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
+                SoundDefOf.DragSlider.PlayOneShotOnCamera();
                 Blueprint.Flip();
             }
 
             if ( rotationDirection == RotationDirection.Clockwise )
             {
-                SoundDefOf.AmountIncrement.PlayOneShotOnCamera();
+                SoundDefOf.DragSlider.PlayOneShotOnCamera();
                 Blueprint.Rotate( RotationDirection.Clockwise );
             }
 
             if ( rotationDirection == RotationDirection.Counterclockwise )
             {
-                SoundDefOf.AmountDecrement.PlayOneShotOnCamera();
+                SoundDefOf.DragSlider.PlayOneShotOnCamera();
                 Blueprint.Rotate( RotationDirection.Counterclockwise );
             }
         }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using Harmony;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -15,9 +15,9 @@ namespace Blueprints
     [HarmonyPatch( typeof( InspectGizmoGrid ), nameof( InspectGizmoGrid.DrawInspectGizmoGridFor ) )]
     public class Patch_InspectGizmoGrid_DrawInspectGizmoGridFor
     {
-        public static FieldInfo gizmoList => AccessTools.Field( typeof( InspectGizmoGrid ), "gizmoList" );
+        public static FieldInfo gizmoList = AccessTools.Field( typeof( InspectGizmoGrid ), "gizmoList" );
 
-        public static FieldInfo objList => AccessTools.Field( typeof( InspectGizmoGrid ), "objList" );
+        public static FieldInfo objList = AccessTools.Field( typeof( InspectGizmoGrid ), "objList" );
 
         public static Command_CreateBlueprintFromSelected blueprint => new Command_CreateBlueprintFromSelected();
 
@@ -35,8 +35,7 @@ namespace Blueprints
             {
                 yield return instructions[i];
 
-                if ( i > 0 && instructions[i - 1].opcode == OpCodes.Ldsfld && instructions[i - 1].operand == objList &&
-                     instructions[i].opcode == OpCodes.Callvirt && instructions[i].operand == clearInfo )
+                if ( i > 0 && instructions[i - 1].LoadsField( objList ) && instructions[i].Calls( clearInfo ) )
                 {
                     yield return new CodeInstruction( OpCodes.Ldsfld, gizmoList );
                     yield return new CodeInstruction( OpCodes.Call, blueprintGetter );

@@ -312,12 +312,12 @@ namespace Blueprints
             {
                 if ( !Square )
                     // throw message - don't deal.
-                    return "Fluffy.Blueprints.UnRotatable.NonSquare".Translate( _thingDef.LabelCap );
+                    return "Fluffy.Blueprints.UnRotatable.NonSquare".Translate( _thingDef.LabelCap ).Resolve();
 
                 // we'll try to offset the location
                 if ( _thingDef.hasInteractionCell )
                     // throw message - interaction cell might become inaccessible.
-                    return "Fluffy.Blueprints.UnRotatable.HasInteractionCell".Translate( _thingDef.LabelCap );
+                    return "Fluffy.Blueprints.UnRotatable.HasInteractionCell".Translate( _thingDef.LabelCap ).Resolve();
             }
 
             return true;
@@ -356,7 +356,7 @@ namespace Blueprints
                     Resources.SetDesignatorRotation( Designator, _rotation );
 
                 if ( !Rotatable && !Centered && thingDef.hasInteractionCell )
-                    return "Fluffy.Blueprints.UnFlippable.HasInteractionCell".Translate( thingDef.LabelCap );
+                    return "Fluffy.Blueprints.UnFlippable.HasInteractionCell".Translate( thingDef.LabelCap ).Resolve();
             }
 
             return true;

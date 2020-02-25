@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Harmony;
+using HarmonyLib;
 using RimWorld.Planet;
 using Verse;
 
@@ -18,7 +18,7 @@ namespace Blueprints
         private static BlueprintController _instance;
 
         private List<Blueprint>  _blueprints = new List<Blueprint>();
-        private List<Designator> _designators = new List<Designator>();
+        private List<Designator> _designators;
         private bool             _initialized;
 
         public BlueprintController( World world ) : base( world )
@@ -94,7 +94,7 @@ namespace Blueprints
                 return;
 
             // do harmony patches
-            var harmony = HarmonyInstance.Create( "fluffy.blueprints" );
+            var harmony = new Harmony( "fluffy.blueprints" );
             harmony.PatchAll( Assembly.GetExecutingAssembly() );
 
             // find our designation category.

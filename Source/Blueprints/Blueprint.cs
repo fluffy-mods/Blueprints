@@ -204,7 +204,7 @@ namespace Blueprints
             foreach ( var item in contents )
             {
                 var success = item.Rotate( direction );
-                if ( !success && _failReasonsMentioned.Contains( success ) )
+                if ( !success && !_failReasonsMentioned.Contains( success ) )
                 {
                     Messages.Message( success.reason, MessageTypeDefOf.RejectInput, false );
                     _failReasonsMentioned.Add( success );
