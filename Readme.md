@@ -1,4 +1,4 @@
-[![RimWorld 1](https://img.shields.io/badge/RimWorld-1-brightgreen.svg)](http://rimworldgame.com/)
+[![RimWorld 1.1](https://img.shields.io/badge/RimWorld-1.1-brightgreen.svg)](http://rimworldgame.com/)
 
 Blueprints allow the quick construction of repetitive rooms/areas. 
 
@@ -52,4 +52,4 @@ Show your appreciation by buying me a coffee (or contribute towards a nice singl
 [![I Have a Black Dog](https://i.ibb.co/ss59Rwy/New-Project-2.png)](https://www.youtube.com/watch?v=XiCrniLQGYc)
 
 # Version
-This is version 2.11.106, for RimWorld 1.1.2558.
+This is version 2.12.107, for RimWorld 1.1.2559.
