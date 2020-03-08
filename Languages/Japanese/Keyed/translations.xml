@@ -14,6 +14,8 @@
   <Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>設計図 "{0}" は既に存在しています。\n別の名前で書きだしてください。</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
   <Fluffy.Blueprints.Create>新規作成</Fluffy.Blueprints.Create>
   <Fluffy.Blueprints.CreateHelp>クリックで新規作成\n右クリックで読み込み</Fluffy.Blueprints.CreateHelp>
+  <Fluffy.Blueprints.CreateFromSelectionHelp>現在選択されている建物から新しい設計図を作成します。</Fluffy.Blueprints.CreateFromSelectionHelp>
+  <Fluffy.Blueprints.CreateFromSelection>設計図を作成</Fluffy.Blueprints.CreateFromSelection>
   <Fluffy.Blueprints.NoStoredBlueprints>書き出された設計図が見つからないか、既に読み込み済みです。</Fluffy.Blueprints.NoStoredBlueprints>
   <Fluffy.Blueprints.NothingAvailableInBlueprint>設計図 {0} の建築に必要な研究が未完了です。</Fluffy.Blueprints.NothingAvailableInBlueprint>
   <Fluffy.Blueprints.XNotAvailableInBlueprint>設計図 {0} に含まれるアイテムに必要な研究が未完了です {1} </Fluffy.Blueprints.XNotAvailableInBlueprint>
