@@ -27,7 +27,6 @@ You can import previously exported blueprints by right clicking the 'Create' but
  - Nils de Lumière:	French translation
  - Butter-Knife:	Japanese translation
  - 53N4:	Spanish translations
- - Kirill:	
  - Seo. Junmin:	Korean translation
  - Proxyer:	Update Japanese translation
 
@@ -52,4 +51,4 @@ Show your appreciation by buying me a coffee (or contribute towards a nice singl
 [![I Have a Black Dog](https://i.ibb.co/ss59Rwy/New-Project-2.png)](https://www.youtube.com/watch?v=XiCrniLQGYc)
 
 # Version
-This is version 2.14.109, for RimWorld 1.1.2567.
+This is version 2.14.126, for RimWorld 1.1.2618.

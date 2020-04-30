@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -31,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.0.0.6, Culture=neutral, processorArchitecture=MSIL">
@@ -38,7 +40,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\dlls\Assembly-CSharp.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -66,19 +68,28 @@
     <Compile Include="Debug.cs" />
     <Compile Include="DefOf.cs" />
     <Compile Include="Designator_Blueprint.cs" />
-    <Compile Include="Command_CreateBlueprintFromSelected.cs" />
+    <Compile Include="Command_CreateBlueprintCopyFromSelected.cs" />
     <Compile Include="Designator_CreateBlueprint.cs" />
     <Compile Include="BlueprintController.cs" />
     <Compile Include="BuildableInfo.cs" />
     <Compile Include="Dialog_NameBlueprint.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FailReason.cs" />
+    <Compile Include="MapComponent_Copy.cs" />
+    <Compile Include="Mod.cs" />
     <Compile Include="Patch_InspectGizmoGrid_DrawInspectGizmoGridFor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.cs" />
+    <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\TOOLS\BetterKeybinding\BetterKeybinding.csproj">
+      <Project>{7A074D05-578C-48C4-9A0E-1C289CF862E1}</Project>
+      <Name>BetterKeybinding</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

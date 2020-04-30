@@ -13,8 +13,6 @@
 	<Fluffy.Blueprints.Rename>Rename blueprint</Fluffy.Blueprints.Rename>
 	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>An exported blueprint named "{0}" already exists.\nPlease choose a different name.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
 	<Fluffy.Blueprints.Create>Create</Fluffy.Blueprints.Create>
-	<Fluffy.Blueprints.CreateFromSelectionHelp>Create a new blueprint from the currently selected buildings.</Fluffy.Blueprints.CreateFromSelectionHelp>
-	<Fluffy.Blueprints.CreateFromSelection>Create blueprint</Fluffy.Blueprints.CreateFromSelection>
 	<Fluffy.Blueprints.CreateHelp>Left-click to create a new blueprint.\nRight-click to import a blueprint.</Fluffy.Blueprints.CreateHelp>
 	<Fluffy.Blueprints.NoStoredBlueprints>There are no exported blueprints (or they are all already loaded).</Fluffy.Blueprints.NoStoredBlueprints>
 	<Fluffy.Blueprints.NothingAvailableInBlueprint>None of the items in {0} can be build with the current technology.</Fluffy.Blueprints.NothingAvailableInBlueprint>
@@ -26,4 +24,13 @@
 
 	<!-- I'm aware this is a _very_ suboptimal solution, but short of writing a custom languageWorker like thing for each language, this will have to do. It's only for default blueprint names anyway. -->
 	<Fluffy.Blueprints.Plural>{0}s</Fluffy.Blueprints.Plural>
+
+	<!-- copy command -->
+	<Fluffy.Blueprints.Copy>Copy</Fluffy.Blueprints.Copy>
+	<Fluffy.Blueprints.CreateFromSelection>Create blueprint</Fluffy.Blueprints.CreateFromSelection>
+	<Fluffy.Blueprints.CopyHelp>Create a temporary blueprint from the selected objects.\n\nRight-Click: Create a permanent blueprint from the currently selected buildings.</Fluffy.Blueprints.CopyHelp>
+
+	<!-- Options -->
+	<Fluffy.Blueprints>Blueprints</Fluffy.Blueprints>
+	<Fluffy.Blueprints.CopyKey>Copy keybinding</Fluffy.Blueprints.CopyKey>
 </LanguageData>

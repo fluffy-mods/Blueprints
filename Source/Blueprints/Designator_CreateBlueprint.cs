@@ -63,72 +63,7 @@ namespace Blueprints
 
         public override void DesignateMultiCell( IEnumerable<IntVec3> cells )
         {
-            // bail out if empty
-            if ( cells == null || cells.Count() == 0 )
-            {
-                Messages.Message( "Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected".Translate(),
-                                  MessageTypeDefOf.RejectInput );
-                return;
-            }
-
-            // get list of buildings in the cells, note that this includes frames and blueprints, and so _may include floors!_
-            var things = new List<Thing>( cells.SelectMany( cell => cell.GetThingList( Map )
-                                                                        .Where( thing => thing.IsValidBlueprintThing() ) )
-                                               .Distinct() );
-
-            // get list of creatable terrains
-            var terrains = new List<Pair<TerrainDef, IntVec3>>();
-            terrains.AddRange( cells.Select( cell => new Pair<TerrainDef, IntVec3>( cell.GetTerrain( Map ), cell ) )
-                                    .Where( p => p.First.IsValidBlueprintTerrain() ) );
-
-            // get edges of blueprint area
-            // (might be bigger than selected region, but never smaller).
-            var allCells = cells.Concat( things.SelectMany( thing => thing.OccupiedRect().Cells ) );
-
-            var left   = allCells.Min( cell => cell.x );
-            var top    = allCells.Max( cell => cell.z );
-            var right  = allCells.Max( cell => cell.x );
-            var bottom = allCells.Min( cell => cell.z );
-
-            // total size ( +1 because x = 2 ... x = 4 => 4 - 2 + 1 cells )
-            var size = new IntVec2( right - left + 1, top - bottom + 1 );
-
-            // fetch origin for default (North) orientation
-            var origin = Resources.CenterPosition( new IntVec3( left, 0, bottom ), size, Rot4.North );
-
-            // create list of buildables
-            var buildables = new List<BuildableInfo>();
-            foreach ( var thing in things )
-                buildables.Add( new BuildableInfo( thing, origin ) );
-            foreach ( var terrain in terrains )
-                buildables.Add( new BuildableInfo( terrain.First, terrain.Second, origin ) );
-
-            // try to get a decent default name: get rooms for occupied cells, then see if there is only one type.
-            var rooms = allCells.Select( c => c.GetRoom( Map ) )
-                                .Where( r => r != null && r.Role != RoomRoleDefOf.None )
-                                .Distinct()
-                                .GroupBy( r => r.Role.LabelCap );
-
-#if DEBUG
-            foreach ( var room in rooms )
-                Debug.Message( $"{room.Count()}x {room.Key}" );
-#endif
-
-            // only one type of room
-            string defaultName = null;
-            if ( rooms.Count() == 1 )
-            {
-                var room = rooms.First();
-                defaultName = room.Count() > 1
-                    ? "Fluffy.Blueprints.Plural".Translate( room.Key )
-                    : room.Key;
-            }
-            
-            // add to controller - controller handles adding to designations
-            var blueprint = new Blueprint( buildables, size, defaultName );
-            BlueprintController.Add( blueprint );
-
-            blueprint.Debug();
+            Blueprint.Create( cells, Map );
         }
     }
 }
