@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Defs>
+  <HugsLib.UpdateFeatureDef>
+    <modNameReadable>Blueprints</modNameReadable>
+    <modIdentifier>fluffy.blueprints</modIdentifier>
+    <defName>Blueprints_2_14_126</defName>
+    <assemblyVersion>2.15.129</assemblyVersion>
+    <content>
+      |img:QuickCopy|caption:Quick copy-paste of buildings
+      |The 'create blueprint from selection' button has been renamed to 'Copy', and now creates a temporary blueprint by default. This means you can quickly copy-paste selected objects and rooms without creating new blueprints. You can also use the new keybinding configurable in the mod options (default: Ctrl+C).
+      |If you want to create a permanent blueprint, you can right-click the 'Copy' button when you have a room selected, or use the 'Create Blueprint' designator in the Blueprints tab of the architect.
+    </content>
+  </HugsLib.UpdateFeatureDef>
+</Defs>
