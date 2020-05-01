@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Blueprints_2_14_126.modNameReadable>Blueprints</Blueprints_2_14_126.modNameReadable>
+  <Blueprints_2_14_126.content>
+      |img:QuickCopy|caption:建物の簡単なコピー＆ペースト
+      |「選択から設計図を作成」ボタンの名前が「コピー」に変更され、デフォルトで一時的な設計図が作成されるようになりました。つまり、新しい設計図を作成せずに、選択した建築物と部屋をすばやくコピーして貼り付けることができます。Modオプションで設定可能な新しいショートカットキーを指定することもできます（デフォルト：Ctrl+C）。
+      |別の新規ゲームでも利用できる設計図を作成する場合は、部屋を選択した状態で[コピー]ボタンを右クリックするか、アーキテクトメニューの[設計図]タブの[設計図の作成]を使用します。
+  </Blueprints_2_14_126.content>
+
+</LanguageData>
