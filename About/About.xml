@@ -2,7 +2,7 @@
 <ModMetaData>
   <name>Blueprints</name>
   <author>Fluffy</author>
-  <url>https://ludeon.com/forums/index.php?topic=16120.0</url>
+  <url>https://ludeon.com/forums/index.php?topic=16120</url>
   <description>Blueprints allow the quick construction of repetitive rooms/areas. 
 
 &lt;size=24&gt;Features&lt;/size&gt;
@@ -35,7 +35,7 @@ Seo. Junmin:    Korean translation
 Proxyer:    Update Japanese translation
 
 &lt;size=24&gt;Version&lt;/size&gt;
-This is version 2.15.129, for RimWorld 1.1.2618.
+This is version 2.16.131, for RimWorld 1.1.2624.
 
 </description>
   <supportedVersions>
