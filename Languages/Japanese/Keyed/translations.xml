@@ -14,8 +14,6 @@
   <Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>設計図 "{0}" は既に存在しています。\n別の名前で書きだしてください。</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
   <Fluffy.Blueprints.Create>新規作成</Fluffy.Blueprints.Create>
   <Fluffy.Blueprints.CreateHelp>クリックで新規作成\n右クリックで読み込み</Fluffy.Blueprints.CreateHelp>
-  <Fluffy.Blueprints.CreateFromSelectionHelp>現在選択されている建物から新しい設計図を作成します。</Fluffy.Blueprints.CreateFromSelectionHelp>
-  <Fluffy.Blueprints.CreateFromSelection>設計図を作成</Fluffy.Blueprints.CreateFromSelection>
   <Fluffy.Blueprints.NoStoredBlueprints>書き出された設計図が見つからないか、既に読み込み済みです。</Fluffy.Blueprints.NoStoredBlueprints>
   <Fluffy.Blueprints.NothingAvailableInBlueprint>設計図 {0} の建築に必要な研究が未完了です。</Fluffy.Blueprints.NothingAvailableInBlueprint>
   <Fluffy.Blueprints.XNotAvailableInBlueprint>設計図 {0} に含まれるアイテムに必要な研究が未完了です {1} </Fluffy.Blueprints.XNotAvailableInBlueprint>
@@ -26,5 +24,14 @@
 
   <!-- I'm aware this is a _very_ suboptimal solution, but short of writing a custom languageWorker like thing for each language, this will have to do. It's only for default blueprint names anyway. -->
   <Fluffy.Blueprints.Plural>{0}の</Fluffy.Blueprints.Plural>
+
+  <!-- copy command -->
+  <Fluffy.Blueprints.Copy>コピー</Fluffy.Blueprints.Copy>
+  <Fluffy.Blueprints.CreateFromSelection>設計図を作製</Fluffy.Blueprints.CreateFromSelection>
+  <Fluffy.Blueprints.CopyHelp>現在選択されている建築物から一時的な設計図を作成します。\n\n右クリック：現在選択されている建物から保存される設計図を作成します。</Fluffy.Blueprints.CopyHelp>
+
+  <!-- Options -->
+  <Fluffy.Blueprints>Blueprints</Fluffy.Blueprints>
+  <Fluffy.Blueprints.CopyKey>コピーのキー設定</Fluffy.Blueprints.CopyKey>
 
 </LanguageData>
