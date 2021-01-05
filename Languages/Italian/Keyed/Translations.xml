@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Fluffy.Blueprints.DefaultBlueprintName>Progetto</Fluffy.Blueprints.DefaultBlueprintName>
+  <Fluffy.Blueprints.NameAlreadyTaken>"{0}" esiste già. Scegli un altro nome.</Fluffy.Blueprints.NameAlreadyTaken>
+  <Fluffy.Blueprints.InvalidBlueprintName>"{0}" non è un nome valido. \nUsare solo caratteri alfanumerici e underscore (a-Z, _). Spazi non ammessi.</Fluffy.Blueprints.InvalidBlueprintName>
+  <Fluffy.Blueprints.LoadFromXML>Importa progetto "{0}"</Fluffy.Blueprints.LoadFromXML>
+  <Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>Non è possibile creare il progetto senza selezionare qualcosa.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
+  <Fluffy.Blueprint.Cost>Costo totale:</Fluffy.Blueprint.Cost>
+  <Fluffy.Blueprints.Remove>Rimuovi progetto</Fluffy.Blueprints.Remove>
+  <Fluffy.Blueprints.SaveToXML>Esporta progetto</Fluffy.Blueprints.SaveToXML>
+  <Fluffy.Blueprints.RemoveAndDeleteXML>Rimuovi il progetto ed elimina quello esportato</Fluffy.Blueprints.RemoveAndDeleteXML>
+  <Fluffy.Blueprints.Rename>Rinomina progetto</Fluffy.Blueprints.Rename>
+  <Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Il progetto esportato "{0}" esiste già.\nScegliere un altro nome.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+  <Fluffy.Blueprints.Create>Crea</Fluffy.Blueprints.Create>
+  <Fluffy.Blueprints.CreateHelp>Click-sinistro per creare un nuovo progetto.\nClick-destro per importare un progetto.</Fluffy.Blueprints.CreateHelp>
+  <Fluffy.Blueprints.NoStoredBlueprints>Non ci sono progetti esportati (oppure sono tutti già caricati).</Fluffy.Blueprints.NoStoredBlueprints>
+  <Fluffy.Blueprints.NothingAvailableInBlueprint>Nessuno degli oggetti presenti in {0} può essere costruito con la tecnologia attuale.</Fluffy.Blueprints.NothingAvailableInBlueprint>
+  <Fluffy.Blueprints.XNotAvailableInBlueprint>Alcuni degli oggetti presenti in {0} non possono essere costruiti con la tecnologia attuale: {1}</Fluffy.Blueprints.XNotAvailableInBlueprint>
+
+  <Fluffy.Blueprints.UnFlippable.HasInteractionCell>{0} non può essere capovolto ed ha un punto di interazione. Capovolgerlo potrebbe causare un posizionamento non valido.</Fluffy.Blueprints.UnFlippable.HasInteractionCell>
+  <Fluffy.Blueprints.UnRotatable.HasInteractionCell>{0} non può essere ruotato ed ha un punto di interazione. Ruotarlo potrebbe causare un posizionamento non valido.</Fluffy.Blueprints.UnRotatable.HasInteractionCell>
+  <Fluffy.Blueprints.UnRotatable.NonSquare>{0} non può essere ruotato e non è quadrato. Rcannot be rotated, and is not square. Ruotarlo potrebbe causare un posizionamento non valido di {0}.</Fluffy.Blueprints.UnRotatable.NonSquare>
+
+  <!-- I'm aware this is a _very_ suboptimal solution, but short of writing a custom languageWorker like thing for each language, this will have to do. It's only for default blueprint names anyway. -->
+  <Fluffy.Blueprints.Plural>{0}i</Fluffy.Blueprints.Plural>
+
+  <!-- copy command -->
+  <Fluffy.Blueprints.Copy>Copia</Fluffy.Blueprints.Copy>
+  <Fluffy.Blueprints.CreateFromSelection>Crea progetto</Fluffy.Blueprints.CreateFromSelection>
+  <Fluffy.Blueprints.CopyHelp>Crea un progetto temporaneo dagli oggetti selezionati.\n\nClick-destro: Crea un progetto definitivo dalle strutture attualmente selezionate.</Fluffy.Blueprints.CopyHelp>
+
+  <!-- Options -->
+  <Fluffy.Blueprints>Progetti</Fluffy.Blueprints>
+  <Fluffy.Blueprints.CopyKey>Combinazione di tasti per copiare</Fluffy.Blueprints.CopyKey>
+
+</LanguageData>
