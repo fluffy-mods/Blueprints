@@ -1,0 +1,859 @@
+{
+    "name": "Blueprints",
+    "sourceDir": ".",
+    "targetDir": "blueprints",
+    "url": "",
+    "version": {
+        "major": 3,
+        "minor": 0,
+        "build": 9
+    },
+    "description": "",
+    "author": {
+        "name": "Fluffy",
+        "url": "",
+        "email": ""
+    },
+    "changelog": [
+        {
+            "date": "2020-05-18T21:45:44.000Z",
+            "message": "Merge branch '1.1' of https://github.com/fluffy-mods/Blueprints into 1.1",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "c0475264e0a26681fcbaaf132cf6360b0027ed9d",
+            "version": {
+                "major": 2,
+                "minor": 16,
+                "build": 1311
+            }
+        },
+        {
+            "date": "2020-05-18T21:45:29.000Z",
+            "message": "Update Japanese Translation for v2.15.128 (#30)",
+            "author": {
+                "name": "Proxyer",
+                "email": "proxyer666@gmail.com"
+            },
+            "hash": "048e1da72432e295eed63990569ad646f274e7b3",
+            "version": {
+                "major": 2,
+                "minor": 16,
+                "build": 1311
+            }
+        },
+        {
+            "date": "2020-04-30T21:57:16.000Z",
+            "message": "add new files to source. doh",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "688e4686fe0f15751fc09739ea2c2e160b631b45",
+            "version": {
+                "major": 2,
+                "minor": 16,
+                "build": 1312
+            }
+        },
+        {
+            "date": "2020-04-30T20:53:59.000Z",
+            "message": "add quick copy blueprint",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "3b760cf78e39b1da303ff6656db8087c28b5d0e7",
+            "version": {
+                "major": 2,
+                "minor": 15,
+                "build": 1281
+            }
+        },
+        {
+            "date": "2020-03-08T20:19:12.000Z",
+            "message": "Update Japanese Translation on 8 Mar, 2020 (#25)",
+            "author": {
+                "name": "Proxyer",
+                "email": "proxyer666@gmail.com"
+            },
+            "hash": "0eb2fbecbf45f8bd7755b45f60e6804e2c548112",
+            "version": {
+                "major": 2,
+                "minor": 14,
+                "build": 1091
+            }
+        },
+        {
+            "date": "2020-03-06T06:27:10.000Z",
+            "message": "remove .psd file from release",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "6c724d57b1878afd9ff3de3b6fdc88d362d781a4",
+            "version": {
+                "major": 2,
+                "minor": 13,
+                "build": 1081
+            }
+        },
+        {
+            "date": "2020-02-29T14:09:53.000Z",
+            "message": "add harmony dependency, remove local dlls",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "e601f2f641c43252ccd01a5b4a91046bef587309",
+            "version": {
+                "major": 2,
+                "minor": 12,
+                "build": 1073
+            }
+        },
+        {
+            "date": "2020-02-25T21:05:18.000Z",
+            "message": "initial 1.1 release",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "eb65ae1b3d0a6fd4174cd3188bcdbc67c4511a09",
+            "version": {
+                "major": 2,
+                "minor": 12,
+                "build": 1075
+            }
+        },
+        {
+            "date": "2020-01-26T22:36:37.000Z",
+            "message": "stop blueprints persisting across different games in the same session",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "1abff7625175e66148c27d8d46a4ed8414339f10",
+            "version": {
+                "major": 2,
+                "minor": 10,
+                "build": 1051
+            }
+        },
+        {
+            "date": "2020-01-26T20:31:43.000Z",
+            "message": "add 'create blueprint from selection' option",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "49530f0789b57b79700e6292944b56ffbb556799",
+            "version": {
+                "major": 2,
+                "minor": 8,
+                "build": 1031
+            }
+        },
+        {
+            "date": "2019-07-31T21:02:42.000Z",
+            "message": "dont designate fogged cells",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "d1eedf11c08ca29dec1ce325c3127434de2c70c1",
+            "version": {
+                "major": 2,
+                "minor": 7,
+                "build": 1021
+            }
+        },
+        {
+            "date": "2019-06-05T10:00:56.000Z",
+            "message": "Update Japanese Translation for v2.5.95 (#18)",
+            "author": {
+                "name": "Proxyer",
+                "email": "proxyer666@gmail.com"
+            },
+            "hash": "8d7959c45773cd731615c12454082512f7639089",
+            "version": {
+                "major": 2,
+                "minor": 6,
+                "build": 1015
+            }
+        },
+        {
+            "date": "2019-06-03T20:53:35.000Z",
+            "message": "fix blueprint default name generation",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "8ed7b2d8af2eea8a045857b25e8a32ac7dd666bb",
+            "version": {
+                "major": 2,
+                "minor": 5,
+                "build": 951
+            }
+        },
+        {
+            "date": "2019-05-30T22:15:07.000Z",
+            "message": "persist blueprints in save game",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "b67b0f68f1186ab671704c1dc4d689e0726c52ef",
+            "version": {
+                "major": 2,
+                "minor": 4,
+                "build": 911
+            }
+        },
+        {
+            "date": "2019-05-30T22:14:08.000Z",
+            "message": "add flipping icon and keybinding, translations and fail messages",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "5d2c7b3f7699fdaf72c9ed8761d58a47dec4882e",
+            "version": {
+                "major": 2,
+                "minor": 4,
+                "build": 912
+            }
+        },
+        {
+            "date": "2019-05-30T08:50:23.000Z",
+            "message": "possibly fix flipping",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "a334603de9c0af3d25c1a91fceb444d2840dd623",
+            "version": {
+                "major": 2,
+                "minor": 3,
+                "build": 801
+            }
+        },
+        {
+            "date": "2019-05-29T21:11:33.000Z",
+            "message": "fix rotated position of some unrotatables",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "df9b4c2bf32d3cd9468718496516a0ef15f031a3",
+            "version": {
+                "major": 2,
+                "minor": 3,
+                "build": 802
+            }
+        },
+        {
+            "date": "2018-10-29T14:48:51.000Z",
+            "message": "Add Korean translations (#16)",
+            "author": {
+                "name": "Seo. Junmin",
+                "email": "LazyRichard@users.noreply.github.com"
+            },
+            "hash": "70881170f280dcd21e65ff900dd8dae463df990b",
+            "version": {
+                "major": 2,
+                "minor": 2,
+                "build": 391
+            }
+        },
+        {
+            "date": "2018-10-02T08:50:53.000Z",
+            "message": "add manifest",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "145107165a438f7f25c0f192996d8139e32a6e29",
+            "version": {
+                "major": 1,
+                "minor": 11,
+                "build": 331
+            }
+        },
+        {
+            "date": "2018-09-13T19:19:36.000Z",
+            "message": "add null-check to stop potential nre's in Blueprint.CreateCostList",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "a298f8d7f1057bff996e0841bc605fc3efe3b85d",
+            "version": {
+                "major": 1,
+                "minor": 6,
+                "build": 271
+            }
+        },
+        {
+            "date": "2018-09-03T18:56:25.000Z",
+            "message": "fix missing designator icon",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "eb90e2b33bc47b40cefd5d1bd6962bb32c817b81",
+            "version": {
+                "major": 1,
+                "minor": 5,
+                "build": 261
+            }
+        },
+        {
+            "date": "2018-08-14T21:03:50.000Z",
+            "message": "fix right-click context menus",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "0652cd3dfae08cb41c9b7d81d0bddcb4e6df5ee5",
+            "version": {
+                "major": 1,
+                "minor": 3,
+                "build": 221
+            }
+        },
+        {
+            "date": "2018-07-20T21:31:29.000Z",
+            "message": "update for 1.0.1970",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "ff7422e09d578b928525837c60e42a20868c8ced",
+            "version": {
+                "major": 1,
+                "minor": 2,
+                "build": 161
+            }
+        },
+        {
+            "date": "2018-06-18T07:13:15.000Z",
+            "message": "Merge branch 'master' of github.com:FluffierThanThou/Blueprints",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "fc99f8433338e4cef6001fcb15b116d50b632917",
+            "version": {
+                "major": 1,
+                "minor": 2,
+                "build": 162
+            }
+        },
+        {
+            "date": "2018-06-14T19:26:19.000Z",
+            "message": "initial v1.0 update",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "9a91c0f302c3c050c1b16af577aa143364511f3c",
+            "version": {
+                "major": 1,
+                "minor": 2,
+                "build": 164
+            }
+        },
+        {
+            "date": "2018-06-14T19:26:14.000Z",
+            "message": "initial v1.0 update",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "cbe6bb719526cd790be8ba302ab9e2fd8bf85064",
+            "version": {
+                "major": 1,
+                "minor": 2,
+                "build": 165
+            }
+        },
+        {
+            "date": "2018-06-11T20:09:24.000Z",
+            "message": "fix designator previews and sounds",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "aab06f239a40fed157b54d61e671d254f1a1f324",
+            "version": {
+                "major": 1,
+                "minor": 2,
+                "build": 166
+            }
+        },
+        {
+            "date": "2017-11-24T09:07:19.000Z",
+            "message": "Fix translation (#13)",
+            "author": {
+                "name": "Kirill",
+                "email": "fox_kirya@mail.ru"
+            },
+            "hash": "92b6bf766ba139f745e93c215aaee832271133cb",
+            "version": {
+                "major": 1,
+                "minor": 1,
+                "build": 14
+            }
+        },
+        {
+            "date": "2017-08-11T20:58:19.000Z",
+            "message": "add cancel designator",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "76de8235ba07a768447a7445ec01ae89939a0beb",
+            "version": {
+                "major": 0,
+                "minor": 17,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-08-06T10:02:37.000Z",
+            "message": "Update Japanese translation. (#10)",
+            "author": {
+                "name": "Butter-Knife",
+                "email": "excelsior@starfleet.if.tv"
+            },
+            "hash": "570995ee7cc1f53b93b9fa813782a3064a68bd4d",
+            "version": {
+                "major": 0,
+                "minor": 17,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-06-05T16:05:06.000Z",
+            "message": "Spanish Translation (#9)",
+            "author": {
+                "name": "53N4",
+                "email": "53N4@users.noreply.github.com"
+            },
+            "hash": "006783f55243e8035d61df69d7d06da52be4e82e",
+            "version": {
+                "major": 0,
+                "minor": 17,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-05-05T21:52:31.000Z",
+            "message": "Added Japanese translation (#8)",
+            "author": {
+                "name": "Butter-Knife",
+                "email": "excelsior@starfleet.if.tv"
+            },
+            "hash": "4491db6953bf96d9ddf20aa696836ce06e4c71cd",
+            "version": {
+                "major": 0,
+                "minor": 17,
+                "build": 0
+            }
+        },
+        {
+            "date": "2017-05-05T21:25:46.000Z",
+            "message": "initial A17 version",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "cbf31a9b87c5330768b7f501befcc26aa7bd2f0e",
+            "version": {
+                "major": 0,
+                "minor": 17,
+                "build": 0
+            }
+        },
+        {
+            "date": "2017-02-13T21:46:42.000Z",
+            "message": "Update Chinese translations",
+            "author": {
+                "name": "duduluu",
+                "email": "duduluu@outlook.com"
+            },
+            "hash": "0f8f4e9a86c488913097ac6b49548a737c12faeb",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-02-06T22:46:09.000Z",
+            "message": "failed attempt at blueprint flipping",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "d8eb49ce297187ee9abbc7b4cfcd0f6baf27ecdd",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-02-06T22:09:36.000Z",
+            "message": "add support for planned and partially constructed buildings",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "a2358c7356c6d5115afbe052364117ad5ef3d7e4",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-01-29T11:09:27.000Z",
+            "message": "remove redundant check for existing designator",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "5c32d801be9d3a64aec38c6a37d1a91ffbb944a7",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-01-23T07:00:54.000Z",
+            "message": "add French translation (Thanks, Nils de Lumiere)",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "05a0ab8c133b3ed43c83d2264b9da992b93a6aa5",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-01-11T22:19:11.000Z",
+            "message": "add readme and license",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "42a31eb149a4b355e36249cbd19e79ba61037628",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2017-01-10T22:06:23.000Z",
+            "message": "Filter out buildings that can not normally be build",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "6d0803b8fb0dbc9aaee420ca3403eb26f66e72ea",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-27T08:27:17.000Z",
+            "message": "Russian translation (#5)",
+            "author": {
+                "name": "Bronytamin",
+                "email": "bronytamin88@gmail.com"
+            },
+            "hash": "514ed78063b964e66670b4f548b4b421c2d90ce0",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-21T14:31:56.000Z",
+            "message": "Update Chinese translations (#4)",
+            "author": {
+                "name": "duduluu",
+                "email": "duduluu@outlook.com"
+            },
+            "hash": "07b331482920d4e045d46922ab87bb9f97ee2c6b",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-21T14:31:31.000Z",
+            "message": "Update Brazilian Portuguese strings",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "08d298310558609afcf8c1a7c98864e992660ea8",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T16:35:45.000Z",
+            "message": "Add Chinese Translation (#1)",
+            "author": {
+                "name": "duduluu",
+                "email": "duduluu@outlook.com"
+            },
+            "hash": "febb39f10797b38b0ca861d74b900c469e440d35",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T16:17:57.000Z",
+            "message": "Update about",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "8e7ed3b65394dbe4d5e823d77387040a48aa4189",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T14:02:41.000Z",
+            "message": "Merge branch 'master' of https://github.com/FluffierThanThou/RW_Blueprints.git",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "e35b7801fae54a04aa93e40ff6dbadf201edd09e",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T14:01:26.000Z",
+            "message": "Update description",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "ddd1141dd4a9559e89d503acf57f2a99b9dfa54a",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T14:01:26.000Z",
+            "message": "Update description",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "3c4b51e4a519cd495a67ae74d6bc811d6a987a52",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T13:05:44.000Z",
+            "message": "Fixed error when trying to import blueprints and no blueprints available for import.",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "4448d21e95d8947e2bfa208b2097c2f8495a1793",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T13:05:10.000Z",
+            "message": "Added PortugueseBrazilian translations (thanks rgponce)",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "a56ba06c88af953ae6858a6faeb9bf28a0a4978d",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-12-18T11:17:30.000Z",
+            "message": "Initial API error fixing, and .gitignore cleanup.",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "0498947c767412d9179dcc5408e2f43d9fbd80cb",
+            "version": {
+                "major": 0,
+                "minor": 16,
+                "build": 1
+            }
+        },
+        {
+            "date": "2016-08-31T07:41:57.000Z",
+            "message": "initial A15 update",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "9cbe574881c874ac06b919a5b9f2ccfaccdc34ef",
+            "version": {
+                "major": 0,
+                "minor": 15,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-07-17T09:18:54.000Z",
+            "message": "Show correct ghost of non-rotatable linked buildings.",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "b028359a3e6ca82bf0050ce34fd3025f222dbf3b",
+            "version": {
+                "major": 0,
+                "minor": 14,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-07-17T08:58:34.000Z",
+            "message": "Auto-select new and imported blueprints.",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "e28b23fc9d767a3608e20b1e58add672b128c906",
+            "version": {
+                "major": 0,
+                "minor": 14,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-07-17T08:53:21.000Z",
+            "message": "Keep non-rotatable items in a blueprint static when rotating the blueprint.",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "1fabb99a855d5772494dc372ea6d4f1adb2479b3",
+            "version": {
+                "major": 0,
+                "minor": 14,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-07-15T17:59:21.000Z",
+            "message": "update for latest RC.",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "db3b682a750e54913484c5665856284bea04ef2b",
+            "version": {
+                "major": 0,
+                "minor": 14,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-07-01T16:12:15.000Z",
+            "message": "proper A14 (again)",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "87a48cb7d59a1e23f0fcd456b5c20ad1be7c7f07",
+            "version": {
+                "major": 0,
+                "minor": 14,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-07-01T14:25:54.000Z",
+            "message": "A14",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "6b81540eecb7d1799f7948acb24d2fd85ee74aa0",
+            "version": {
+                "major": 0,
+                "minor": 14,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-06-27T21:57:04.000Z",
+            "message": "xml changes for A14",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "95b64f03288b26985747acb556d5797f237c0f34",
+            "version": {
+                "major": 0,
+                "minor": 14,
+                "build": 0
+            }
+        },
+        {
+            "date": "2016-04-07T20:24:05.000Z",
+            "message": "[A13]  - initial release  - there's some ugly texture loading hacks in here to circumvent issues introduced by A13 which I don't completely understand.",
+            "author": {
+                "name": "Fluffy",
+                "email": "karel.kroeze@gmail.com"
+            },
+            "hash": "e1e77c1943dc4013180249bb02e127c37684cc5e",
+            "version": {
+                "major": 0,
+                "minor": 13,
+                "build": 0
+            }
+        }
+    ]
+}
