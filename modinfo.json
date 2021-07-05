@@ -855,5 +855,9 @@
                 "build": 0
             }
         }
-    ]
+    ],
+    "git": {
+        "owner": "fluffy-mods",
+        "repo": "Blueprints"
+    }
 }
