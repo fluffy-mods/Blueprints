@@ -6,7 +6,7 @@
     "version": {
         "major": 3,
         "minor": 7,
-        "build": 10
+        "build": 16
     },
     "description": "",
     "author": {
@@ -15,6 +15,15 @@
         "email": ""
     },
     "changelog": [
+        {
+            "date": "2021-07-06T22:36:20.000Z",
+            "message": "release v3.7.10",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "b519ac46f5f0ee94cb308cf6c6f35753b3a5c06f"
+        },
         {
             "date": "2021-07-06T22:26:47.000Z",
             "message": "release v3.7.10",
