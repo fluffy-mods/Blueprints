@@ -5,7 +5,7 @@
     "url": "",
     "version": {
         "major": 3,
-        "minor": 5,
+        "minor": 6,
         "build": 10
     },
     "description": "",
@@ -16,10 +16,19 @@
     },
     "changelog": [
         {
+            "date": "2021-07-06T21:34:35.000Z",
+            "message": "release v3.5.10",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "27d6feb601557ec50b950f49bd9d7990e0e02e7d"
+        },
+        {
             "date": "2021-07-06T21:31:44.000Z",
             "message": "release v3.4.10",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "f637578f62ad4c42b3ee43372f6cf7be6a306a70"
@@ -28,7 +37,7 @@
             "date": "2021-07-06T20:53:32.000Z",
             "message": "release vv3.3.10",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "5d045951bffbfbec42252ebf4e093bf57b98e929"
@@ -37,7 +46,7 @@
             "date": "2021-07-05T20:02:22.000Z",
             "message": "update modinfo.json",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "8dc4fa8fe9d8ed6fe05106ccc66d81de725a73e4"
@@ -46,7 +55,7 @@
             "date": "2021-07-02T10:07:14.000Z",
             "message": "initial 1.3 update",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "869eba6fa07ac81ef9c377afb4ee3784c44043ef"
@@ -503,7 +512,7 @@
             "date": "2017-05-05T21:25:46.000Z",
             "message": "initial A17 version",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "cbf31a9b87c5330768b7f501befcc26aa7bd2f0e",
@@ -531,7 +540,7 @@
             "date": "2017-02-06T22:46:09.000Z",
             "message": "failed attempt at blueprint flipping",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "d8eb49ce297187ee9abbc7b4cfcd0f6baf27ecdd",
@@ -545,7 +554,7 @@
             "date": "2017-02-06T22:09:36.000Z",
             "message": "add support for planned and partially constructed buildings",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "a2358c7356c6d5115afbe052364117ad5ef3d7e4",
@@ -559,7 +568,7 @@
             "date": "2017-01-29T11:09:27.000Z",
             "message": "remove redundant check for existing designator",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "5c32d801be9d3a64aec38c6a37d1a91ffbb944a7",
@@ -573,7 +582,7 @@
             "date": "2017-01-23T07:00:54.000Z",
             "message": "add French translation (Thanks, Nils de Lumiere)",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "05a0ab8c133b3ed43c83d2264b9da992b93a6aa5",
@@ -587,7 +596,7 @@
             "date": "2017-01-11T22:19:11.000Z",
             "message": "add readme and license",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "42a31eb149a4b355e36249cbd19e79ba61037628",
@@ -601,7 +610,7 @@
             "date": "2017-01-10T22:06:23.000Z",
             "message": "Filter out buildings that can not normally be build",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "6d0803b8fb0dbc9aaee420ca3403eb26f66e72ea",
@@ -643,7 +652,7 @@
             "date": "2016-12-21T14:31:31.000Z",
             "message": "Update Brazilian Portuguese strings",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "08d298310558609afcf8c1a7c98864e992660ea8",
@@ -671,7 +680,7 @@
             "date": "2016-12-18T16:17:57.000Z",
             "message": "Update about",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "8e7ed3b65394dbe4d5e823d77387040a48aa4189",
@@ -685,7 +694,7 @@
             "date": "2016-12-18T14:02:41.000Z",
             "message": "Merge branch 'master' of https://github.com/FluffierThanThou/RW_Blueprints.git",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "e35b7801fae54a04aa93e40ff6dbadf201edd09e",
@@ -699,7 +708,7 @@
             "date": "2016-12-18T14:01:26.000Z",
             "message": "Update description",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "ddd1141dd4a9559e89d503acf57f2a99b9dfa54a",
@@ -713,7 +722,7 @@
             "date": "2016-12-18T14:01:26.000Z",
             "message": "Update description",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "3c4b51e4a519cd495a67ae74d6bc811d6a987a52",
@@ -727,7 +736,7 @@
             "date": "2016-12-18T13:05:44.000Z",
             "message": "Fixed error when trying to import blueprints and no blueprints available for import.",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "4448d21e95d8947e2bfa208b2097c2f8495a1793",
@@ -741,7 +750,7 @@
             "date": "2016-12-18T13:05:10.000Z",
             "message": "Added PortugueseBrazilian translations (thanks rgponce)",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "a56ba06c88af953ae6858a6faeb9bf28a0a4978d",
@@ -755,7 +764,7 @@
             "date": "2016-12-18T11:17:30.000Z",
             "message": "Initial API error fixing, and .gitignore cleanup.",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "0498947c767412d9179dcc5408e2f43d9fbd80cb",
@@ -769,7 +778,7 @@
             "date": "2016-08-31T07:41:57.000Z",
             "message": "initial A15 update",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "9cbe574881c874ac06b919a5b9f2ccfaccdc34ef",
@@ -783,7 +792,7 @@
             "date": "2016-07-17T09:18:54.000Z",
             "message": "Show correct ghost of non-rotatable linked buildings.",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "b028359a3e6ca82bf0050ce34fd3025f222dbf3b",
@@ -797,7 +806,7 @@
             "date": "2016-07-17T08:58:34.000Z",
             "message": "Auto-select new and imported blueprints.",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "e28b23fc9d767a3608e20b1e58add672b128c906",
@@ -811,7 +820,7 @@
             "date": "2016-07-17T08:53:21.000Z",
             "message": "Keep non-rotatable items in a blueprint static when rotating the blueprint.",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "1fabb99a855d5772494dc372ea6d4f1adb2479b3",
@@ -825,7 +834,7 @@
             "date": "2016-07-15T17:59:21.000Z",
             "message": "update for latest RC.",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "db3b682a750e54913484c5665856284bea04ef2b",
@@ -839,7 +848,7 @@
             "date": "2016-07-01T16:12:15.000Z",
             "message": "proper A14 (again)",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "87a48cb7d59a1e23f0fcd456b5c20ad1be7c7f07",
@@ -853,7 +862,7 @@
             "date": "2016-07-01T14:25:54.000Z",
             "message": "A14",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "6b81540eecb7d1799f7948acb24d2fd85ee74aa0",
@@ -867,7 +876,7 @@
             "date": "2016-06-27T21:57:04.000Z",
             "message": "xml changes for A14",
             "author": {
-                "name": "Fluffy",
+                "name": "FluffierThanThou",
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "95b64f03288b26985747acb556d5797f237c0f34",
@@ -881,7 +890,7 @@
             "date": "2016-04-07T20:24:05.000Z",
             "message": "[A13]  - initial release  - there's some ugly texture loading hacks in here to circumvent issues introduced by A13 which I don't completely understand.",
             "author": {
-                "name": "Fluffy",
+                "name": "Karel Kroeze",
                 "email": "karel.kroeze@gmail.com"
             },
             "hash": "e1e77c1943dc4013180249bb02e127c37684cc5e",
