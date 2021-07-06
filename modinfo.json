@@ -6,7 +6,7 @@
     "version": {
         "major": 3,
         "minor": 0,
-        "build": 9
+        "build": 10
     },
     "description": "",
     "author": {
@@ -15,6 +15,24 @@
         "email": ""
     },
     "changelog": [
+        {
+            "date": "2021-07-05T20:02:22.000Z",
+            "message": "update modinfo.json",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "8dc4fa8fe9d8ed6fe05106ccc66d81de725a73e4"
+        },
+        {
+            "date": "2021-07-02T10:07:14.000Z",
+            "message": "initial 1.3 update",
+            "author": {
+                "name": "Fluffy",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "869eba6fa07ac81ef9c377afb4ee3784c44043ef"
+        },
         {
             "date": "2020-05-18T21:45:44.000Z",
             "message": "Merge branch '1.1' of https://github.com/fluffy-mods/Blueprints into 1.1",
