@@ -5,7 +5,7 @@
     "url": "",
     "version": {
         "major": 3,
-        "minor": 7,
+        "minor": 8,
         "build": 33
     },
     "description": "",
@@ -15,6 +15,15 @@
         "email": ""
     },
     "changelog": [
+        {
+            "date": "2021-07-22T17:52:41.000Z",
+            "message": "remove harmony dll from release",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "556360847d356ea85e375c522ede767bc9ff3375"
+        },
         {
             "date": "2021-07-06T23:15:32.000Z",
             "message": "release v3.7.16",
