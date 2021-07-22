@@ -1,5 +1,5 @@
-﻿// DefOf.cs
-// Copyright Karel Kroeze, 2019-2019
+﻿// Copyright Karel Kroeze, 2021-2021.
+// Blueprints/Blueprints/DefOf.cs
 
 using RimWorld;
 using Verse;

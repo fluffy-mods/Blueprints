@@ -1,12 +1,12 @@
 {
     "name": "Blueprints",
     "sourceDir": ".",
-    "targetDir": "blueprints",
+    "targetDir": "Blueprints",
     "url": "",
     "version": {
         "major": 3,
         "minor": 7,
-        "build": 16
+        "build": 33
     },
     "description": "",
     "author": {
@@ -15,6 +15,15 @@
         "email": ""
     },
     "changelog": [
+        {
+            "date": "2021-07-06T23:15:32.000Z",
+            "message": "release v3.7.16",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "bac263f486a8b9144ca49b0a5776475e71956c89"
+        },
         {
             "date": "2021-07-06T23:11:54.000Z",
             "message": "release v3.7.16",
