@@ -6,7 +6,7 @@
     "version": {
         "major": 3,
         "minor": 9,
-        "build": 33
+        "build": 39
     },
     "description": "",
     "author": {
@@ -15,6 +15,15 @@
         "email": "fluffy.l2032@gmail.com"
     },
     "changelog": [
+        {
+            "date": "2021-07-26T18:19:46.000Z",
+            "message": "release v3.9.33",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "d8eeda47851b2f67cc616f5b735f872809ff2fc7"
+        },
         {
             "date": "2021-07-26T18:15:42.000Z",
             "message": "release v3.9.33",
@@ -1014,108 +1023,6 @@
     ],
     "contributions": [
         {
-            "hash": "eb9e6b96b6cbb7e0d2b90d88d47aac7012bef39a",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "update preview, contributors, etc."
-        },
-        {
-            "hash": "411b1dafce75f4d23ac08e524dadb212091c5fa2",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.8.33"
-        },
-        {
-            "hash": "556360847d356ea85e375c522ede767bc9ff3375",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "remove harmony dll from release"
-        },
-        {
-            "hash": "bac263f486a8b9144ca49b0a5776475e71956c89",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.7.16"
-        },
-        {
-            "hash": "ea0c0f986a8d21fbe7b7cc62e3c6b46002885f7c",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.7.16"
-        },
-        {
-            "hash": "f0b0be666baaadd37d7449e130498b6fc7d1b072",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.7.16"
-        },
-        {
-            "hash": "aa576b998186e61feae4fc71b46eb5eca52e543e",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.7.16"
-        },
-        {
-            "hash": "b519ac46f5f0ee94cb308cf6c6f35753b3a5c06f",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.7.10"
-        },
-        {
-            "hash": "1c43fbd87e0e5756351ec5c25f429ede5b7ac97b",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.7.10"
-        },
-        {
-            "hash": "014295e7766356851fbd5d944673d9c428abf862",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.6.10"
-        },
-        {
-            "hash": "27d6feb601557ec50b950f49bd9d7990e0e02e7d",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.5.10"
-        },
-        {
-            "hash": "f637578f62ad4c42b3ee43372f6cf7be6a306a70",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.4.10"
-        },
-        {
-            "hash": "5d045951bffbfbec42252ebf4e093bf57b98e929",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release vv3.3.10"
-        },
-        {
-            "hash": "c5d18d50dc25c0c9eb6e53c2f944087b5c9b49ef",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "build script testing [nolog]"
-        },
-        {
-            "hash": "cc86b21b81f4a15c4fe0c3e76c753e4f828c66b2",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "test [nolog]"
-        },
-        {
-            "hash": "8dc4fa8fe9d8ed6fe05106ccc66d81de725a73e4",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "update modinfo.json"
-        },
-        {
-            "hash": "869eba6fa07ac81ef9c377afb4ee3784c44043ef",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "initial 1.3 update"
-        },
-        {
             "hash": "048e1da72432e295eed63990569ad646f274e7b3",
             "author": "Proxyer",
             "description": "Update Japanese Translation for v2.15.128 (#30)"
@@ -1146,39 +1053,9 @@
             "description": "Update Japanese translation. (#10)"
         },
         {
-            "hash": "536ee739180a80bd66409264f63e9bdf33b85992",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.17.1.1 [nolog]'"
-        },
-        {
             "hash": "006783f55243e8035d61df69d7d06da52be4e82e",
             "author": "53N4",
             "description": "Spanish Translation (#9)"
-        },
-        {
-            "hash": "fa02c70a4ab5479f255c2d710a812332dae5f87b",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.17.1.0 [nolog]'"
-        },
-        {
-            "hash": "25f52276af98f6f4e85c44a07b2a3cf950b43bf3",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.17.1.0 [nolog]'"
-        },
-        {
-            "hash": "2195d20eaf297e423cec886b9a6efea78aa27779",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.17.0.1 [nolog]'"
-        },
-        {
-            "hash": "177c233acc5978c0d7f4cf5dbaa646393819e651",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.17.0.1 [nolog]'"
         },
         {
             "hash": "4491db6953bf96d9ddf20aa696836ce06e4c71cd",
@@ -1186,105 +1063,9 @@
             "description": "Added Japanese translation (#8)"
         },
         {
-            "hash": "efb3dce8fb607f060391f7dd3cf0d1524423c9d2",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.17.0.0 [nolog]'"
-        },
-        {
-            "hash": "1608cb1979408ee68561d7773be59e57608cb412",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.17.0.0 [nolog]'"
-        },
-        {
-            "hash": "0c4b2864428b9614b0c8b00786f6306835e40229",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.16.3.0 [nolog]'"
-        },
-        {
-            "hash": "8484fa4e29185a40ac0decb21ce635fab40941f2",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.16.2.0 [nolog]'"
-        },
-        {
-            "hash": "cbf31a9b87c5330768b7f501befcc26aa7bd2f0e",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "initial A17 version"
-        },
-        {
-            "hash": "01ba752bb61e13c35de2b5fca2dee42f9f972e2e",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Release v0.16.1.9 [nolog]'"
-        },
-        {
             "hash": "0f8f4e9a86c488913097ac6b49548a737c12faeb",
             "author": "duduluu",
             "description": "Update Chinese translations"
-        },
-        {
-            "hash": "d8eb49ce297187ee9abbc7b4cfcd0f6baf27ecdd",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "failed attempt at blueprint flipping"
-        },
-        {
-            "hash": "a2358c7356c6d5115afbe052364117ad5ef3d7e4",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "add support for planned and partially constructed buildings"
-        },
-        {
-            "hash": "98c06424720bd05ca3ad7dc2afd91064caae63a3",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Forced commit v0.16.1.6 [nolog]'"
-        },
-        {
-            "hash": "02c85baa1def972569f7a553e6267474431e76fc",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Forced commit v0.16.1.5 [nolog]'"
-        },
-        {
-            "hash": "5c32d801be9d3a64aec38c6a37d1a91ffbb944a7",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "remove redundant check for existing designator"
-        },
-        {
-            "hash": "05a0ab8c133b3ed43c83d2264b9da992b93a6aa5",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "add French translation (Thanks, Nils de Lumiere)"
-        },
-        {
-            "hash": "42a31eb149a4b355e36249cbd19e79ba61037628",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "add readme and license"
-        },
-        {
-            "hash": "6d0803b8fb0dbc9aaee420ca3403eb26f66e72ea",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Filter out buildings that can not normally be build"
-        },
-        {
-            "hash": "fee82e83663cad3a34dd2ef2cd6df1d9d08caf8b",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Forced commit v0.16.1.3 [nolog]'"
-        },
-        {
-            "hash": "c6baa62487a3652ffc83f4091cbd1178e42b45be",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "'Forced commit v0.16.1.2 [nolog]'"
         },
         {
             "hash": "514ed78063b964e66670b4f548b4b421c2d90ce0",
@@ -1297,137 +1078,85 @@
             "description": "Update Chinese translations (#4)"
         },
         {
-            "hash": "08d298310558609afcf8c1a7c98864e992660ea8",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Update Brazilian Portuguese strings"
-        },
-        {
             "hash": "febb39f10797b38b0ca861d74b900c469e440d35",
             "author": "duduluu",
             "description": "Add Chinese Translation (#1)"
-        },
-        {
-            "hash": "8e7ed3b65394dbe4d5e823d77387040a48aa4189",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Update about"
-        },
-        {
-            "hash": "e35b7801fae54a04aa93e40ff6dbadf201edd09e",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Merge branch 'master' of https://github.com/FluffierThanThou/RW_Blueprints.git"
-        },
-        {
-            "hash": "ddd1141dd4a9559e89d503acf57f2a99b9dfa54a",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Update description"
-        },
-        {
-            "hash": "3c4b51e4a519cd495a67ae74d6bc811d6a987a52",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Update description"
-        },
-        {
-            "hash": "4448d21e95d8947e2bfa208b2097c2f8495a1793",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Fixed error when trying to import blueprints and no blueprints available for import."
-        },
-        {
-            "hash": "a56ba06c88af953ae6858a6faeb9bf28a0a4978d",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Added PortugueseBrazilian translations (thanks rgponce)"
-        },
-        {
-            "hash": "0498947c767412d9179dcc5408e2f43d9fbd80cb",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Initial API error fixing, and .gitignore cleanup."
-        },
-        {
-            "hash": "9cbe574881c874ac06b919a5b9f2ccfaccdc34ef",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "initial A15 update"
-        },
-        {
-            "hash": "b028359a3e6ca82bf0050ce34fd3025f222dbf3b",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Show correct ghost of non-rotatable linked buildings."
-        },
-        {
-            "hash": "e28b23fc9d767a3608e20b1e58add672b128c906",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Auto-select new and imported blueprints."
-        },
-        {
-            "hash": "1fabb99a855d5772494dc372ea6d4f1adb2479b3",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "Keep non-rotatable items in a blueprint static when rotating the blueprint."
-        },
-        {
-            "hash": "db3b682a750e54913484c5665856284bea04ef2b",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "update for latest RC."
-        },
-        {
-            "hash": "87a48cb7d59a1e23f0fcd456b5c20ad1be7c7f07",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "proper A14 (again)"
-        },
-        {
-            "hash": "6b81540eecb7d1799f7948acb24d2fd85ee74aa0",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "A14"
-        },
-        {
-            "hash": "95b64f03288b26985747acb556d5797f237c0f34",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "xml changes for A14"
-        },
-        {
-            "hash": "e1e77c1943dc4013180249bb02e127c37684cc5e",
-            "author": "Karel Kroeze",
-            "description": "[A13]  - initial release  - there's some ugly texture loading hacks in here to circumvent issues introduced by A13 which I don't completely understand."
-        },
-        {
-            "hash": "265f6c5e48a306f4ed192a60e4602eabbf4443a2",
-            "author": "Karel Kroeze",
-            "description": "[fix] Cache linked graphics with unique orientation AND color to make context sensitive blueprint colors work."
-        },
-        {
-            "hash": "47e24db651d4c8f9c38c9b50f9ec03ea18f9a981",
-            "author": "Karel Kroeze",
-            "description": "initial commit"
-        },
-        {
-            "hash": "da0d21e558b0d0449b4164becf624ac4f93c2fb4",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "fix preview image background"
-        },
-        {
-            "hash": "4dd7307ee428ff5a335130913c86cd300899bd7e",
-            "suppressed": true,
-            "author": "FluffierThanThou",
-            "description": "release v3.9.33"
-        },
-        {
-            "hash": "8fe3b57bf09a3f876e748c337a419596b2610433",
-            "author": "FluffierThanThou",
-            "description": "release v3.9.33"
         }
-    ]
+    ],
+    "contributors": {
+        "Proxyer": [
+            {
+                "hash": "048e1da",
+                "author": "Proxyer",
+                "description": "Update Japanese Translation for v2.15.128 (#30)"
+            },
+            {
+                "hash": "0eb2fbe",
+                "author": "Proxyer",
+                "description": "Update Japanese Translation on 8 Mar, 2020 (#25)"
+            },
+            {
+                "hash": "8d7959c",
+                "author": "Proxyer",
+                "description": "Update Japanese Translation for v2.5.95 (#18)"
+            }
+        ],
+        "Seo. Junmin": [
+            {
+                "hash": "7088117",
+                "author": "Seo. Junmin",
+                "description": "Add Korean translations (#16)"
+            }
+        ],
+        "Kirill": [
+            {
+                "hash": "92b6bf7",
+                "author": "Kirill",
+                "description": "Fix translation (#13)"
+            }
+        ],
+        "Butter-Knife": [
+            {
+                "hash": "570995e",
+                "author": "Butter-Knife",
+                "description": "Update Japanese translation. (#10)"
+            },
+            {
+                "hash": "4491db6",
+                "author": "Butter-Knife",
+                "description": "Added Japanese translation (#8)"
+            }
+        ],
+        "53N4": [
+            {
+                "hash": "006783f",
+                "author": "53N4",
+                "description": "Spanish Translation (#9)"
+            }
+        ],
+        "duduluu": [
+            {
+                "hash": "0f8f4e9",
+                "author": "duduluu",
+                "description": "Update Chinese translations"
+            },
+            {
+                "hash": "07b3314",
+                "author": "duduluu",
+                "description": "Update Chinese translations (#4)"
+            },
+            {
+                "hash": "febb39f",
+                "author": "duduluu",
+                "description": "Add Chinese Translation (#1)"
+            }
+        ],
+        "Bronytamin": [
+            {
+                "hash": "514ed78",
+                "author": "Bronytamin",
+                "description": "Russian translation (#5)"
+            }
+        ]
+    }
 }
