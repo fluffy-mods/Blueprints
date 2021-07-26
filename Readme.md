@@ -18,7 +18,6 @@ You can import previously exported blueprints by right clicking the 'Create' but
 _NOTE: While you can import/export blueprints between games, be careful with doing so when a blueprint contains (modded) items that are not available in the current game. If you import a blueprint containing items that are unavailable, an error will pop up, and the offending item will be deleted from the blueprint. I've tried to make sure the rest of the blueprint is still usable, but your results may vary._
 
 ![Contributors](https://banners.karel-kroeze.nl/title/Contributors.png)  
-
 - Proxyer
     - [Update Japanese Translation for v2.15.128 (#30)](https://github.com/fluffy-mods/Blueprints/commit/048e1da)
     - [Update Japanese Translation on 8 Mar, 2020 (#25)](https://github.com/fluffy-mods/Blueprints/commit/0eb2fbe)
@@ -39,6 +38,7 @@ _NOTE: While you can import/export blueprints between games, be careful with doi
 - Bronytamin
     - [Russian translation (#5)](https://github.com/fluffy-mods/Blueprints/commit/514ed78)
 
+
 ![Think you found a bug?](https://banners.karel-kroeze.nl/title/Think%20you%20found%20a%20bug%3F.png)  
 
 Please read [this guide](http://steamcommunity.com/sharedfiles/filedetails/?id=725234314) before creating a bug report,
@@ -56,8 +56,8 @@ All original content (e.g. text, imagery, sounds) in this mod is licensed under 
 Parts of the code in this mod, and some of the content may be licensed by their original authors. If this is the case, the original author & license will either be given in the source code, or be in a LICENSE file next to the content. Please do not decompile my mods, but use the original source code available on [GitHub](https://github.com/fluffy-mods/Blueprints/), so license information in the source code is preserved.
 
 Parts of this mod were created by, or derived from works created by;
-
 - Nikita Golubev/Flaticon.com: preview blueprint image ([BY-NC](https://www.flaticon.com/authors/nikita-golubev))
+
 
 ![Are you enjoying my mods?](https://banners.karel-kroeze.nl/title/Are%20you%20enjoying%20my%20mods%3F.png)  
 

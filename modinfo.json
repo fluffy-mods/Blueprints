@@ -16,6 +16,15 @@
     },
     "changelog": [
         {
+            "date": "2021-07-26T19:37:02.000Z",
+            "message": "update contributors style",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "bed6dc8c38a56f9d3964ebbe04ddc4b52dd887ef"
+        },
+        {
             "date": "2021-07-26T18:19:46.000Z",
             "message": "release v3.9.33",
             "author": {
