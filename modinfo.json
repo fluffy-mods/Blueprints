@@ -16,6 +16,15 @@
     },
     "changelog": [
         {
+            "date": "2021-07-26T18:15:15.000Z",
+            "message": "fix preview image background",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "da0d21e558b0d0449b4164becf624ac4f93c2fb4"
+        },
+        {
             "date": "2021-07-26T18:04:28.000Z",
             "message": "update preview, contributors, etc.",
             "author": {
@@ -1339,6 +1348,16 @@
             "hash": "47e24db651d4c8f9c38c9b50f9ec03ea18f9a981",
             "author": "Karel Kroeze",
             "description": "initial commit"
+        },
+        {
+            "hash": "da0d21e558b0d0449b4164becf624ac4f93c2fb4",
+            "author": "FluffierThanThou",
+            "description": "fix preview image background"
+        },
+        {
+            "hash": "4dd7307ee428ff5a335130913c86cd300899bd7e",
+            "author": "FluffierThanThou",
+            "description": "release v3.9.33"
         }
     ]
 }

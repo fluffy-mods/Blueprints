@@ -87,6 +87,8 @@ _NOTE: While you can import/export blueprints between games, be careful with doi
 - Karel Kroeze: [A13]  - initial release  - there&#x27;s some ugly texture loading hacks in here to circumvent issues introduced by A13 which I don&#x27;t completely understand.
 - Karel Kroeze: [fix] Cache linked graphics with unique orientation AND color to make context sensitive blueprint colors work.
 - Karel Kroeze: initial commit
+- FluffierThanThou: fix preview image background
+- FluffierThanThou: release v3.9.33
 
 
 ![Think you found a bug?](https://banners.karel-kroeze.nl/title/Think%20you%20found%20a%20bug%3F.png)  
