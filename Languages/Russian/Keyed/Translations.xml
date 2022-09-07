@@ -4,16 +4,34 @@
 	<Fluffy.Blueprints.DefaultBlueprintName>Проект</Fluffy.Blueprints.DefaultBlueprintName>
 	<Fluffy.Blueprints.NameAlreadyTaken>Проект "{0}" уже существует. Пожалуйста, введите оригинальное название.</Fluffy.Blueprints.NameAlreadyTaken>
 	<Fluffy.Blueprints.InvalidBlueprintName>"{0}" недопустимое название. \nПожалуйста, используйте только буквенно-цифровые символы и знаки подчеркивания (A-Z, А-Я, _). Пробелы не допускаются.</Fluffy.Blueprints.InvalidBlueprintName>
-	<Fluffy.Blueprints.LoadFromXML>Загрузить проект "{0}"</Fluffy.Blueprints.LoadFromXML>
+	<Fluffy.Blueprints.LoadFromXML>Импорт проекта "{0}"</Fluffy.Blueprints.LoadFromXML>
 	<Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>Невозможно создать проект - ничего не выбрано.</Fluffy.Blueprints.CannotCreateBluePrint_NothingSelected>
 	<Fluffy.Blueprint.Cost>Общая стоимость:</Fluffy.Blueprint.Cost>
 	<Fluffy.Blueprints.Remove>Удалить проект</Fluffy.Blueprints.Remove>
-	<Fluffy.Blueprints.SaveToXML>Сохранить проект</Fluffy.Blueprints.SaveToXML>
-	<Fluffy.Blueprints.RemoveAndDeleteXML>Удалить проект и его сохранённую копию</Fluffy.Blueprints.RemoveAndDeleteXML>
+	<Fluffy.Blueprints.SaveToXML>Экспорт проекта</Fluffy.Blueprints.SaveToXML>
+	<Fluffy.Blueprints.RemoveAndDeleteXML>Удалить проект и его экспортированную версию</Fluffy.Blueprints.RemoveAndDeleteXML>
 	<Fluffy.Blueprints.Rename>Переименовать проект</Fluffy.Blueprints.Rename>
-	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Сохранённый проект "{0}" уже существует. Пожалуйста, введите оригинальное название.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
+	<Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>Экспортированный проект "{0}" уже существует. Пожалуйста, введите оригинальное название.</Fluffy.Blueprints.ExportedBlueprintWithThatNameAlreadyExists>
 	<Fluffy.Blueprints.Create>Создать</Fluffy.Blueprints.Create>
-	<Fluffy.Blueprints.CreateHelp>ЛКМ чтобы создать новый проект\nПКМ, чтобы загрузить существующий проект.</Fluffy.Blueprints.CreateHelp>
-	<Fluffy.Blueprints.NoStoredBlueprints>Сохранённых проектов не обнаружено (или все они уже загружены).</Fluffy.Blueprints.NoStoredBlueprints>
+	<Fluffy.Blueprints.CreateHelp>ЛКМ чтобы создать новый проект.\nПКМ чтобы импортировать существующий проект.</Fluffy.Blueprints.CreateHelp>
+	<Fluffy.Blueprints.NoStoredBlueprints>Экспортированных проектов не обнаружено (или все они уже импортированы).</Fluffy.Blueprints.NoStoredBlueprints>
+	<Fluffy.Blueprints.NothingAvailableInBlueprint>Ни один из элементов в {0} не может быть построен с использованием текущих технологий.</Fluffy.Blueprints.NothingAvailableInBlueprint>
+	<Fluffy.Blueprints.XNotAvailableInBlueprint>Некоторые элементы в {0} не могут быть построены с использованием текущих технологий: {1}</Fluffy.Blueprints.XNotAvailableInBlueprint>
 
+	<!-- в игре не обнаружил -->
+	<Fluffy.Blueprints.UnFlippable.HasInteractionCell>{0} cannot be rotated and has an interaction spot. Flipping it may have lead to invalid placement.</Fluffy.Blueprints.UnFlippable.HasInteractionCell>
+	<Fluffy.Blueprints.UnRotatable.HasInteractionCell>{0} cannot be rotated and has an interaction spot. Rotating it may have lead to invalid placement.</Fluffy.Blueprints.UnRotatable.HasInteractionCell>
+	<Fluffy.Blueprints.UnRotatable.NonSquare>{0} cannot be rotated, and is not square. Rotating the blueprint will lead to invalid placement of {0}.</Fluffy.Blueprints.UnRotatable.NonSquare>
+
+	<!-- I'm aware this is a _very_ suboptimal solution, but short of writing a custom languageWorker like thing for each language, this will have to do. It's only for default blueprint names anyway. (добавить окончание) -->
+	<Fluffy.Blueprints.Plural>{0}</Fluffy.Blueprints.Plural>
+
+	<!-- copy command -->
+	<Fluffy.Blueprints.Copy>Копировать</Fluffy.Blueprints.Copy>
+	<Fluffy.Blueprints.CreateFromSelection>Создать проект</Fluffy.Blueprints.CreateFromSelection>
+	<Fluffy.Blueprints.CopyHelp>Создать временный проект из выбранных объектов.\n\nПКМ: Создать постоянный проект из выбранных объектов.</Fluffy.Blueprints.CopyHelp>
+
+	<!-- Options (не переводятся) -->
+	<Fluffy.Blueprints>Blueprints</Fluffy.Blueprints>
+	<Fluffy.Blueprints.CopyKey>Copy keybinding</Fluffy.Blueprints.CopyKey>
 </LanguageData>
