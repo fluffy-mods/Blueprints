@@ -6,7 +6,7 @@
     "version": {
         "major": 3,
         "minor": 9,
-        "build": 39
+        "build": 43
     },
     "description": "",
     "author": {
@@ -15,6 +15,15 @@
         "email": "fluffy.l2032@gmail.com"
     },
     "changelog": [
+        {
+            "date": "2021-07-26T19:37:17.000Z",
+            "message": "release v3.9.39",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "ccdc0170c2897af325c3e7b7b67ac28f78f279a3"
+        },
         {
             "date": "2021-07-26T19:37:02.000Z",
             "message": "update contributors style",

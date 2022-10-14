@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyTitle>Blueprints</AssemblyTitle>
+    <Product>Blueprints</Product>
+    <Copyright>Copyright © 2016-2022</Copyright>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <OutputPath>..\Assemblies\</OutputPath>
+    <LangVersion>8</LangVersion>
+    <PostBuildEvent>mod update</PostBuildEvent>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\TOOLS\BetterKeybinding\BetterKeybinding.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.4.3517-beta" />
+    <PackageReference Include="Lib.Harmony" Version="2.1.0" />
+  </ItemGroup>
+</Project>
