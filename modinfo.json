@@ -5,7 +5,7 @@
     "url": "https://github.com/fluffy-mods/Blueprints",
     "version": {
         "major": 3,
-        "minor": 9,
+        "minor": 10,
         "build": 43
     },
     "description": "",
@@ -15,6 +15,15 @@
         "email": "fluffy.l2032@gmail.com"
     },
     "changelog": [
+        {
+            "date": "2022-10-14T20:10:40.000Z",
+            "message": "initial 1.4 build, modernize project file, refactor source file structure",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "1c4061dba137125b1f285eac89b6450d7384727d"
+        },
         {
             "date": "2021-07-26T19:37:17.000Z",
             "message": "release v3.9.39",
