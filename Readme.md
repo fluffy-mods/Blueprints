@@ -1,6 +1,7 @@
 Blueprints allow the quick construction of repetitive rooms/areas.
 
 ![Features](https://headers.karel-kroeze.nl/title/Features.png)  
+
 **Create blueprint**
 Use the 'Create' designator to drag over an area with existing constructions. Floors, walls and furniture will all be designated, and included in the blueprint. once created, a popup will appear with a default name, giving you the option to set a more meaningful name.
 

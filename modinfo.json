@@ -5,8 +5,8 @@
     "url": "https://github.com/fluffy-mods/Blueprints",
     "version": {
         "major": 3,
-        "minor": 10,
-        "build": 43
+        "minor": 11,
+        "build": 44
     },
     "description": "",
     "author": {
@@ -16,6 +16,15 @@
     },
     "changelog": [
         {
+            "date": "2022-10-14T20:11:01.000Z",
+            "message": "release v3.10.43",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "7838a22dd472923561c4f79871304f38e1d20ad2"
+        },
+        {
             "date": "2022-10-14T20:10:40.000Z",
             "message": "initial 1.4 build, modernize project file, refactor source file structure",
             "author": {
@@ -23,6 +32,15 @@
                 "email": "fluffy.l2032@gmail.com"
             },
             "hash": "1c4061dba137125b1f285eac89b6450d7384727d"
+        },
+        {
+            "date": "2022-09-07T09:45:48.000Z",
+            "message": "Исправление и дополнение перевода",
+            "author": {
+                "name": "Baknamy",
+                "email": "33354519+Baknamy@users.noreply.github.com"
+            },
+            "hash": "ee4399c54d6e340c3f75fcaf6268f03674e50ba3"
         },
         {
             "date": "2021-07-26T19:37:17.000Z",
@@ -1108,6 +1126,11 @@
             "hash": "febb39f10797b38b0ca861d74b900c469e440d35",
             "author": "duduluu",
             "description": "Add Chinese Translation (#1)"
+        },
+        {
+            "hash": "ee4399c54d6e340c3f75fcaf6268f03674e50ba3",
+            "author": "Baknamy",
+            "description": "Update Russian translations"
         }
     ],
     "contributors": {
@@ -1183,6 +1206,13 @@
                 "hash": "514ed78",
                 "author": "Bronytamin",
                 "description": "Russian translation (#5)"
+            }
+        ],
+        "Baknamy": [
+            {
+                "hash": "ee4399c",
+                "author": "Baknamy",
+                "description": "Update Russian translations"
             }
         ]
     }
