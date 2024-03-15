@@ -4,8 +4,8 @@
     "targetDir": "Blueprints",
     "url": "https://github.com/fluffy-mods/Blueprints",
     "version": {
-        "major": 3,
-        "minor": 11,
+        "major": 4,
+        "minor": 0,
         "build": 53
     },
     "description": "",
@@ -15,6 +15,33 @@
         "email": "fluffy.l2032@gmail.com"
     },
     "changelog": [
+        {
+            "date": "2024-03-15T19:15:29.000Z",
+            "message": "update preview image",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "36c373e5607e6c80c483c086bddebe194d51b8f4"
+        },
+        {
+            "date": "2024-03-15T19:13:47.000Z",
+            "message": "code formatting",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "57c07b19f85da7de413e06f929bb9972f7d81197"
+        },
+        {
+            "date": "2024-03-15T19:13:38.000Z",
+            "message": "fix copy gizmo injection patch",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "d2d0213dfb4d37155db837f72f4c7b39f132b538"
+        },
         {
             "date": "2024-03-15T18:24:43.000Z",
             "message": "1.5 update, style pass",
