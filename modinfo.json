@@ -6,7 +6,7 @@
     "version": {
         "major": 3,
         "minor": 11,
-        "build": 46
+        "build": 53
     },
     "description": "",
     "author": {
@@ -15,6 +15,15 @@
         "email": "fluffy.l2032@gmail.com"
     },
     "changelog": [
+        {
+            "date": "2024-03-15T18:24:43.000Z",
+            "message": "1.5 update, style pass",
+            "author": {
+                "name": "FluffierThanThou",
+                "email": "fluffy.l2032@gmail.com"
+            },
+            "hash": "a370e72bcd0fae9a7802a8d13d57a9eeee3077b1"
+        },
         {
             "date": "2022-11-02T19:36:44.000Z",
             "message": "release v3.11.44",

@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Reflection;
 using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace Blueprints
-{
+namespace Blueprints {
     [StaticConstructorOnStartup]
-    public class Resources
-    {
+    public class Resources {
         // todo; figure out blueprint flipping
         // public static readonly Texture2D FlipTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotRight", true);
         public static Color ghostBlue = new Color( .25f, .50f, .50f, .5f );
@@ -30,63 +28,49 @@ namespace Blueprints
         private static readonly FieldInfo designator_place_placingRotation_FI =
             typeof( Designator_Place ).GetField( "placingRot", BindingFlags.Instance | BindingFlags.NonPublic );
 
-        static Resources()
-        {
-            Icon_AddBlueprint = ContentFinder<Texture2D>.Get( "Icons/AddBlueprint" );
-            Icon_Blueprint    = ContentFinder<Texture2D>.Get( "Icons/Blueprint" );
-            Icon_Edit         = ContentFinder<Texture2D>.Get( "Icons/Edit" );
-            RotLeftTex        = ContentFinder<Texture2D>.Get( "UI/Widgets/RotLeft" );
-            RotRightTex       = ContentFinder<Texture2D>.Get( "UI/Widgets/RotRight" );
-            FlipTex           = ContentFinder<Texture2D>.Get( "Icons/Flip" );
+        static Resources() {
+            Icon_AddBlueprint = ContentFinder<Texture2D>.Get("Icons/AddBlueprint");
+            Icon_Blueprint = ContentFinder<Texture2D>.Get("Icons/Blueprint");
+            Icon_Edit = ContentFinder<Texture2D>.Get("Icons/Edit");
+            RotLeftTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotLeft");
+            RotRightTex = ContentFinder<Texture2D>.Get("UI/Widgets/RotRight");
+            FlipTex = ContentFinder<Texture2D>.Get("Icons/Flip");
         }
 
-        public static IntVec3 Offset( IntVec2 size, Rot4 from, Rot4 to )
-        {
+        public static IntVec3 Offset(IntVec2 size, Rot4 from, Rot4 to) {
             float alt = AltitudeLayer.Blueprint.AltitudeFor();
-            return ( GenThing.TrueCenter( IntVec3.Zero, from, size, alt ) -
-                     GenThing.TrueCenter( IntVec3.Zero, to, size, alt ) ).ToIntVec3();
+            return (GenThing.TrueCenter(IntVec3.Zero, from, size, alt) -
+                     GenThing.TrueCenter(IntVec3.Zero, to, size, alt)).ToIntVec3();
         }
 
-        public static IntVec3 CenterPosition( IntVec3 bottomLeft, IntVec2 size, Rot4 rotation )
-        {
-            return bottomLeft + new IntVec3( ( size.x - 1 ) / 2, 0, ( size.z - 1 ) / 2 );
+        public static IntVec3 CenterPosition(IntVec3 bottomLeft, IntVec2 size, Rot4 rotation) {
+            return bottomLeft + new IntVec3((size.x - 1) / 2, 0, (size.z - 1) / 2);
         }
 
-        public static Color GhostColor( PlacementReport placementReport )
-        {
-            switch ( placementReport )
-            {
-                case PlacementReport.CanNotPlace:
-                    return ghostRed;
-
-                case PlacementReport.CanPlace:
-                    return ghostBlue;
-
-                case PlacementReport.AlreadyPlaced:
-                    return ghostGrey;
-
-                default:
-                    return Color.white;
-            }
+        public static Color GhostColor(PlacementReport placementReport) {
+            return placementReport switch {
+                PlacementReport.CanNotPlace => ghostRed,
+                PlacementReport.CanPlace => ghostBlue,
+                PlacementReport.AlreadyPlaced => ghostGrey,
+                _ => Color.white,
+            };
         }
 
-        public static Material GhostFloorMaterial( PlacementReport placementReport )
-        {
+        public static Material GhostFloorMaterial(PlacementReport placementReport) {
             Color      color = GhostColor( placementReport );
-            Material ghost;
-            if ( _ghostFloors.TryGetValue( color, out ghost ) ) {
+            if (_ghostFloors.TryGetValue(color, out Material ghost)) {
                 return ghost;
             }
 
-            ghost       = new Material( _mouseOverBracketMaterial );
-            ghost.color = color;
-            _ghostFloors.Add( color, ghost );
+            ghost = new Material(_mouseOverBracketMaterial) {
+                color = color
+            };
+            _ghostFloors.Add(color, ghost);
             return ghost;
         }
 
-        public static void SetDesignatorRotation( Designator_Place designator, Rot4 rotation )
-        {
-            designator_place_placingRotation_FI.SetValue( designator, rotation );
+        public static void SetDesignatorRotation(Designator_Place designator, Rot4 rotation) {
+            designator_place_placingRotation_FI.SetValue(designator, rotation);
         }
     }
 }

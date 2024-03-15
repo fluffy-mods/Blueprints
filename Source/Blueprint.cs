@@ -1,4 +1,4 @@
-﻿// Copyright Karel Kroeze, 2020-2021.
+// Copyright Karel Kroeze, 2020-2021.
 // Blueprints/Blueprints/Blueprint.cs
 
 using System.Collections.Generic;
