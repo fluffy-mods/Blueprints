@@ -26,29 +26,32 @@ namespace Blueprints
         {
             get
             {
-                var options = new List<FloatMenuOption>();
+                List<FloatMenuOption> options = new List<FloatMenuOption>();
 
-                foreach ( var file in BlueprintController.GetSavedFilesList() )
+                foreach (FileInfo file in BlueprintController.GetSavedFilesList() )
                 {
-                    var name = Path.GetFileNameWithoutExtension( file.Name );
-                    if ( BlueprintController.FindBlueprint( name ) == null )
+                    string name = Path.GetFileNameWithoutExtension( file.Name );
+                    if ( BlueprintController.FindBlueprint( name ) == null ) {
                         options.Add( new FloatMenuOption( "Fluffy.Blueprints.LoadFromXML".Translate( name ),
                                                           delegate
                                                           {
                                                               BlueprintController.Add( BlueprintController.LoadFromXML( file.Name ) );
                                                           } ) );
+                    }
                 }
 
-                if ( options.NullOrEmpty() )
+                if ( options.NullOrEmpty() ) {
                     Messages.Message( "Fluffy.Blueprints.NoStoredBlueprints".Translate(),
                                       MessageTypeDefOf.RejectInput );
+                }
+
                 return options;
             }
         }
 
         public override AcceptanceReport CanDesignateCell( IntVec3 loc )
         {
-            var things = loc.GetThingList( Map );
+            List<Thing> things = loc.GetThingList( Map );
             return loc.InBounds( Map ) &&
                    !loc.Fogged( Map )  &&
                    ( loc.GetTerrain( Map ).IsValidBlueprintTerrain() ||

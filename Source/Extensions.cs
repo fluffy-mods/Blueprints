@@ -12,12 +12,16 @@ namespace Blueprints
 
         public static bool IsValidBlueprintThing( this Thing thing )
         {
-            if ( thing is RimWorld.Blueprint blueprint )
+            if ( thing is RimWorld.Blueprint blueprint ) {
                 return blueprint.def.entityDefToBuild.designationCategory != null &&
                        thing.Faction                                      == Faction.OfPlayer;
-            if ( thing is Frame frame )
+            }
+
+            if ( thing is Frame frame ) {
                 return frame.def.entityDefToBuild.designationCategory != null &&
                        thing.Faction                                  == Faction.OfPlayer;
+            }
+
             return thing.def.designationCategory != null && thing.Faction == Faction.OfPlayer;
         }
     }

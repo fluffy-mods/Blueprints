@@ -39,12 +39,13 @@ namespace Blueprints
 
         public BuildableInfo( Thing thing, IntVec3 origin )
         {
-            if ( thing is RimWorld.Blueprint blueprint )
+            if ( thing is RimWorld.Blueprint blueprint ) {
                 Init( blueprint, origin );
-            else if ( thing is Frame frame )
+            } else if ( thing is Frame frame ) {
                 Init( frame, origin );
-            else
+            } else {
                 Init( thing, origin );
+            }
         }
 
         public BuildableInfo( TerrainDef terrain, IntVec3 position, IntVec3 origin )
@@ -58,12 +59,13 @@ namespace Blueprints
             {
                 if ( _buildableDef == null )
                 {
-                    if ( _thingDef != null )
+                    if ( _thingDef != null ) {
                         _buildableDef = _thingDef;
-                    else if ( _terrainDef != null )
+                    } else if ( _terrainDef != null ) {
                         _buildableDef = _terrainDef;
-                    else
+                    } else {
                         Log.ErrorOnce( "Blueprints :: No thingDef or terrainDef set!", GetHashCode() * 123 );
+                    }
                 }
 
                 return _buildableDef;
@@ -74,8 +76,10 @@ namespace Blueprints
         {
             get
             {
-                if ( _designator == null )
+                if ( _designator == null ) {
                     _designator = CreateDesignatorCopy();
+                }
+
                 return _designator;
             }
         }
@@ -84,12 +88,17 @@ namespace Blueprints
         {
             get
             {
-                if ( BuildableDef is TerrainDef )
+                if ( BuildableDef is TerrainDef ) {
                     return _position;
-                if ( Rotatable )
+                }
+
+                if ( Rotatable ) {
                     return _position;
-                if ( Centered || !Square )
+                }
+
+                if ( Centered || !Square ) {
                     return _position;
+                }
 
                 // offset position
                 return _position - Resources.Offset( _thingDef.Size, Rot4.North, _rotation );
@@ -110,7 +119,10 @@ namespace Blueprints
         {
             get
             {
-                if ( BuildableDef is ThingDef thingDef ) return thingDef.rotatable;
+                if ( BuildableDef is ThingDef thingDef ) {
+                    return thingDef.rotatable;
+                }
+
                 return false;
             }
         }
@@ -119,7 +131,10 @@ namespace Blueprints
         {
             get
             {
-                if ( BuildableDef is ThingDef thingDef ) return thingDef.Size.x == thingDef.Size.z;
+                if ( BuildableDef is ThingDef thingDef ) {
+                    return thingDef.Size.x == thingDef.Size.z;
+                }
+
                 return true;
             }
         }
@@ -128,15 +143,19 @@ namespace Blueprints
         {
             get
             {
-                if ( BuildableDef == null )
+                if ( BuildableDef == null ) {
                     throw new InvalidOperationException( "cannot get centered status without a buildable set" );
+                }
 
-                if ( BuildableDef is TerrainDef )
+                if ( BuildableDef is TerrainDef ) {
                     return true;
+                }
 
                 // if width or height are even, the pivot cannot possibly be centered.
-                if ( _thingDef.Size.x % 2 == 0 || _thingDef.Size.z % 2 == 0 )
+                if ( _thingDef.Size.x % 2 == 0 || _thingDef.Size.z % 2 == 0 ) {
                     return false;
+                }
+
                 return true;
             }
         }
@@ -159,24 +178,27 @@ namespace Blueprints
         public PlacementReport CanPlace( IntVec3 origin )
         {
             // get rotated cell position
-            var cell = origin + Position;
+            IntVec3 cell = origin + Position;
 
             // if out of bounds, we clearly can't place it
-            if ( !cell.InBounds( Find.CurrentMap ) )
+            if ( !cell.InBounds( Find.CurrentMap ) ) {
                 return PlacementReport.CanNotPlace;
+            }
 
             // if the designator's check passes, we can safely assume it's OK to build here
-            if ( Designator.CanDesignateCell( cell ).Accepted )
+            if ( Designator.CanDesignateCell( cell ).Accepted ) {
                 return PlacementReport.CanPlace;
+            }
 
             // otherwise, check if the same thing (or it's blueprint/frame stages) already exists here
             // terrain and thing both have bluePrint and frame in thinglist, as are things. Terrains are not a thing, and retrieved with GetTerrain().
-            var cellDefs = cell.GetThingList( Find.CurrentMap ).Select( thing => thing.def ).ToList();
+            List<ThingDef> cellDefs = cell.GetThingList( Find.CurrentMap ).Select( thing => thing.def ).ToList();
             if ( cellDefs.Contains( BuildableDef as ThingDef )                    ||
                  cell.GetTerrain( Find.CurrentMap ) == BuildableDef as TerrainDef ||
                  cellDefs.Contains( BuildableDef.blueprintDef )                   ||
-                 cellDefs.Contains( BuildableDef.frameDef ) )
+                 cellDefs.Contains( BuildableDef.frameDef ) ) {
                 return PlacementReport.AlreadyPlaced;
+            }
 
             // finally, default to returning false.
             return PlacementReport.CanNotPlace;
@@ -185,16 +207,17 @@ namespace Blueprints
         public Designator_Build CreateDesignatorCopy()
         {
             // create a new copy
-            var designator = new Designator_Build( BuildableDef );
+            Designator_Build designator = new Designator_Build( BuildableDef );
 
             // apply stuffdef & rotation
             if ( _thingDef != null )
             {
                 // set stuff def
-                if ( _stuff == null )
+                if ( _stuff == null ) {
                     designator.SetStuffDef( GenStuff.DefaultStuffFor( _thingDef ) );
-                else
+                } else {
                     designator.SetStuffDef( _stuff );
+                }
 
                 // set rotation through reflection
                 Resources.SetDesignatorRotation( designator, _rotation );
@@ -210,7 +233,7 @@ namespace Blueprints
 
         public void DrawGhost( IntVec3 origin )
         {
-            var cell = origin + Position;
+            IntVec3 cell = origin + Position;
             if ( _thingDef != null )
             {
                 // normal thingdef graphic
@@ -225,30 +248,32 @@ namespace Blueprints
                 else
                 {
                     Material material;
-                    var      color = Resources.GhostColor( CanPlace( origin ) );
-                    var      hash  = color.GetHashCode() * _rotation.GetHashCode();
+                    Color      color = Resources.GhostColor( CanPlace( origin ) );
+                    int      hash  = color.GetHashCode() * _rotation.GetHashCode();
                     if ( !_cachedMaterials.TryGetValue( hash, out material ) )
                     {
                         // get a colored version (ripped from GhostDrawer.DrawGhostThing)
-                        var graphic = (Graphic_Linked) _thingDef.graphic.GetColoredVersion( ShaderDatabase.Transparent,
+                        Graphic_Linked graphic = (Graphic_Linked) _thingDef.graphic.GetColoredVersion( ShaderDatabase.Transparent,
                                                                                             color,
                                                                                             Color.white );
 
                         // atlas contains all possible link graphics
-                        var atlas = graphic.MatSingle;
+                        Material atlas = graphic.MatSingle;
 
                         // loop over cardinal directions, and set the correct bits (e.g. 1, 2, 4, 8).
-                        var linkInt = 0;
-                        var dirInt  = 1;
-                        for ( var i = 0; i < 4; i++ )
+                        int linkInt = 0;
+                        int dirInt  = 1;
+                        for (int i = 0; i < 4; i++ )
                         {
-                            if ( blueprint.ShouldLinkWith( Position + GenAdj.CardinalDirections[i], _thingDef ) )
+                            if ( blueprint.ShouldLinkWith( Position + GenAdj.CardinalDirections[i], _thingDef ) ) {
                                 linkInt += dirInt;
+                            }
+
                             dirInt *= 2;
                         }
 
                         // translate int to bitmask (flags)
-                        var linkSet = (LinkDirections) linkInt;
+                        LinkDirections linkSet = (LinkDirections) linkInt;
 
                         // get and cache the final material
                         material = MaterialAtlasPool.SubMaterialFromAtlas( atlas, linkSet );
@@ -256,13 +281,13 @@ namespace Blueprints
                     }
 
                     // draw the thing.
-                    var position = cell.ToVector3ShiftedWithAltitude( AltitudeLayer.MetaOverlays );
+                    Vector3 position = cell.ToVector3ShiftedWithAltitude( AltitudeLayer.MetaOverlays );
                     Graphics.DrawMesh( MeshPool.plane10, position, Quaternion.identity, material, 0 );
                 }
             }
             else
             {
-                var position = cell.ToVector3ShiftedWithAltitude( AltitudeLayer.MetaOverlays );
+                Vector3 position = cell.ToVector3ShiftedWithAltitude( AltitudeLayer.MetaOverlays );
                 Graphics.DrawMesh( MeshPool.plane10, position, Quaternion.identity,
                                    Resources.GhostFloorMaterial( CanPlace( origin ) ), 0 );
             }
@@ -271,12 +296,14 @@ namespace Blueprints
         public void Plan( IntVec3 origin )
         {
             // only plan wall (or things that link with walls) designations
-            if ( _thingDef == null || ( _thingDef.graphicData.linkFlags & LinkFlags.Wall ) != LinkFlags.Wall )
+            if ( _thingDef == null || ( _thingDef.graphicData.linkFlags & LinkFlags.Wall ) != LinkFlags.Wall ) {
                 return;
+            }
 
             // don't add plan if already there
-            if ( Find.CurrentMap.designationManager.DesignationAt( origin + Position, DesignationDefOf.Plan ) != null )
+            if ( Find.CurrentMap.designationManager.DesignationAt( origin + Position, DesignationDefOf.Plan ) != null ) {
                 return;
+            }
 
             // add plan designation
             Find.CurrentMap.designationManager.AddDesignation(
@@ -287,37 +314,43 @@ namespace Blueprints
         {
             // update position within blueprint
             // for a clock wise rotation
-            if ( direction == RotationDirection.Clockwise )
+            if ( direction == RotationDirection.Clockwise ) {
                 _position = _position.RotatedBy( Rot4.East );
+            }
 
             // counter clock wise is the reverse
-            else
+            else {
                 _position = _position.RotatedBy( Rot4.West );
+            }
 
             // update rotation of item
             // if there's no thingdef, there's no point.
-            if ( _thingDef == null )
+            if ( _thingDef == null ) {
                 return true;
+            }
 
             // always keep track of rotation internally
             _rotation.Rotate( direction );
 
             // if rotatable or a linked building (e.g. walls, sandbags), rotate.
-            if ( Rotatable || _thingDef.graphicData.Linked )
+            if ( Rotatable || _thingDef.graphicData.Linked ) {
                 // rotate designator only if it makes sense
                 Resources.SetDesignatorRotation( Designator, _rotation );
+            }
 
             // if the pivot of a non-rotatable thing is not in it's center, try to offset it's position.
             if ( !Rotatable && !Centered )
             {
-                if ( !Square )
+                if ( !Square ) {
                     // throw message - don't deal.
                     return "Fluffy.Blueprints.UnRotatable.NonSquare".Translate( _thingDef.LabelCap ).Resolve();
+                }
 
                 // we'll try to offset the location
-                if ( _thingDef.hasInteractionCell )
+                if ( _thingDef.hasInteractionCell ) {
                     // throw message - interaction cell might become inaccessible.
                     return "Fluffy.Blueprints.UnRotatable.HasInteractionCell".Translate( _thingDef.LabelCap ).Resolve();
+                }
             }
 
             return true;
@@ -349,14 +382,18 @@ namespace Blueprints
 
                 // swap east/west facings, leave north/south the same.
                 if ( _rotation.AsInt % 2 == 1 ) // East/West
+{
                     _rotation.AsInt += 2;       // rotate twice.
+                }
 
                 // update designator if needed
-                if ( Rotatable || thingDef.graphicData.Linked )
+                if ( Rotatable || thingDef.graphicData.Linked ) {
                     Resources.SetDesignatorRotation( Designator, _rotation );
+                }
 
-                if ( !Rotatable && !Centered && thingDef.hasInteractionCell )
+                if ( !Rotatable && !Centered && thingDef.hasInteractionCell ) {
                     return "Fluffy.Blueprints.UnFlippable.HasInteractionCell".Translate( thingDef.LabelCap ).Resolve();
+                }
             }
 
             return true;
@@ -370,22 +407,24 @@ namespace Blueprints
 
         private void Init( RimWorld.Blueprint blueprint, IntVec3 origin )
         {
-            if ( blueprint.def.entityDefToBuild is TerrainDef terrain )
+            if ( blueprint.def.entityDefToBuild is TerrainDef terrain ) {
                 Init( terrain, blueprint.Position, origin );
-            else if ( blueprint is Blueprint_Build bp_build )
+            } else if ( blueprint is Blueprint_Build bp_build ) {
                 Init( blueprint.def.entityDefToBuild as ThingDef, bp_build.stuffToUse, blueprint.Position,
                       blueprint.Rotation, origin );
-            else if ( blueprint is Blueprint_Install bp_install )
+            } else if ( blueprint is Blueprint_Install bp_install ) {
                 Init( blueprint.def.entityDefToBuild as ThingDef, bp_install.MiniToInstallOrBuildingToReinstall.Stuff,
                       blueprint.Position, blueprint.Rotation, origin );
+            }
         }
 
         private void Init( Frame frame, IntVec3 origin )
         {
-            if ( frame.def.entityDefToBuild is TerrainDef terrain )
+            if ( frame.def.entityDefToBuild is TerrainDef terrain ) {
                 Init( terrain, frame.Position, origin );
-            else
+            } else {
                 Init( frame.def.entityDefToBuild as ThingDef, frame.Stuff, frame.Position, frame.Rotation, origin );
+            }
         }
 
         private void Init( Thing thing, IntVec3 origin )

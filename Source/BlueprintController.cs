@@ -32,8 +32,10 @@ namespace Blueprints
         {
             get
             {
-                if ( _blueprintSaveLocation == null )
+                if ( _blueprintSaveLocation == null ) {
                     _blueprintSaveLocation = GetSaveLocation();
+                }
+
                 return _blueprintSaveLocation;
             }
         }
@@ -46,12 +48,13 @@ namespace Blueprints
 
         public static void Add( Blueprint blueprint )
         {
-            if ( !Instance._initialized )
+            if ( !Instance._initialized ) {
                 Initialize();
+            }
 
             Instance._blueprints.Add( blueprint );
 
-            var designator = new Designator_Blueprint( blueprint );
+            Designator_Blueprint designator = new Designator_Blueprint( blueprint );
             Instance._designators.Add( designator );
 
             // select the new designator
@@ -60,28 +63,32 @@ namespace Blueprints
 
         public static void Remove( Designator_Blueprint designator, bool removeFromDisk )
         {
-            if ( !Instance._initialized )
+            if ( !Instance._initialized ) {
                 Initialize();
+            }
 
             Instance._blueprints.Remove( designator.Blueprint );
             Instance._designators.Remove( designator );
 
-            if ( removeFromDisk )
+            if ( removeFromDisk ) {
                 DeleteXML( designator.Blueprint );
+            }
         }
 
         public static Blueprint FindBlueprint( string name )
         {
-            if ( !Instance._initialized )
+            if ( !Instance._initialized ) {
                 Initialize();
+            }
 
             return Instance._blueprints.FirstOrDefault( blueprint => blueprint.name == name );
         }
 
         public static Designator_Blueprint FindDesignator( string name )
         {
-            if ( !Instance._initialized )
+            if ( !Instance._initialized ) {
                 Initialize();
+            }
 
             return Instance._designators.FirstOrDefault( designator =>
                                                     ( designator as Designator_Blueprint )?.Blueprint.name == name ) as
@@ -90,25 +97,28 @@ namespace Blueprints
 
         public static void Initialize()
         {
-            if ( Instance._initialized )
+            if ( Instance._initialized ) {
                 return;
+            }
 
             // do harmony patches
-            var harmony = new Harmony( "fluffy.blueprints" );
+            Harmony harmony = new Harmony( "fluffy.blueprints" );
             harmony.PatchAll( Assembly.GetExecutingAssembly() );
 
             // find our designation category.
-            var desCatDef = DefDatabase<DesignationCategoryDef>.GetNamed( "Blueprints" );
-            if ( desCatDef == null )
+            DesignationCategoryDef desCatDef = DefDatabase<DesignationCategoryDef>.GetNamed( "Blueprints" );
+            if ( desCatDef == null ) {
                 throw new Exception( "Blueprints designation category not found" );
+            }
 
             // reset list of designators in blueprints tab.
             Instance._designators = desCatDef.AllResolvedDesignators;
             Instance._designators.Clear();
             Instance._designators.Add( new Designator_CreateBlueprint() );
 
-            foreach ( var blueprint in Instance._blueprints )
+            foreach (Blueprint blueprint in Instance._blueprints ) {
                 Instance._designators.Add( new Designator_Blueprint( blueprint ) );
+            }
 
             // done!
             Instance._initialized = true;
@@ -127,9 +137,9 @@ namespace Blueprints
 
         internal static List<FileInfo> GetSavedFilesList()
         {
-            var directoryInfo = new DirectoryInfo( BlueprintSaveLocation );
+            DirectoryInfo directoryInfo = new DirectoryInfo( BlueprintSaveLocation );
 
-            var files = from f in directoryInfo.GetFiles()
+            IOrderedEnumerable<FileInfo> files = from f in directoryInfo.GetFiles()
                         where f.Extension == BlueprintSaveExtension
                         orderby f.LastWriteTime descending
                         select f;
@@ -140,11 +150,12 @@ namespace Blueprints
         private static string GetSaveLocation()
         {
             // Get method "FolderUnderSaveData" from GenFilePaths, which is private (NonPublic) and static.
-            var Folder = typeof( GenFilePaths ).GetMethod( "FolderUnderSaveData",
+            MethodInfo Folder = typeof( GenFilePaths ).GetMethod( "FolderUnderSaveData",
                                                            BindingFlags.NonPublic |
                                                            BindingFlags.Static );
-            if ( Folder == null )
+            if ( Folder == null ) {
                 throw new Exception( "Blueprints :: FolderUnderSaveData is null [reflection]" );
+            }
 
             // Call "FolderUnderSaveData" from null parameter, since this is a static method.
             return (string) Folder.Invoke( null, new object[] {"Blueprints"} );
@@ -184,7 +195,7 @@ namespace Blueprints
         internal static Blueprint LoadFromXML( string name )
         {
             // set up empty blueprint
-            var blueprint = new Blueprint();
+            Blueprint blueprint = new Blueprint();
 
 #if DEBUG
             Log.Message( "Attempting to load from: " + name );

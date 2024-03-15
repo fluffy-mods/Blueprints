@@ -30,7 +30,7 @@ namespace Blueprints
         {
             get
             {
-                var options = new List<FloatMenuOption>();
+                List<FloatMenuOption> options = new List<FloatMenuOption>();
 
                 // rename
                 options.Add( new FloatMenuOption( "Fluffy.Blueprints.Rename".Translate(),
@@ -44,14 +44,16 @@ namespace Blueprints
                                                   delegate { BlueprintController.Remove( this, false ); } ) );
 
                 // delete blueprint and remove from disk
-                if ( Blueprint.exported )
+                if ( Blueprint.exported ) {
                     options.Add( new FloatMenuOption( "Fluffy.Blueprints.RemoveAndDeleteXML".Translate(),
                                                       delegate { BlueprintController.Remove( this, true ); } ) );
+                }
 
                 // store to xml
-                else
+                else {
                     options.Add( new FloatMenuOption( "Fluffy.Blueprints.SaveToXML".Translate(),
                                                       delegate { BlueprintController.SaveToXML( Blueprint ); } ) );
+                }
 
                 return options;
             }
@@ -66,13 +68,13 @@ namespace Blueprints
         // note that even though we're designating a blueprint, as far as the game is concerned we're only designating the _origin_ cell
         public override void DesignateSingleCell( IntVec3 origin )
         {
-            var somethingSucceeded = false;
-            var planningMode       = Event.current.shift;
+            bool somethingSucceeded = false;
+            bool planningMode       = Event.current.shift;
 
             // looping through cells, place where needed.
-            foreach ( var item in Blueprint.AvailableContents )
+            foreach (BuildableInfo item in Blueprint.AvailableContents )
             {
-                var placementReport = item.CanPlace( origin );
+                PlacementReport placementReport = item.CanPlace( origin );
                 if ( planningMode && placementReport != PlacementReport.AlreadyPlaced )
                 {
                     item.Plan( origin );
@@ -93,24 +95,24 @@ namespace Blueprints
         // copy-pasta from RimWorld.Designator_Place, with minor changes.
         public override void DoExtraGuiControls( float leftX, float bottomY )
         {
-            var height = 90f;
-            var width  = 200f;
+            float height = 90f;
+            float width  = 200f;
 
-            var margin     = 9f;
-            var topmargin  = 15f;
-            var numButtons = 3;
-            var button     = Mathf.Min( ( width - ( numButtons + 1 ) * margin ) / numButtons, height - topmargin );
+            float margin     = 9f;
+            float topmargin  = 15f;
+            int numButtons = 3;
+            float button     = Mathf.Min( ( width - ( numButtons + 1 ) * margin ) / numButtons, height - topmargin );
 
-            var winRect = new Rect( leftX, bottomY - height, width, height );
+            Rect winRect = new Rect( leftX, bottomY - height, width, height );
             HandleRotationShortcuts();
 
             Find.WindowStack.ImmediateWindow( 73095, winRect, WindowLayer.GameUI, delegate
             {
-                var rotationDirection = RotationDirection.None;
+                RotationDirection rotationDirection = RotationDirection.None;
                 Text.Anchor = TextAnchor.MiddleCenter;
                 Text.Font   = GameFont.Medium;
 
-                var rotLeftRect = new Rect( margin, topmargin, button, button );
+                Rect rotLeftRect = new Rect( margin, topmargin, button, button );
                 Widgets.Label( rotLeftRect, KeyBindingDefOf.Designator_RotateLeft.MainKeyLabel );
                 if ( Widgets.ButtonImage( rotLeftRect, Resources.RotLeftTex ) )
                 {
@@ -119,7 +121,7 @@ namespace Blueprints
                     Event.current.Use();
                 }
 
-                var flipRect = new Rect( 2 * margin + button, topmargin, button, button );
+                Rect flipRect = new Rect( 2 * margin + button, topmargin, button, button );
                 Widgets.Label( flipRect, KeyBindingDefOf2.Blueprint_Flip.MainKeyLabel );
                 if ( Widgets.ButtonImage( flipRect, Resources.FlipTex ) )
                 {
@@ -128,7 +130,7 @@ namespace Blueprints
                     Event.current.Use();
                 }
 
-                var rotRightRect = new Rect( 3 * margin + 2 * button, topmargin, button, button );
+                Rect rotRightRect = new Rect( 3 * margin + 2 * button, topmargin, button, button );
                 Widgets.Label( rotRightRect, KeyBindingDefOf.Designator_RotateRight.MainKeyLabel );
                 if ( Widgets.ButtonImage( rotRightRect, Resources.RotRightTex ) )
                 {
@@ -138,8 +140,10 @@ namespace Blueprints
                 }
 
 
-                if ( rotationDirection != RotationDirection.None )
+                if ( rotationDirection != RotationDirection.None ) {
                     Blueprint.Rotate( rotationDirection );
+                }
+
                 Text.Anchor = TextAnchor.UpperLeft;
                 Text.Font   = GameFont.Small;
             } );
@@ -148,13 +152,13 @@ namespace Blueprints
         public override void DrawPanelReadout( ref float curY, float width )
         {
             // we need the window's size to be able to do a scrollbar, but are not directly given that size.
-            var outRect = ArchitectCategoryTab.InfoRect.AtZero();
+            Rect outRect = ArchitectCategoryTab.InfoRect.AtZero();
 
             // our window actually starts from curY
             outRect.yMin = curY;
 
             // our contents height is given by final curY - which we conveniently saved
-            var viewRect = new Rect( 0f, 0f, width, _panelHeight );
+            Rect viewRect = new Rect( 0f, 0f, width, _panelHeight );
 
             // if contents are larger than available canvas, leave some room for scrollbar
             if ( viewRect.height > outRect.height )
@@ -165,7 +169,7 @@ namespace Blueprints
 
             // since we're going to work in new GUI group (through the scrollview), we'll need to keep track of
             // our own relative Y position.
-            var oldY = curY;
+            float oldY = curY;
             curY = 0f;
 
             // start scrollrect
@@ -173,26 +177,26 @@ namespace Blueprints
 
             // list of objects to be build
             Text.Font = GameFont.Tiny;
-            foreach ( var buildables in Blueprint.GroupedBuildables )
+            foreach (KeyValuePair<BuildableDef, List<BuildableInfo>> buildables in Blueprint.GroupedBuildables )
             {
                 // count
-                var curX = 5f;
+                float curX = 5f;
                 Widgets.Label( new Rect( 5f, curY, width * .2f, 100f ), buildables.Value.Count + "x" );
                 curX += width * .2f;
 
                 // stuff selector
-                var height = 0f;
+                float height = 0f;
                 if ( buildables.Value.First().Stuff != null )
                 {
-                    var label = buildables.Value.First().Stuff.LabelAsStuff.CapitalizeFirst() + " " +
+                    string label = buildables.Value.First().Stuff.LabelAsStuff.CapitalizeFirst() + " " +
                                 buildables.Key.label;
 
-                    var iconRect = new Rect( curX, curY, 12f, 12f );
+                    Rect iconRect = new Rect( curX, curY, 12f, 12f );
                     curX += 16f;
 
                     height = Text.CalcHeight( label, width - curX ) + _lineOffset;
-                    var labelRect = new Rect( curX, curY, width - curX, height );
-                    var buttonRect = new Rect( curX   - 16f, curY, width - curX + 16f,
+                    Rect labelRect = new Rect( curX, curY, width - curX, height );
+                    Rect buttonRect = new Rect( curX   - 16f, curY, width - curX + 16f,
                                                height + _lineOffset );
 
                     if ( Mouse.IsOver( buttonRect ) )
@@ -204,14 +208,15 @@ namespace Blueprints
                     GUI.DrawTexture( iconRect, Resources.Icon_Edit );
                     GUI.color = Color.white;
                     Widgets.Label( labelRect, label );
-                    if ( Widgets.ButtonInvisible( buttonRect ) )
+                    if ( Widgets.ButtonInvisible( buttonRect ) ) {
                         Blueprint.DrawStuffMenu( buildables.Key );
+                    }
                 }
                 else
                 {
                     // label
-                    var labelWidth = width - curX;
-                    var label      = buildables.Key.LabelCap;
+                    float labelWidth = width - curX;
+                    TaggedString label      = buildables.Key.LabelCap;
                     height = Text.CalcHeight( label, labelWidth ) + _lineOffset;
                     Widgets.Label( new Rect( curX, curY, labelWidth, height ), label );
                 }
@@ -227,30 +232,36 @@ namespace Blueprints
             curY += 24f;
 
             Text.Font = GameFont.Tiny;
-            var costlist = Blueprint.CostListAdjusted;
-            for ( var i = 0; i < costlist.Count; i++ )
+            List<ThingDefCount> costlist = Blueprint.CostListAdjusted;
+            for (int i = 0; i < costlist.Count; i++ )
             {
-                var       thingCount = costlist[i];
+                ThingDefCount       thingCount = costlist[i];
                 Texture2D image;
-                if ( thingCount.ThingDef == null )
+                if ( thingCount.ThingDef == null ) {
                     image = BaseContent.BadTex;
-                else
+                } else {
                     image = thingCount.ThingDef.uiIcon;
+                }
+
                 GUI.DrawTexture( new Rect( 0f, curY, 20f, 20f ), image );
                 if ( thingCount.ThingDef !=
                      null &&
                      thingCount.ThingDef.resourceReadoutPriority !=
                      ResourceCountPriority.Uncounted &&
-                     Find.CurrentMap.resourceCounter.GetCount( thingCount.ThingDef ) < thingCount.Count )
+                     Find.CurrentMap.resourceCounter.GetCount( thingCount.ThingDef ) < thingCount.Count ) {
                     GUI.color = Color.red;
+                }
+
                 Widgets.Label( new Rect( 26f, curY + 2f, 50f, 100f ), thingCount.Count.ToString() );
                 GUI.color = Color.white;
                 string text;
-                if ( thingCount.ThingDef == null )
+                if ( thingCount.ThingDef == null ) {
                     text = "(" + "UnchosenStuff".Translate() + ")";
-                else
+                } else {
                     text = thingCount.ThingDef.LabelCap;
-                var height = Text.CalcHeight( text, width - 60f ) - 2f;
+                }
+
+                float height = Text.CalcHeight( text, width - 60f ) - 2f;
                 Widgets.Label( new Rect( 60f, curY + 2f, width - 60f, height ), text );
                 curY += height + _lineOffset;
             }
@@ -280,13 +291,14 @@ namespace Blueprints
             }
             else
             {
-                var unavailable = Blueprint.contents.Except( Blueprint.AvailableContents )
+                IEnumerable<string> unavailable = Blueprint.contents.Except( Blueprint.AvailableContents )
                                            .Select( bi => bi.BuildableDef.label ).Distinct();
-                if ( unavailable.Any() )
+                if ( unavailable.Any() ) {
                     Messages.Message(
                         "Fluffy.Blueprints.XNotAvailableInBlueprint".Translate(
                             Blueprint.name, string.Join( ", ", unavailable.ToArray() ) ),
                         MessageTypeDefOf.CautionInput );
+                }
             }
         }
 
@@ -295,7 +307,7 @@ namespace Blueprints
             GenDraw.DrawNoBuildEdgeLines();
             if ( !ArchitectCategoryTab.InfoRect.Contains( UI.MousePositionOnUI ) )
             {
-                var origin = UI.MouseCell();
+                IntVec3 origin = UI.MouseCell();
                 Blueprint.DrawGhost( origin );
             }
         }
@@ -303,7 +315,7 @@ namespace Blueprints
         // Copy-pasta from RimWorld.HandleRotationShortcuts()
         private void HandleRotationShortcuts()
         {
-            var rotationDirection = RotationDirection.None;
+            RotationDirection rotationDirection = RotationDirection.None;
             if ( Event.current.button == 2 )
             {
                 if ( Event.current.type == EventType.MouseDown )
@@ -312,15 +324,20 @@ namespace Blueprints
                     _middleMouseDownTime = Time.realtimeSinceStartup;
                 }
 
-                if ( Event.current.type == EventType.MouseUp && Time.realtimeSinceStartup - _middleMouseDownTime < 0.15f )
+                if ( Event.current.type == EventType.MouseUp && Time.realtimeSinceStartup - _middleMouseDownTime < 0.15f ) {
                     rotationDirection = RotationDirection.Clockwise;
+                }
             }
 
 
-            if ( KeyBindingDefOf.Designator_RotateRight.KeyDownEvent )
+            if ( KeyBindingDefOf.Designator_RotateRight.KeyDownEvent ) {
                 rotationDirection = RotationDirection.Clockwise;
-            if ( KeyBindingDefOf.Designator_RotateLeft.KeyDownEvent )
+            }
+
+            if ( KeyBindingDefOf.Designator_RotateLeft.KeyDownEvent ) {
                 rotationDirection = RotationDirection.Counterclockwise;
+            }
+
             if ( KeyBindingDefOf2.Blueprint_Flip.KeyDownEvent )
             {
                 SoundDefOf.DragSlider.PlayOneShotOnCamera();
