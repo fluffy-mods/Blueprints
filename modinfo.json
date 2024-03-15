@@ -6,7 +6,7 @@
     "version": {
         "major": 3,
         "minor": 11,
-        "build": 46
+        "build": 44
     },
     "description": "",
     "author": {
@@ -15,15 +15,6 @@
         "email": "fluffy.l2032@gmail.com"
     },
     "changelog": [
-        {
-            "date": "2022-11-02T19:36:44.000Z",
-            "message": "release v3.11.44",
-            "author": {
-                "name": "FluffierThanThou",
-                "email": "fluffy.l2032@gmail.com"
-            },
-            "hash": "5a8bad8aac9aa9a3eac705808c5d8bfc26ac766a"
-        },
         {
             "date": "2022-10-14T20:11:01.000Z",
             "message": "release v3.10.43",
@@ -1224,6 +1215,5 @@
                 "description": "Update Russian translations"
             }
         ]
-    },
-    "publishedFileId": "708455313"
+    }
 }

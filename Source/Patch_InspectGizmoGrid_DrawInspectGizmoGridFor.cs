@@ -31,10 +31,10 @@ namespace Blueprints
 
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> _instructions)
         {
-            List<CodeInstruction> instructions = _instructions.ToList();
+            var instructions = _instructions.ToList();
 
 
-            for (int i = 0; i < instructions.Count; i++)
+            for (var i = 0; i < instructions.Count; i++)
             {
                 yield return instructions[i];
 

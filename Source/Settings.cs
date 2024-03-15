@@ -21,7 +21,7 @@ namespace Blueprints
 
         public void DoWindowContents( Rect canvas )
         {
-            Listing_Standard options = new Listing_Standard();
+            var options = new Listing_Standard();
             options.Begin( canvas );
             CopyKey.Draw( options.GetRect( 30 ) );
             options.End();

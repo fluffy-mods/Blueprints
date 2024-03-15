@@ -42,7 +42,7 @@ namespace Blueprints
 
         public static IntVec3 Offset( IntVec2 size, Rot4 from, Rot4 to )
         {
-            float alt = AltitudeLayer.Blueprint.AltitudeFor();
+            var alt = AltitudeLayer.Blueprint.AltitudeFor();
             return ( GenThing.TrueCenter( IntVec3.Zero, from, size, alt ) -
                      GenThing.TrueCenter( IntVec3.Zero, to, size, alt ) ).ToIntVec3();
         }
@@ -72,11 +72,10 @@ namespace Blueprints
 
         public static Material GhostFloorMaterial( PlacementReport placementReport )
         {
-            Color      color = GhostColor( placementReport );
+            var      color = GhostColor( placementReport );
             Material ghost;
-            if ( _ghostFloors.TryGetValue( color, out ghost ) ) {
+            if ( _ghostFloors.TryGetValue( color, out ghost ) )
                 return ghost;
-            }
 
             ghost       = new Material( _mouseOverBracketMaterial );
             ghost.color = color;

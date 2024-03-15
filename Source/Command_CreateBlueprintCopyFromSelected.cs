@@ -22,7 +22,7 @@ namespace Blueprints
         {
             get
             {
-                List<FloatMenuOption> options = new List<FloatMenuOption>();
+                var options = new List<FloatMenuOption>();
                 options.Add(new FloatMenuOption("Fluffy.Blueprints.CreateFromSelection".Translate(), () =>
                 {
                     Blueprint.Create(Find.Selector.SelectedObjects.OfType<Thing>()
@@ -36,11 +36,11 @@ namespace Blueprints
 
         public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
-            GizmoResult result    = base.GizmoOnGUI(topLeft, maxWidth, parms);
-            Rect labelRect = new Rect(topLeft.x + 5, topLeft.y + 5, maxWidth, 18);
+            var result    = base.GizmoOnGUI(topLeft, maxWidth, parms);
+            var labelRect = new Rect(topLeft.x + 5, topLeft.y + 5, maxWidth, 18);
             Text.Font = GameFont.Tiny;
-            string label = Mod.Settings.CopyKey.Label;
-            Vector2 size  = Text.CalcSize(label);
+            var label = Mod.Settings.CopyKey.Label;
+            var size  = Text.CalcSize(label);
             Widgets.DrawBoxSolid(new Rect(topLeft + new Vector2(3, 3), size + new Vector2(5, 0)),
                                  new Color(0f, 0f, 0f, .4f));
             Widgets.Label(labelRect, label);
